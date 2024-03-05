@@ -1,0 +1,14 @@
+
+.socials ul {
+  display: flex;
+  justify-content:space-around;
+  align-items: center;
+  margin-top: 20px;
+  width: 500px;
+}
+
+.socials > ul li svg {
+  width: 20px;
+  height: 20px;
+  fill: #fff;
+}
