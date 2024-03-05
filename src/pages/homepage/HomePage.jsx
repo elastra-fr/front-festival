@@ -1,10 +1,13 @@
-import React from 'react';
+//import React from 'react';
+import Socials from '../../components/socials/Socials';
+import Header from '../../components/header/Header';
 
 const HomePage = () => {
     return (
-        <div>
-            {/* Your code here */}
-        </div>
+        <>
+        <Header/>
+        <Socials/>
+        </>
     );
 };
 
