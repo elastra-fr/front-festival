@@ -3,3 +3,26 @@ video header pour desktop, desactivé pour mobile
 
 transition pages avec router
 
+
+
+//Acceuil
+
+header
+
+synthèse prog
+
+Actualités
+
+tuiles liens :
+- Infos pratiques 
+-  FAQ
+
+
+Carte interactive
+
+
+Footer avec mes RS
+
+Partenaires
+
+
