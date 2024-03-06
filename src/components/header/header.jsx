@@ -10,9 +10,9 @@ const Header = () => {
         <header>
 <div className='videoWrapper'>
             <nav id="mainNav"><ul>
-                <li><Link>Accueil</Link></li>
+                <li><Link to="/">Accueil</Link></li>
                 <li>Actualité</li>
-                <li>Informations</li>
+                <li><Link to="/infos">Informations</Link></li>
                 <li>Programmation</li>
             </ul>
         </nav>
@@ -25,9 +25,7 @@ const Header = () => {
     <input id= "ctaBilleterie" type='button' value="Billetterie"/>
     
     </div>
-    <div id="headerMusic">
 
-    </div>
 </div>
 
 

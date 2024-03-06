@@ -5,6 +5,8 @@
 import './App.css'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import HomePage from './pages/homepage/HomePage'
+import Infos from './pages/infos/Infos'
+import Faq from './pages/faq/Faq'
 
 function App() {
   
@@ -15,6 +17,8 @@ function App() {
  <BrowserRouter>
 <Routes>
 <Route path="/" element={<HomePage />} />
+<Route path="/infos" element={<Infos />} />
+<Route path="/faq" element={<Faq />} />
 
 </Routes>
 </BrowserRouter>

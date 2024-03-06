@@ -1,0 +1,8 @@
+.tuilesWrapper{
+display: grid;
+grid-template-columns: 1fr 1fr;
+grid-template-rows: 1fr;    
+gap: 10px;
+width: 95%;
+margin: 15px auto;
+}
