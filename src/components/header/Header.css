@@ -1,6 +1,6 @@
 .videoWrapper{
 width: 100%;
-height: 300px;
+max-height: 600px;
 display: grid;
 position: relative;
 grid-template-columns: 1fr;
@@ -12,13 +12,13 @@ grid-template-rows: 1fr;
 #headerVideo{
 position: relative;
 width: 100%;
-height: 600px;
+max-height: 600px;
 object-fit: cover;
 object-position: top;
 grid-column: 1 ;
 grid-row: 1;
 z-index: 50 ;
-top: -150px;
+
 
 }
 
@@ -27,8 +27,74 @@ top: -150px;
 grid-column: 1 ;
 grid-row: 1;
 z-index: 100;
+position : absolute;
+top: 40%;
+left: 65%;
+display: flex ;
+flex-direction: column;
+align-items: center;
+padding: 10px;
+
+
 
 }
+
+#headerTitle h1{
+
+color: white;
+font-size: 3em;
+
+}
+
+#headerMusic {
+
+grid-column: 1;
+grid-row: 1;
+z-index: 110;
+width: 100%;
+height: 10%;
+position: relative;
+
+
+}
+
+#headerMusic img{
+    width: 100%;
+object-fit: cover;
+}
+
+#mainNav{
+grid-column: 1;
+grid-row: 1;
+z-index: 100;
+height: 80px;
+width: 100%;
+padding: 20px;
+font-size: 1.2rem;
+font-weight: bolder;
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+
+#mainNav ul{
+width: 100%;
+display: flex;
+justify-content: space-around;
+align-items: center;
+}
+
+#ctaBilleterie{
+
+padding: 25px;
+background: none;
+border: none;
+border-radius: 15px;
+font-size: 1.5rem;
+font-weight: bolder;
+border: 2px solid white;
+}
+
 
 
 
