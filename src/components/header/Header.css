@@ -90,8 +90,10 @@ justify-content: space-around;
 align-items: center;
 }
 
+
 #mainNav ul li:hover{
 cursor: pointer;
+border-bottom: 2px solid white;
 
 }
 
