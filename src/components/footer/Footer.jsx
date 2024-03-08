@@ -15,13 +15,13 @@ const Footer = () => {
           <div className="footerContentCenter">
             <ul>
               <li>
-                <Link>Accueil</Link>
+                <Link to="/">Accueil</Link>
               </li>
               <li>
                 <Link>Actualités</Link>
               </li>
               <li>
-                <Link>Informations pratiques</Link>
+                <Link to="/infos">Informations pratiques</Link>
               </li>
               <li>
                 <Link>Billetterie</Link>
@@ -30,7 +30,7 @@ const Footer = () => {
                 <Link>Mentions légales</Link>
               </li>
               <li>
-                <Link>FAQ</Link>
+                <Link to="/faq">FAQ</Link>
               </li>
               <li>
                 <Link>Carte</Link>

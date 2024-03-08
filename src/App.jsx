@@ -8,8 +8,20 @@ import HomePage from './pages/homepage/HomePage'
 import Infos from './pages/infos/Infos'
 import Faq from './pages/faq/Faq'
 
+
 function App() {
   
+
+
+//Récupérer les données de l'API pour les concerts
+
+
+
+
+//Récupérer les données de l'API pour les points de localisation pour les intégrer dans la map  
+
+
+
 
   return (
     <>
