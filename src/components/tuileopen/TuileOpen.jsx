@@ -1,7 +1,7 @@
 import React from 'react';
 
-const TuileOpen = (txt, img) => {
-    // Your component logic goes here
+const TuileOpen = ({txt, img}) => {
+
 
     return (
 <>

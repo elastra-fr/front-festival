@@ -5,8 +5,20 @@ import TuilesLiens from "../../components/tuilesliens/TuilesLiens";
 import "./HomePage.css";
 import Live from "../../components/live/Live";
 import SynthProg from "../../components/synthprog/SynthProg";
+import TuileOpen from "../../components/tuileopen/TuileOpen";
+import { useContext } from "react"; 
 
 const HomePage = () => {
+
+
+
+
+
+
+
+
+
+
   return (
     <>
       <Header />
@@ -24,7 +36,14 @@ const HomePage = () => {
             
         </section>
 
-        <section className="map"></section>
+        <section className="homemap">
+          <TuileOpen
+            txt="Ouvrir la carte interactive"
+            img="/images/mapneedle.jpg"
+          
+          />
+       
+        </section>
 
         <div className="tuilesWrapper">
           <TuilesLiens

@@ -6,3 +6,36 @@ gap: 10px;
 width: 95%;
 margin: 15px auto;
 }
+
+.homemap{
+
+width: 95%;
+margin: 15px auto;
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+@media screen and (min-width: 768px) {
+   
+.homemap{
+
+width: 50%;
+margin: 15px auto;
+
+
+}
+
+
+    
+}

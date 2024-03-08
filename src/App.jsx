@@ -1,4 +1,4 @@
-//import { useState } from 'react'
+import { useState, createContext } from 'react'
 //import reactLogo from './assets/react.svg'
 //import viteLogo from '/vite.svg'
 //import Header from './components/header/header'
@@ -9,8 +9,37 @@ import Infos from './pages/infos/Infos'
 import Faq from './pages/faq/Faq'
 
 
+
 function App() {
   
+//Create context map
+const MapStatus = createContext();
+
+
+const Map = () => {
+
+const [mapStatus, setMapStatus] = useState(false);
+
+return(
+
+<MapStatus.Provider value={mapStatus}>
+
+
+  </MapStatus.Provider>  
+
+
+);
+
+
+
+
+}
+
+
+
+
+
+//Récupérer les données de l'API pour les news  
 
 
 //Récupérer les données de l'API pour les concerts
