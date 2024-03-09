@@ -1,6 +1,12 @@
 import React from 'react';
 import './Map.css';
 const Map = () => {
+
+const mapKey = import.meta.env.VITE_FESTIVAL_APP_API_MAP;
+console.log(mapKey);
+
+
+
     return (
         <div>
                 <div className="mapWrapper">

@@ -9,17 +9,23 @@ import TuileOpen from "../../components/tuileopen/TuileOpen";
 import { useContext, useState } from "react"; 
 import Map from "../../components/map/Map";
 
+
+
 const HomePage = () => {
+
+  
 
 
 
 const [mapShow, setMapShow] = useState(false);
 
+
+
 const handleTuileOpen = () => {
+
 
   setMapShow(!mapShow);
   console.log(mapShow);
-  
 }
 
 
