@@ -1,9 +1,49 @@
 import React from 'react';
 import './Map.css';
+import { Wrapper, Status } from "@googlemaps/react-wrapper";
 const Map = () => {
 
+
+
 const mapKey = import.meta.env.VITE_FESTIVAL_APP_API_MAP;
-console.log(mapKey);
+
+let map;
+
+async function initMap() {
+//Centre du site du festival
+  const position = { lat: 48.76890, lng: 2.09454 };
+  // Request needed libraries.
+  //@ts-ignore
+  const { Map } = await google.maps.importLibrary("maps");
+  const { AdvancedMarkerView } = await google.maps.importLibrary("marker");
+
+  // The map, centered at Uluru
+  map = new Map(document.getElementById("map"), {
+    zoom: 15,
+    center: position,
+    mapId: "DEMO_MAP_ID",
+    mapTypeIds: ["roadmap", "satellite", "hybrid", "terrain"],
+  });
+
+  // The marker, positioned at Uluru
+  const marker = new AdvancedMarkerView({
+    map: map,
+    position: position,
+    title: "Festival Nation Sound",
+  });
+
+map.setMapTypeId('satellite');
+
+}
+
+initMap();
+
+
+
+
+
+
+
 
 
 
@@ -36,12 +76,14 @@ console.log(mapKey);
 
                             </select>
 
-<div className="map">
         
     
     
     
     </div>
+
+    
+<div id="map" className="map">
 
 
                         </div>
