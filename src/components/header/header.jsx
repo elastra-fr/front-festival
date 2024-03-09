@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./Header.css";
 import Socials from "../socials/Socials";
+import { HashLink } from "react-router-hash-link";
 
 const Header = () => {
   return (
@@ -10,13 +11,13 @@ const Header = () => {
         <nav id="mainNav">
           <ul>
             <li>
-              <Link to="/">Accueil</Link>
+              <Link to="/home">Accueil</Link>
             </li>
-            <li>Actualités</li>
+            <li><HashLink to="/home#actu">Actualités</HashLink></li>
             <li>
               <Link to="/infos">Informations</Link>
             </li>
-            <li>Programmation</li>
+            <li><HashLink to="/home#prog">Programmation</HashLink></li>
             <li>
               <Link to="/map">Carte interactive</Link></li>
           </ul>

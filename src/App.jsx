@@ -59,6 +59,7 @@ return(
  <BrowserRouter>
 <Routes>
 <Route path="/" element={<HomePage />} />
+  <Route path="/home" element={<HomePage />} />
 <Route path="/infos" element={<Infos />} />
 <Route path="/faq" element={<Faq />} />
 <Route path="/map" element={<FullMap />} />

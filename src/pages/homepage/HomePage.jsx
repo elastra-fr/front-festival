@@ -11,6 +11,7 @@ import Map from "../../components/map/Map";
 
 
 
+
 const HomePage = () => {
 
   
@@ -42,11 +43,11 @@ const handleTuileOpen = () => {
           <Live />
         </section>
 
-        <section className="prog">
+        <section id="prog" className="prog">
         <SynthProg />
         </section>
 
-        <section className="actu">
+        <section id='actu' className="actu">
             
         </section>
 

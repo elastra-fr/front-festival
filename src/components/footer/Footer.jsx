@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { HashLink } from "react-router-hash-link";
 import Socials from "../socials/Socials";
 import "./Footer.css";
 
@@ -15,10 +16,10 @@ const Footer = () => {
           <div className="footerContentCenter">
             <ul>
               <li>
-                <Link to="/">Accueil</Link>
+                <Link to="/home">Accueil</Link>
               </li>
               <li>
-                <Link>Actualités</Link>
+                <HashLink to="/home#actu">Actualités</HashLink>
               </li>
               <li>
                 <Link to="/infos">Informations pratiques</Link>
@@ -33,7 +34,7 @@ const Footer = () => {
                 <Link to="/faq">FAQ</Link>
               </li>
               <li>
-                <Link>Carte</Link>
+                <Link to="/map">Carte</Link>
               </li>
 
               <li></li>
