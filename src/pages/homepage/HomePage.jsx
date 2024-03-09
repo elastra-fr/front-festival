@@ -6,13 +6,21 @@ import "./HomePage.css";
 import Live from "../../components/live/Live";
 import SynthProg from "../../components/synthprog/SynthProg";
 import TuileOpen from "../../components/tuileopen/TuileOpen";
-import { useContext } from "react"; 
+import { useContext, useState } from "react"; 
+import Map from "../../components/map/Map";
 
 const HomePage = () => {
 
 
 
+const [mapShow, setMapShow] = useState(false);
 
+const handleTuileOpen = () => {
+
+  setMapShow(!mapShow);
+  console.log(mapShow);
+  
+}
 
 
 
@@ -40,6 +48,7 @@ const HomePage = () => {
           <TuileOpen
             txt="Ouvrir la carte interactive"
             img="/images/mapneedle.jpg"
+            click={handleTuileOpen}
           
           />
        
@@ -55,7 +64,14 @@ const HomePage = () => {
         </div>
       </main>
 
+     {
+mapShow ? <Map /> : null
+
+     } 
+
+
       <Footer />
+
     </>
   );
 };

@@ -1,13 +1,13 @@
 import React from 'react';
-
-const TuileOpen = ({txt, img}) => {
+import './TuileOpen.css';
+const TuileOpen = ({txt, img, click}) => {
 
 
     return (
 <>
         
-            <div className="tuileLink">
-        <div className="tuileLinkContent">
+            <div className="tuileOpen" >
+        <div className="tuileLinkContent" onClick={click}>
 
             <h2>{txt}</h2>
         

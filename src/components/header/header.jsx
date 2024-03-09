@@ -17,6 +17,8 @@ const Header = () => {
               <Link to="/infos">Informations</Link>
             </li>
             <li>Programmation</li>
+            <li>
+              <Link to="/map">Carte interactive</Link></li>
           </ul>
         </nav>
 

@@ -1,5 +1,5 @@
 import React from 'react';
-
+import './Map.css';
 const Map = () => {
     return (
         <div>
@@ -8,7 +8,7 @@ const Map = () => {
                     <h2>Carte interactive</h2>
                     <div className='mapTools'>
 
-                        h3>Filtrer par :</h3>
+                        <h3>Filtrer par :</h3>
                         <select name="filtremap" id="filtremap">
                             <option value="Tout">Tout</option>
                             <option value="Scènes">Scènes</option>
