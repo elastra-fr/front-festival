@@ -1,10 +1,25 @@
 import React from 'react';
+import ItemConcert from '../itemConcert/ItemConcert';
+import './Jourprog.css';
 
-const JourProg = () => {
+const JourProg = ({jour}) => {
     return (
         <>
-        <div>
-     
+        <div className="jour">
+     <div>
+        <h3>{jour}</h3>
+     </div>
+<div className='listJour'>
+    <ItemConcert />
+    <ItemConcert />
+    <ItemConcert />
+    <ItemConcert />
+    <ItemConcert />
+
+
+</div>
+
+
         </div>
         </>
     );

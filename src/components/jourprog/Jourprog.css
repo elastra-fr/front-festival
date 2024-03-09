@@ -1,0 +1,16 @@
+.jour{
+display: flex;
+flex-direction: column;
+width: 100%;
+gap: 10px;
+align-items: center;
+justify-content: center;
+}
+
+.listJour{
+display: flex;
+flex-direction: column;
+width: 100%;
+gap: 10px;
+
+}
