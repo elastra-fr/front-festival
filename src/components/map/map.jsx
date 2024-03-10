@@ -1,11 +1,14 @@
 import React, { useEffect } from 'react';
 import './Map.css';
 import { Wrapper, Status } from "@googlemaps/react-wrapper";
-
+//import { google } from "@googlemaps/react-wrapper";
 
 const Map = () => {
 
 const [mapPoints, setMapPoints] = React.useState([]); 
+const[fullMapPoints, setFullMapPoints] = React.useState([]);
+
+
 
 const mapKey = import.meta.env.VITE_FESTIVAL_APP_API_MAP;
 
@@ -17,6 +20,8 @@ function getMapData() {
     .then(response => response.json())
     .then(data => {
         console.log(data[0].acf.Lieu);
+        
+        setFullMapPoints(data);
         setMapPoints(data);
         
         //length = nombre d'éléments dans le tableau
@@ -44,34 +49,57 @@ let map;
 async function initMap() {
 //Centre du site du festival
   const position = { lat: 48.76890, lng: 2.09454 };
+
+
+
+
   // Request needed libraries.
   //@ts-ignore
   const { Map } = await google.maps.importLibrary("maps");
-  const { AdvancedMarkerView } = await google.maps.importLibrary("marker");
+  //const { AdvancedMarkerView } = await google.maps.importLibrary("marker");
+const { AdvancedMarkerElement, PinElement } = await google.maps.importLibrary("marker") 
 
-  // The map, centered at Uluru
+
+
+
+
   map = new Map(document.getElementById("map"), {
     zoom: 15,
     center: position,
-    mapId: "DEMO_MAP_ID", 
+    mapId: "391e98b9f7969c2d", 
     mapTypeIds: ["roadmap", "satellite", "hybrid", "terrain"],
+
+   
+
   });
 
 
-console.log(mapPoints);
+//console.log(mapPoints);
 
-console.log(mapPoints[0].acf.Lieu.lat);
+//console.log(mapPoints[0].acf.Lieu.lat);
 
 //Affiche les marqueurs sur la carte
 for (let i = 0; i < mapPoints.length; i++) {
-    const marker = new AdvancedMarkerView({
+
+
+
+    const marker = new AdvancedMarkerElement({
         map: map,
-        position: { lat: mapPoints[i].acf.Lieu.lat, lng: mapPoints[i].acf.Lieu.lng }
+        position: { lat: mapPoints[i].acf.Lieu.lat, lng: mapPoints[i].acf.Lieu.lng }, 
+        title: mapPoints[i].acf.titre,
+   
+    
+
+
+
+       
     });
+
+    console.log(marker);
 
     marker.addListener("click", () => {
         const infowindow = new google.maps.InfoWindow({
-            content: "<h3>" + mapPoints[i].acf.Lieu + "</h3><p>" + mapPoints[i].acf.Description + "</p>",
+            content: "<h3>" + mapPoints[i].acf.titre + "</h3><p>" + mapPoints[i].acf.infos + "</p>",
         });
         infowindow.open(map, marker);
     });
@@ -86,11 +114,14 @@ const mark1= new AdvancedMarkerView({
 
 
 
-
-  const marker = new AdvancedMarkerView({
+const pinScaled = new PinElement({
+  scale: 1.5,
+});
+  const marker = new AdvancedMarkerElement({
     map: map,
     position: position,
     title: "Festival Nation Sound",
+    content: pinScaled.element,
   });
 
 
@@ -98,9 +129,12 @@ const mark1= new AdvancedMarkerView({
 map.setMapTypeId('satellite');
 
 //Affiche infos quand on clique sur un marqueur
+
+
+
 marker.addListener("click", () => {
     const infowindow = new google.maps.InfoWindow({
-        content: "<h3>Festival Nation Sound</h3><p>Le festival de musique reggae de la région parisienne</p>",
+          content: "<h3>SIte du festival</h3><p>Viendez !</p>",
     });
     infowindow.open(map, marker);
 });
@@ -109,7 +143,34 @@ marker.addListener("click", () => {
 }
 
 
+const handleChange = (e) => {
 
+
+const type = e.target.value;
+console.log(type);
+
+if (type === "Tout") {
+
+setMapPoints(fullMapPoints);
+
+}
+
+else {
+ 
+ let arrayToFilter = fullMapPoints; 
+
+//sert à filtrer les éléments du tableau en fonction de la valeur du select
+let filteredArray = arrayToFilter.filter(function (el) {
+    return el.acf.categorie==type;
+ 
+});
+
+   setMapPoints(filteredArray);
+    }
+
+console.log(fullMapPoints);
+
+}
 
 
 
@@ -128,7 +189,7 @@ marker.addListener("click", () => {
                     <div className='mapTools'>
 
                         <h3>Filtrer par :</h3>
-                        <select name="filtremap" id="filtremap">
+                        <select name="filtremap" id="filtremap" onChange={handleChange}>
                             <option value="Tout">Tout</option>
                             <option value="Scènes">Scènes</option>
                             <option value="Buvettes">Buvettes</option>
