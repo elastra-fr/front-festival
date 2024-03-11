@@ -6,7 +6,6 @@ position: relative;
 grid-template-columns: 1fr;
 grid-template-rows: 1fr;
 
-
 }
 
 #headerVideo{
@@ -81,6 +80,7 @@ font-weight: bolder;
 display: flex;
 justify-content: space-between;
 align-items: center;
+
 }
 
 #mainNav ul{
@@ -88,12 +88,18 @@ width: 100%;
 display: flex;
 justify-content: space-around;
 align-items: center;
+
 }
 
+#mainNav ul li a{
+color: white;
+
+}
 
 #mainNav ul li:hover{
 cursor: pointer;
 border-bottom: 2px solid white;
+
 
 }
 
@@ -106,6 +112,7 @@ border-radius: 15px;
 font-size: 1.5rem;
 font-weight: bolder;
 border: 2px solid white;
+color: white;
 }
 
 #ctaBilleterie:hover{

@@ -1,0 +1,36 @@
+
+.faqItemWrapper{
+color: black;
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+justify-content: center;
+
+}
+
+.faqItemList{
+    margin: 15px auto;
+    display: flex ;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center; 
+    gap: 10px;  
+}
+
+
+details {
+   background-color: #eee;
+   color: black;
+    padding: 16px;
+}
+   summary {
+     padding: 6px;
+     cursor: pointer;
+     background-color: #ccc;
+     color: black;
+
+   }
+   
+   summary:hover {
+     background-color: #ddd
+   }

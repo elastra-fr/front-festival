@@ -21,6 +21,7 @@ grid-column: 1;
 grid-row: 1;
 z-index: 100;
 font-size: 1.9rem;
+color: white;
 }
 
 .tuileLinkContent h2{
