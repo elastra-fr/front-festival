@@ -1,0 +1,26 @@
+.mainFaq{
+
+width: 95%;
+margin: 15px auto;
+padding: 20px;
+color: black;
+
+}
+
+details {
+   background-color: #eee;
+   color: black;
+    padding: 16px;
+}
+   summary {
+     padding: 6px;
+     cursor: pointer;
+     background-color: #ccc;
+     color: black;
+
+   }
+   
+   summary:hover {
+     background-color: #ddd
+   }
+
