@@ -7,10 +7,16 @@ align-items: center;
 justify-content: center;
 }
 
+.dateJour{
+color: white;
+
+}
+
+
 .listJour{
 display: flex;
 flex-direction: column;
 width: 100%;
-gap: 10px;
+gap: 5px;
 
 }

@@ -3,13 +3,17 @@
 display: flex;
 flex-direction: column;
 width: 100%;
+color: white;
 
 
 }
 
+
+
 .joursWrapper {
 display: grid;
-grid-template-columns: repeat(3, 1fr);
+grid-template-columns: 1fr;
+grid-template-rows: repeat(3, 1fr)  ;
 grid-gap: 10px;
 justify-items: center;
 
@@ -20,20 +24,21 @@ justify-items: center;
 /******Barre outil******/
 .progTools {
 display: flex ;
-flex-direction: row;
+flex-direction: column;
 justify-content: space-between;
 align-items: center;
 width: 95%;
 margin: 15px auto;
 padding: 20px;
-color: black;
+color: white;
+
 
 
 }    
 
 .progTools select {
 
-color: black!important;
+
 font-size: 1rem;
 padding: 10px;
 border-radius: 5px;
@@ -42,6 +47,29 @@ border: none;
 
 }
 
-.progTools select option {
-color: black!important;
+.progTools label {
+    color: white;
 }
+
+
+
+
+
+@media screen and (min-width: 768px) {
+
+.joursWrapper {
+grid-template-columns: repeat(3, 1fr);
+grid-template-rows: 1fr;
+grid-gap: 10px;
+justify-items: center;
+
+
+}
+
+.progTools {
+    flex-direction: row;
+}
+
+
+}
+

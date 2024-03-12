@@ -7,7 +7,7 @@ const JourProg = ({jour}) => {
         <>
         <div className="jour">
      <div>
-        <h3>{jour}</h3>
+        <h3 className='dateJour'>{jour}</h3>
      </div>
 <div className='listJour'>
     <ItemConcert />

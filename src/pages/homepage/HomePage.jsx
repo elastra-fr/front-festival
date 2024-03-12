@@ -52,12 +52,8 @@ const handleTuileOpen = () => {
         </section>
 
         <section className="homemap">
-          <TuileOpen
-            txt="Ouvrir la carte interactive"
-            img="/images/mapneedle.jpg"
-            click={handleTuileOpen}
           
-          />
+          <TuilesLiens txt="Ouvrir la carte interactive" img="/images/mapneedle.jpg" to="/map"/>
        
         </section>
 

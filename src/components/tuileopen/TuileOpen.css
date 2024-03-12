@@ -3,7 +3,8 @@ display: grid;
 grid-template-columns: 1fr;
 grid-template-rows: 1fr;
 position: relative;
-width: 100%;
+width: 95%;
+margin: 15px auto;
 max-height: 600px;
 
 

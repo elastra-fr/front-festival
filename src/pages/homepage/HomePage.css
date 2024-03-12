@@ -1,41 +1,38 @@
-.tuilesWrapper{
-display: grid;
-grid-template-columns: 1fr 1fr;
-grid-template-rows: 1fr;    
-gap: 10px;
-width: 95%;
-margin: 15px auto;
+.tuilesWrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 10px;
+    width: 95%;
+    margin: 15px auto;
 }
 
-.homemap{
+.homemap {
 
-width: 95%;
-margin: 15px auto;
+    width: 95%;
+    margin: 15px auto;
 
 
 }
-
-
-
-
-
-
-
-
-
-
-
 
 @media screen and (min-width: 768px) {
-   
-.homemap{
 
-width: 50%;
-margin: 15px auto;
+    .homemap {
+
+        width: 50%;
+        margin: 15px auto;
+
+    }
+
+    .tuilesWrapper {
+        display: grid;
+grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+        gap: 10px;
+        width: 95%;
+        margin: 15px auto;
+    }
 
 
-}
 
-
-    
 }
