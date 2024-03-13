@@ -40,15 +40,15 @@ const closeMainNav = () => {
         <nav id="mainNav" className={`${showNav ? "showNav" : "hideNav"}`}>
           <ul>
             <li>
-              <Link to="/home">Accueil</Link>
+              <Link to="/home" onClick={()=>setShowNav(false)}>Accueil</Link>
             </li>
-            <li><HashLink to="/home#actu">Actualités</HashLink></li>
+            <li><HashLink to="/home#actu" onClick={()=>setShowNav(false)}>Actualités</HashLink></li>
             <li>
-              <Link to="/infos">Informations</Link>
+              <Link to="/infos" onClick={()=>setShowNav(false)}>Informations</Link>
             </li>
-            <li><HashLink to="/home#prog">Programmation</HashLink></li>
+            <li><HashLink to="/home#prog" onClick={()=>setShowNav(false)}>Programmation</HashLink></li>
             <li>
-              <Link to="/map">Carte interactive</Link>
+              <Link to="/map" onClick={()=>setShowNav(false)}>Carte interactive</Link>
               </li>
               <li>
                <div id="closeMainNav" onClick={closeMainNav}><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" fill="white"><path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/></svg></div>
