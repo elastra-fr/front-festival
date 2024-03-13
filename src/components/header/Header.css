@@ -56,8 +56,8 @@ grid-column: 1 ;
 grid-row: 1;
 z-index: 100;
 position : absolute;
-top: 40%;
-left: 65%;
+top: 5%;
+left: 5%;
 display: flex ;
 flex-direction: column;
 align-items: center;
@@ -70,7 +70,7 @@ padding: 10px;
 #headerTitle h1{
 
 color: white;
-font-size: 3em;
+font-size: 1.5em;
 text-align: center;
 
 }
@@ -143,17 +143,29 @@ flex-direction: column;
 justify-content: space-around;
 align-items: center;
 background-color: black;
+height: 100vh;
 
 }
 
 #mainNav ul li a{
 color: white;
+font-weight: bolder;
 
 }
 
 #mainNav ul li:hover{
 cursor: pointer;
 border-bottom: 2px solid white;
+
+
+}
+
+#closeMainNav{
+width: 40px;
+height: 40px;
+display: flex;
+justify-content: center;
+align-items: center;
 
 
 }
@@ -205,6 +217,28 @@ flex-direction: row;
 background-color: transparent;
  }
 
+ #closeMainNav{
+
+    display: none;
+ }
+
+
+#headerTitle {
+
+    top: 40%;
+left: 65%;
+
+
+
+}
+
+#headerTitle h1{
+
+
+font-size: 3em;
+;
+
+}
 
     
 }
