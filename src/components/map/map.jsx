@@ -3,6 +3,7 @@ import "./Map.css";
 import { Wrapper, Status } from "@googlemaps/react-wrapper";
 //import { google } from "@googlemaps/react-wrapper";
 
+
 const Map = () => {
   const [mapPoints, setMapPoints] = React.useState([]);
   const [fullMapPoints, setFullMapPoints] = React.useState([]);

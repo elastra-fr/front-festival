@@ -1,12 +1,14 @@
 import React from 'react';
+import './Live.css';
 
 const Live = () => {
     return (
     <>    
-        <div>
-            <h2>Live</h2>
+        <div className='mainLive'>
+            <div className='liveTitle'><img src="/images/live-12298.svg"></img></div>
+            
 
-            <p>Pas d&apos;évement(s) en cours actuellement</p>
+            <p>Pas de concert(s) en cours actuellement</p>
         
         
         </div>

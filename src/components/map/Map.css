@@ -14,3 +14,13 @@ min-height: 800px;
 color: black;
 
 }
+
+.mapTools{
+    color: white;
+    width: 95%;
+    margin: 15px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}

@@ -3,6 +3,7 @@ import Header from '../../components/header/Header';
 import Footer from '../../components/footer/Footer';
 import './Faq.css';
 import FaqItem from '../../components/faqItem/FaqItem';
+import TuilesLiens from '../../components/tuilesliens/TuilesLiens';
 
 const Faq = () => {
 
@@ -25,13 +26,17 @@ const Faq = () => {
 <FaqItem titre="Services et commodités" contenu={["Nourriture et Boissons : Des stands de restauration seront présents sur le site du festival, proposant une variété de plats et de boissons. Des options végétariennes et véganes seront disponibles.", "Toilettes : Des toilettes seront disponibles sur le site du festival, y compris des toilettes accessibles aux personnes à mobilité réduite.", "Points de Premiers Secours : Des postes de secours et du personnel médical seront présents sur place pour toute assistance médicale nécessaire." ]}/>
 <FaqItem titre="Règles et Réglementation" contenu={["Sécurité : La sécurité de nos festivaliers est notre priorité absolue. Des contrôles de sécurité seront effectués à l&apos;entrée du festival. Veuillez coopérer avec le personnel de sécurité et suivre toutes les instructions.", "Objets Interdits : Les objets suivants sont interdits sur le site du festival : armes, drogues illicites, bouteilles en verre, feux d&apos;artifice, drones, etc. Veuillez consulter notre liste complète d&apos;objets interdits sur notre site web.", "Politique de Zéro Tolérance : Le festival adopte une politique de tolérance zéro envers tout comportement violent, discriminatoire ou perturbateur. Les contrevenants seront expulsés du site du festival."]}/>
 
-<p>Vous pouvez également localiser  les éléments du festival sur notre carte interactive</p>
+<div className='moreInfos'>
+<p>Vous pouvez également localiser  les éléments du festival sur notre carte interactive :</p>
+
+
+<TuilesLiens txt="Voir la carte interactive" img="/images/mapneedle.avif" to="/map"/>
 
  
 
 <p>Pour toute autre question ou préoccupation, veuillez nous contacter à l&apos;adresse e-mail fournie sur notre site web. Nous sommes impatients de vous accueillir au festival et de vous offrir une expérience inoubliable !</p>
 
-
+</div>
 
 
 

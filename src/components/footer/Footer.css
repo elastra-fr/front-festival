@@ -15,6 +15,12 @@ align-items: center;
 justify-content: center;
 }
 
+.footerContentLeft a{
+text-decoration: none;
+color: white;
+
+}
+
 .footerContentCenter {
 display: flex;
 align-items: center;
