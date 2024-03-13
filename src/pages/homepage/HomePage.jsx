@@ -53,17 +53,17 @@ const handleTuileOpen = () => {
 
         <section className="homemap">
           
-          <TuilesLiens txt="Ouvrir la carte interactive" img="/images/mapneedle.jpg" to="/map"/>
+          <TuilesLiens txt="Ouvrir la carte interactive" img="/images/mapneedle.avif" to="/map"/>
        
         </section>
 
         <div className="tuilesWrapper">
           <TuilesLiens
             txt="Informations pratiques"
-            img="/images/info.jpg"
+            img="/images/info.avif"
             to="/infos"
           />
-          <TuilesLiens txt="FAQ" img="/images/faq.jpg" to="/faq" />
+          <TuilesLiens txt="FAQ" img="/images/faq.avif" to="/faq" />
         </div>
       </main>
 

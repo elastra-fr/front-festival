@@ -54,7 +54,7 @@ const [windowWidth, setWindowWidth] = useState(getWindowWidth());
   <video
           id="headerVideo"
           loop
-          src="/video/video2.mp4"
+          src="/video/video2-cpr.mp4"
           autoPlay
           muted
         />
