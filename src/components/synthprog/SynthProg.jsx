@@ -1,9 +1,36 @@
-import React from 'react';
 import './SynthProg.css';
 import JourProg from '../jourprog/Jourprog';
+import { useActionData } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 
 
 const SynthProg = () => {
+
+//Récupérer les données de l'API pour les concerts
+
+const [concerts, setConcerts] = useState([]);
+
+const getConcerts = () => {
+
+
+
+    fetch("http://festival.local/wp-json/wp/v2/concert")
+    .then((response) => response.json())
+    .then((data) => {
+        console.log(data);
+        setConcerts(data);
+    });
+
+
+
+};
+
+useEffect(() => {
+    getConcerts();
+}, []);
+
+
+
     return (
        <>
         <div className="progWrapper">
