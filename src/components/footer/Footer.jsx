@@ -21,17 +21,14 @@ const Footer = () => {
               <li>
                 <HashLink to="/home#actu">Actualités</HashLink>
               </li>
-              <li>
-                <Link to="/infos">Informations pratiques</Link>
-              </li>
-              <li>
+                      <li>
                 <Link>Billetterie</Link>
               </li>
               <li>
-                <Link>Mentions légales</Link>
+                <Link to="/mentions">Mentions légales</Link>
               </li>
               <li>
-                <Link to="/faq">FAQ</Link>
+                <Link to="/faq">Informations - FAQ</Link>
               </li>
               <li>
                 <Link to="/map">Carte</Link>

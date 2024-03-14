@@ -43,7 +43,7 @@ const Header = () => {
             </li>
             <li>
               <Link to="/infos" onClick={() => setShowNav(false)}>
-                Informations
+                Informations - FAQ
               </Link>
             </li>
             <li>

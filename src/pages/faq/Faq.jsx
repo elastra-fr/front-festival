@@ -7,6 +7,7 @@ import TuilesLiens from '../../components/tuilesliens/TuilesLiens';
 
 const Faq = () => {
 
+document.title = 'Informations - FAQ | NATION SOUND';
 
 
 
@@ -17,7 +18,7 @@ const Faq = () => {
 
 <main className='mainFaq'>
 
-<h1>FAQ</h1>
+<h1>Informations - FAQ</h1>
 
 <FaqItem titre='Dates et Lieu' contenu={['Dates du Festival : [Insérer les dates du festival ici]' , 'Lieu : [Insérer le lieu du festival ici]', "Adresse : [Insérer l&apos;adresse complète du lieu du festival ici]" ]} />
 <FaqItem titre="Horaires" contenu={["Heures d&apos;ouverture du Festival : Les portes ouvrent à [insérer l&apos;heure d&apos;ouverture] chaque jour du festival.", "Horaires des Performances : Consultez l&apos;horaire complet des performances sur notre site web et sur les panneaux d&apos;affichage du festival."]} />

@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import "./Map.css";
 import { Wrapper, Status } from "@googlemaps/react-wrapper";
+
 //import { google } from "@googlemaps/react-wrapper";
 
 
@@ -68,6 +69,31 @@ const pinSvg = parser.parseFromString(
 
 
 
+const customContent=(type)=>{
+
+switch(type){
+
+case "Scènes":
+
+return `<div className='customMarker'>Test</div>`;
+
+default:
+
+  break;
+
+
+
+}
+
+
+
+}
+  const priceTag = document.createElement("div");
+
+  priceTag.className = "price-tag";
+  priceTag.textContent = "$2.5M";
+
+
 
     //Affiche les marqueurs sur la carte
     for (let i = 0; i < mapPoints.length; i++) {
@@ -79,8 +105,14 @@ const pinSvg = parser.parseFromString(
           lng: mapPoints[i].acf.Lieu.lng,
         },
         title: mapPoints[i].acf.titre,
+        content: priceTag,
     
       });
+
+      
+//Alternative pour afficher un marqueur personnalisé
+
+
 
 
       marker.addListener("click", () => {

@@ -3,9 +3,14 @@ import Header from '../../components/header/Header';
 import Footer from '../../components/footer/Footer';
 import Map from '../../components/map/Map';
 import Live from '../../components/live/Live';
+import Map2 from '../../components/map/Map2';
 
 
 const FullMap = () => {
+
+document.title = 'Carte interactive | NATION SOUND';
+
+
     return (
 <>
 <Header />
@@ -13,7 +18,8 @@ const FullMap = () => {
 <main className='mainFullMap'>
 <Live/>
 
-<Map />
+
+<Map2 />
 
 
 
