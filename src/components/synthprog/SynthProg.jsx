@@ -8,7 +8,7 @@ const SynthProg = () => {
 
 //Récupérer les données de l'API pour les concerts
 
-const [concerts, setConcerts] = useState([]);
+const [fullConcerts, setFullConcerts] = useState([]);
 
 const getConcerts = () => {
 
@@ -18,7 +18,7 @@ const getConcerts = () => {
     .then((response) => response.json())
     .then((data) => {
         console.log(data);
-        setConcerts(data);
+        setFullConcerts(data);
     });
 
 
@@ -97,6 +97,18 @@ useEffect(() => {
 
 
             </div>
+
+            <section className='newWrapper'>
+                {fullConcerts.map((concert, index) => (
+                    <div className='newConcert' key={index}>
+                        <h3>{concert.title.rendered}</h3>
+                        <p>{concert.acf.artiste}</p>
+                        <p>{concert.acf.horaire}</p>
+                        <p>{concert.acf.scene}</p>
+                        <p>{concert.acf.genre}</p>
+                    </div>
+                ))}
+            </section>
             
 
         </div>
