@@ -25,8 +25,9 @@ const SynthProg = () => {
       .then((response) => response.json())
       .then((data) => {
         //console.log(data);
+data.sort((a, b) => { return a.acf.horaire - b.acf.horaire; });
         setFullConcerts(data);
-        setFilteredConcerts(data);
+         setFilteredConcerts(data);
       });
   };
 
@@ -117,7 +118,7 @@ else {
 
        //order filteredArray by horaire
 
-         filteredArray.sort((a, b) => { return a.acf.horaire - b.acf.horaire; });
+         //filteredArray.sort((a, b) => { return a.acf.horaire - b.acf.horaire; });
 
   console.log(filteredArray);
   setFilteredConcerts(filteredArray);
@@ -241,7 +242,7 @@ else {
           <JourProg jour="Dimanche 1er août" />*/}
         </div>
 
-        <section className="newWrapper">
+        {/*<section className="newWrapper">
           {filteredConcerts.map((concert, index) => (
             <div className="newConcert" key={index}>
               <h3>{concert.title.rendered}</h3>
@@ -251,7 +252,7 @@ else {
               <p>{concert.acf.genre}</p>
             </div>
           ))}
-        </section>
+        </section>*/}
       </div>
     </>
   );

@@ -11,11 +11,13 @@ color: white;
 
 
 .joursWrapper {
-display: grid;
+/*display: grid;
 grid-template-columns: 1fr;
 grid-template-rows: repeat(3, 1fr)  ;
 grid-gap: 10px;
-justify-items: center;
+justify-items: center;*/
+display: flex;
+flex-direction: column;
 
 
 }

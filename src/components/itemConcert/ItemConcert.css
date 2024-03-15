@@ -45,6 +45,7 @@ flex-direction: column;
 
     .cardConcert{
 
+width: 49%;
 max-height: 300px;
 
 
@@ -53,8 +54,25 @@ max-height: 300px;
     .imgConcert img{
 
         max-height: 300px;
+        object-fit: cover;
+
+
+
     }   
     
      
+}
+
+@media screen  and (min-width: 1024px){
+
+.cardConcert{
+
+    width: 32%;
+    max-height: 400px;
+
+}
+
+
+
 }
 

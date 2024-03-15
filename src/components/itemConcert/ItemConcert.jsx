@@ -1,7 +1,7 @@
 import React from 'react';
 import './ItemConcert.css';
 
-const ItemConcert = ({src}) => {
+const ItemConcert = ({src, groupe, horaire, genre, desc, scene}) => {
     console.log(src);
 let locsrc ;
 
@@ -25,11 +25,11 @@ let locsrc ;
             </div>
             <div className='textConcert'>
                       
-                <h3>Artiste</h3>
-                <p>Jour</p>
-                <p>Genre</p>
-                <p>Heure</p>
-                <p>Scène</p>
+                <h3>{groupe}</h3>
+                <p>{genre}</p>
+                <p>{horaire + "H"}</p>
+                <p>{scene}</p>
+                <p>{desc}</p>
             </div>
         
 

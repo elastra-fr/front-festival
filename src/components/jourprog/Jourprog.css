@@ -15,7 +15,7 @@ color: white;
 
 .listJour{
 display: flex;
-flex-direction: column;
+flex-wrap: wrap;
 width: 100%;
 gap: 5px;
 

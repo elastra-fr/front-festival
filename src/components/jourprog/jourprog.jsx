@@ -3,6 +3,8 @@ import ItemConcert from '../itemConcert/ItemConcert';
 import './Jourprog.css';
 
 const JourProg = ({jour, data}) => {
+
+    
     console.log(data);
     return (
         <>
@@ -12,7 +14,7 @@ const JourProg = ({jour, data}) => {
      </div>
 <div className='listJour'>
 {data.map((item, index) => {
-    return <ItemConcert key={index} item={item} src={item.acf.urlimg} />
+    return <ItemConcert key={index} item={item} src={item.acf.urlimg} groupe={item.acf.groupe} horaire={item.acf.horaire}  scene={item.acf.scene} desc={item.acf.description} />
 })} 
 
 
