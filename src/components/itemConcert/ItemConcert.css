@@ -6,13 +6,26 @@ grid-template-rows: 1fr;
 width: 95%;
 margin: 0px auto;
 max-height: 200px;
+-webkit-box-shadow: 5px 8px 25px 0px rgba(255,255,255,0.9); 
+box-shadow: 5px 8px 25px 0px rgba(255,255,255,0.9);
+border-radius: 5px;
+background-color: transparent;
 
 }
+
+.cardConcert:hover{
+
+    cursor: pointer;
+
+}
+
+
 
 .imgConcert{
 
 grid-column: 1;
-grid-row: 1;;
+grid-row: 1;
+border-radius: 5px;
 
 }
 
@@ -21,7 +34,8 @@ grid-row: 1;;
     height: 100%;
     max-height: 200px;
     object-fit: cover;
-    padding: 20px;
+    border-radius: 5px;
+
 }
 
 
@@ -45,7 +59,7 @@ flex-direction: column;
 
     .cardConcert{
 
-width: 49%;
+width: 45%;
 max-height: 300px;
 
 
