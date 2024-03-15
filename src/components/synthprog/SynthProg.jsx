@@ -1,66 +1,212 @@
-import './SynthProg.css';
-import JourProg from '../jourprog/Jourprog';
-import { useActionData } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import "./SynthProg.css";
+import JourProg from "../jourprog/Jourprog";
+import { useActionData } from "react-router-dom";
+import { useState, useEffect } from "react";
 
 
 const SynthProg = () => {
+  //Récupérer les données de l'API pour les concerts
 
-//Récupérer les données de l'API pour les concerts
+  const [fullConcerts, setFullConcerts] = useState([]);
+  const [filteredConcerts, setFilteredConcerts] = useState([]);
 
-const [fullConcerts, setFullConcerts] = useState([]);
+  const [filteredConcertsJ1, setFilteredConcertsJ1] = useState([]);
+  const [filteredConcertsJ2, setFilteredConcertsJ2] = useState([]);
+  const [filteredConcertsJ3, setFilteredConcertsJ3] = useState([]);
+  const [filterJour, setFilterJour] = useState("Tout");
+    const [filterScene, setFilterScene] = useState("Tout");
+    const [filterHoraire, setFilterHoraire] = useState("Tout");
+    const [filterGenre, setFilterGenre] = useState("Tout");
 
-const getConcerts = () => {
 
 
-
-    fetch("http://festival.local/wp-json/wp/v2/concert")
-    .then((response) => response.json())
-    .then((data) => {
-        console.log(data);
+  const getConcerts = () => {
+    fetch("http://festival.local/wp-json/wp/v2/concert?per_page=100")
+      .then((response) => response.json())
+      .then((data) => {
+        //console.log(data);
         setFullConcerts(data);
+        setFilteredConcerts(data);
+      });
+  };
+
+
+
+  useEffect(() => {
+    getConcerts();
+  }, []);
+
+  useEffect(() => {
+    let filteredArrayJ1 = filteredConcerts.filter(function (el) {
+      return el.acf.jour == "J1";
     });
 
+    setFilteredConcertsJ1(filteredArrayJ1);
+
+    let filteredArrayJ2 = filteredConcerts.filter(function (el) {
+      return el.acf.jour == "J2";
+    });
+
+    setFilteredConcertsJ2(filteredArrayJ2);
+
+    let filteredArrayJ3 = filteredConcerts.filter(function (el) {
+      return el.acf.jour == "J3";
+    });
+
+    setFilteredConcertsJ3(filteredArrayJ3);
+  }, [filteredConcerts]);
+
+  useEffect(() => {
+
+  }, [filteredConcertsJ1, filteredConcertsJ2, filteredConcertsJ3]);
 
 
-};
+  useEffect(() => {
 
-useEffect(() => {
-    getConcerts();
-}, []);
+            if (filterJour == "Tout" && filterScene == "Tout" && filterHoraire =="Tout" && filterGenre == "Tout"){
+
+setFilteredConcerts(fullConcerts);
 
 
 
-    return (
-       <>
-        <div className="progWrapper">
-            <h2>Programmation</h2>
-            <div className='progTools'>
 
-            <h3>Filtrer par :</h3>
 
-<label htmlFor="jour">Jour :</label>
-<select name="jour" id="jour">
 
-    <option value="Tout">Festival complet</option>
-    <option value="Vendredi 30 juillet">Vendredi 30 juillet</option>
-    <option value="Samedi 31 juillet">Samedi 31 juillet</option>
-    <option value="Dimanche 1er août">Dimanche 1er août</option>   
-</select>
+    }
 
-<label htmlFor="scene">Scène :</label>
-<select name="scene" id="scene">
+else {
+
+//console.log("Filtrage nécessaire");
+
+  let filters = {
+    jour: filterJour,
+    scene: filterScene,
+    horaire: filterHoraire,
+    genre: filterGenre,
+  };
+
+  //iterate over the filters object to filter fullConcerts
+    
+       let arrayToFilter = fullConcerts;
+
+       let filteredArray = arrayToFilter.filter(function(item) {
+
+return Object.keys(filters).every((key) => {
+
+    console.log(key);
+
+if (key === "horaire") {
+
+
+
+     return filters[key] === "Tout" || Number(filters[key]) <= Number(item.acf[key]);
+
+
+}
+
+else {
+     
+    return filters[key] === "Tout" || filters[key] === item.acf[key];
+
+}
+});    
+
+
+
+       });
+
+       //order filteredArray by horaire
+
+         filteredArray.sort((a, b) => { return a.acf.horaire - b.acf.horaire; });
+
+  console.log(filteredArray);
+  setFilteredConcerts(filteredArray);
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+  }, [filterJour, filterScene, filterHoraire, filterGenre]);
+
+  const handleChange = (e) => {
+    let id = e.target.id;
+   // console.log(id);
+
+    let value = e.target.value;
+
+    //console.log(value);
+
+    switch (id) {
+      case "jour":
+
+        setFilterJour(value);
+        break;
+
+      case "scene":
+        setFilterScene(value);
+        break;
+
+      case "horaire":
+        setFilterHoraire(value);
+        break;
+
+      case "genre":
+        setFilterGenre(value);
+        break;
+
+      default:
+    }
+
+
+
+
+
+  };
+
+  return (
+    <>
+      <div className="progWrapper">
+        <h2>Programmation</h2>
+        <div className="progTools">
+          <h3>Filtrer par :</h3>
+
+          <label htmlFor="jour">Jour :</label>
+          <select name="jour" id="jour" onChange={handleChange}>
+            <option value="Tout">Festival complet</option>
+            <option value="J1">Vendredi 30 juillet</option>
+            <option value="J2">Samedi 31 juillet</option>
+            <option value="J3">Dimanche 1er août</option>
+          </select>
+
+          <label htmlFor="scene">Scène :</label>
+          <select name="scene" id="scene" onChange={handleChange}>
             <option value="Tout">Toutes les scènes</option>
-            <option value="Grande scène">Grande scène</option>
+            <option value="Scène principale">Grande scène</option>
             <option value="Scène 2">Scène 2</option>
             <option value="Scène 3">Scène 3</option>
             <option value="Scène 4">Scène 4</option>
             <option value="Scène 5">Scène 5</option>
-</select>
+          </select>
 
-
-<label htmlFor="horaire">Horaire :</label>
-<select name="horaire" id="horaire">
+          <label htmlFor="horaire">Horaire :</label>
+          <select name="horaire" id="horaire" onChange={handleChange}>
             <option value="Tout">Tous les horaires</option>
             <option value="15">15h</option>
             <option value="16">16h</option>
@@ -71,49 +217,44 @@ useEffect(() => {
             <option value="21">21h</option>
             <option value="22">22h</option>
             <option value="23">23h</option>
-            <option value="00">00h</option>
-</select>
-
-<label htmlFor="genre">Genre :</label>
-<select name="genre" id="genre">
-        <option value="Tout">Tous les genres</option>
-        <option value="Rock">Rock</option>
-        <option value="Pop">Pop</option>
-        <option value="Electro">Electro</option>
-        <option value="Rap">Rap</option>
-        <option value="Reggae">Reggae</option>
-        <option value="Jazz">Jazz</option>
-        <option value="Metal">Metal</option>
-    </select>
-
-
-            </div>
-            <div className='joursWrapper'>
-            <JourProg jour="Vendredi 30 juillet" />
-            <JourProg jour="Samedi 31 juillet" />
-            <JourProg jour="Dimanche 1er août" />
-
-
-
-
-            </div>
-
-            <section className='newWrapper'>
-                {fullConcerts.map((concert, index) => (
-                    <div className='newConcert' key={index}>
-                        <h3>{concert.title.rendered}</h3>
-                        <p>{concert.acf.artiste}</p>
-                        <p>{concert.acf.horaire}</p>
-                        <p>{concert.acf.scene}</p>
-                        <p>{concert.acf.genre}</p>
-                    </div>
-                ))}
-            </section>
             
+          </select>
 
+          <label htmlFor="genre">Genre :</label>
+          <select name="genre" id="genre" onChange={handleChange}>
+            <option value="Tout">Tous les genres</option>
+            <option value="Rock">Rock</option>
+            <option value="Pop">Pop</option>
+            <option value="Electro">Electro</option>
+            <option value="Rap">Rap</option>
+            <option value="Reggae">Reggae</option>
+            <option value="Jazz">Jazz</option>
+            <option value="Metal">Metal</option>
+          </select>
         </div>
-        </>
-    );
+        <div className="joursWrapper">
+            {filteredConcertsJ1.length > 0 && <JourProg jour="Vendredi 30 juillet" data={filteredConcertsJ1}/>}
+            {filteredConcertsJ2.length > 0 && <JourProg jour="Samedi 31 juillet" data={filteredConcertsJ2}/>}
+            {filteredConcertsJ3.length > 0 && <JourProg jour="Dimanche 1er août" data={filteredConcertsJ3}/>}
+          {/*<JourProg jour="Vendredi 30 juillet" />
+          <JourProg jour="Samedi 31 juillet" />
+          <JourProg jour="Dimanche 1er août" />*/}
+        </div>
+
+        <section className="newWrapper">
+          {filteredConcerts.map((concert, index) => (
+            <div className="newConcert" key={index}>
+              <h3>{concert.title.rendered}</h3>
+              <p>{concert.acf.artiste}</p>
+              <p>{concert.acf.horaire}</p>
+              <p>{concert.acf.scene}</p>
+              <p>{concert.acf.genre}</p>
+            </div>
+          ))}
+        </section>
+      </div>
+    </>
+  );
 };
 
 export default SynthProg;

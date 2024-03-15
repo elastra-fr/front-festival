@@ -1,12 +1,27 @@
 import React from 'react';
 import './ItemConcert.css';
 
-const ItemConcert = () => {
+const ItemConcert = ({src}) => {
+    console.log(src);
+let locsrc ;
+
+     if (src === null || src === undefined || src === "")
+        {
+           locsrc = "https://picsum.photos/300/300?grayscale";
+        }
+
+        else{
+             locsrc = src;
+
+            
+        }
+
     return (
         
+       
         <div className='cardConcert'>
             <div className='imgConcert'>
-                <img src='https://picsum.photos/200' alt='concert' />
+                <img src={locsrc} alt='concert' />
             </div>
             <div className='textConcert'>
                       

@@ -66,6 +66,16 @@ justify-items: center;
 
 }
 
+.newWrapper{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+
+}
+
 .progTools {
     flex-direction: row;
 }
