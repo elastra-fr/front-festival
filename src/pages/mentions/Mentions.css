@@ -27,6 +27,11 @@ color: black;
 
 }
 
+.mentions h2, p {
+
+    color: white;
+}
+
 
 
 .disclaimer h2 {

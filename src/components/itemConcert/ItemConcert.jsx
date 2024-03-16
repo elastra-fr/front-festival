@@ -26,10 +26,8 @@ let locsrc ;
             <div className='textConcert'>
                       
                 <h3>{groupe}</h3>
-                <p>{genre}</p>
-                <p>{horaire + "H"}</p>
-                <p>{scene}</p>
-                <p>{desc}</p>
+                <p className='textConcertInfos'>{horaire + "H - " + scene } </p>
+                <p>{genre+ "  : " + desc}</p>
             </div>
         
 

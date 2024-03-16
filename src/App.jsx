@@ -12,10 +12,19 @@ import Mentions from './pages/mentions/Mentions'
 
 
 
+
 function App() {
+
+
+const [modal, setModal] = useState(false);
+
+const handleModal = () => {
+  setModal(!modal);
+};
+
   
 //Create context map
-const MapStatus = createContext();
+{/*const MapStatus = createContext();
 
 
 const Map = () => {
@@ -35,7 +44,7 @@ return(
 
 
 
-}
+}*/}
 
 
 
@@ -59,7 +68,7 @@ return(
 
  <BrowserRouter>
 <Routes>
-<Route path="/" element={<HomePage />} />
+<Route path="/" element={<HomePage />}/>
   <Route path="/home" element={<HomePage />} />
 <Route path="/infos" element={<Infos />} />
 <Route path="/faq" element={<Faq />} />

@@ -3,8 +3,18 @@ import { Link } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
 import Socials from "../socials/Socials";
 import "./Footer.css";
+import ModalYesNo from "../modalyesno/ModalYesNo";
+import { useState } from "react";
+
 
 const Footer = () => {
+
+  const [showModal, setShowModal] = useState(false);
+const handleModal = () => {
+    setShowModal(!showModal) ;
+};
+
+
   return (
     <>
       <footer>
@@ -22,7 +32,7 @@ const Footer = () => {
                 <HashLink to="/home#actu">Actualités</HashLink>
               </li>
                       <li>
-                <Link>Billetterie</Link>
+                <Link onClick={handleModal}>Billetterie</Link>
               </li>
               <li>
                 <Link to="/mentions">Mentions légales</Link>
@@ -43,7 +53,12 @@ const Footer = () => {
                 <Socials />
             </div>
         </div>
+
+
+
       </footer>
+
+      {showModal && <ModalYesNo  handleModal={handleModal} />}
     </>
   );
 };

@@ -4,9 +4,11 @@ import "./Header.css";
 import Socials from "../socials/Socials";
 import { HashLink } from "react-router-hash-link";
 import { useState } from "react";
+import ModalYesNo from "../modalyesno/ModalYesNo";
 
 const Header = () => {
   const [showNav, setShowNav] = useState(false);
+const [showModal, setShowModal] = useState(false);
 
   const getWindowWidth = () => {
     return window.innerWidth;
@@ -26,6 +28,10 @@ const Header = () => {
     setShowNav(false);
   };
 
+const handleModal = () => {
+    setShowModal(!showModal) ;
+};
+
   return (
     <header>
       <div className="videoWrapper">
@@ -42,7 +48,7 @@ const Header = () => {
               </HashLink>
             </li>
             <li>
-              <Link to="/infos" onClick={() => setShowNav(false)}>
+              <Link to="/faq" onClick={() => setShowNav(false)}>
                 Informations - FAQ
               </Link>
             </li>
@@ -90,7 +96,7 @@ const Header = () => {
           <Link to="/home"><h1>NATION SOUND</h1></Link>
           <Socials />
 
-          <input id="ctaBilleterie" type="button" value="Billetterie" />
+          <input id="ctaBilleterie" type="button" value="Billetterie" onClick={handleModal}/>
         </div>
       </div>
 
@@ -104,6 +110,9 @@ const Header = () => {
           <path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z" />
         </svg>
       </div>
+
+{showModal && <ModalYesNo  handleModal={handleModal} />}
+
     </header>
   );
 };
