@@ -62,7 +62,7 @@ border: none;
 .joursWrapper {
 grid-template-columns: repeat(3, 1fr);
 grid-template-rows: 1fr;
-grid-gap: 10px;
+grid-gap: 45px;
 justify-items: center;
 
 

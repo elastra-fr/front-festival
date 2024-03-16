@@ -14,20 +14,23 @@ import Map from "../../components/map/Map";
 
 const HomePage = () => {
 
+//Titre de la page
+  document.title = 'Accueil | NATION SOUND';
+
   
 
 
 
-const [mapShow, setMapShow] = useState(false);
+//const [mapShow, setMapShow] = useState(false);
 
 
 
-const handleTuileOpen = () => {
+/*const handleTuileOpen = () => {
 
 
   setMapShow(!mapShow);
   console.log(mapShow);
-}
+}*/
 
 
 
@@ -67,10 +70,10 @@ const handleTuileOpen = () => {
         </div>
       </main>
 
-     {
+     {/*
 mapShow ? <Map /> : null
 
-     } 
+     */} 
 
 
       <Footer />
