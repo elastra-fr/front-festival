@@ -149,16 +149,19 @@ const SynthProg = () => {
         <div className="progTools">
           <h3>Filtrer par :</h3>
 
+          <div className="filterWrapper">
           <label htmlFor="jour">Jour :</label>
-          <select name="jour" id="jour" onChange={handleChange}>
+          <select name="jour" id="jour" onChange={handleChange} value={filterJour}>
             <option value="Tout">Festival complet</option>
             <option value="J1">Vendredi 30 juillet</option>
             <option value="J2">Samedi 31 juillet</option>
             <option value="J3">Dimanche 1er août</option>
           </select>
+        </div>
 
+<div className="filterWrapper">
           <label htmlFor="scene">Scène :</label>
-          <select name="scene" id="scene" onChange={handleChange}>
+          <select name="scene" id="scene" onChange={handleChange} value={filterScene}>
             <option value="Tout">Toutes les scènes</option>
             <option value="Scène principale">Grande scène</option>
             <option value="Scène 2">Scène 2</option>
@@ -166,9 +169,11 @@ const SynthProg = () => {
             <option value="Scène 4">Scène 4</option>
             <option value="Scène 5">Scène 5</option>
           </select>
+</div>
 
-          <label htmlFor="horaire">Horaire :</label>
-          <select name="horaire" id="horaire" onChange={handleChange}>
+<div className="filterWrapper">
+          <label htmlFor="horaire">A partir de  :</label>
+          <select name="horaire" id="horaire" onChange={handleChange} value={filterHoraire}>
             <option value="Tout">Tous les horaires</option>
             <option value="15">15h</option>
             <option value="16">16h</option>
@@ -180,9 +185,11 @@ const SynthProg = () => {
             <option value="22">22h</option>
             <option value="23">23h</option>
           </select>
+</div>
 
+<div className="filterWrapper">
           <label htmlFor="genre">Genre :</label>
-          <select name="genre" id="genre" onChange={handleChange}>
+          <select name="genre" id="genre" onChange={handleChange} value={filterGenre}>
             <option value="Tout">Tous les genres</option>
             <option value="Rock">Rock</option>
             <option value="Pop">Pop</option>
@@ -192,6 +199,7 @@ const SynthProg = () => {
             <option value="Jazz">Jazz</option>
             <option value="Metal">Metal</option>
           </select>
+</div>
 
           <button onClick={deleteFilters}>Reinitilialiser les filtres</button>
 
