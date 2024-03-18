@@ -1,4 +1,4 @@
-import { useState, createContext } from 'react'
+import { useState, createContext, useEffect } from 'react'
 //import reactLogo from './assets/react.svg'
 //import viteLogo from '/vite.svg'
 //import Header from './components/header/header'
@@ -17,10 +17,28 @@ function App() {
 
 
 const [modal, setModal] = useState(false);
+const [fullConcerts, setFullConcerts] = useState([]);
 
 const handleModal = () => {
   setModal(!modal);
 };
+
+ const getConcerts = () => {
+    fetch("http://festival.local/wp-json/wp/v2/concert?per_page=100")
+      .then((response) => response.json())
+      .then((data) => {
+        //console.log(data);
+        data.sort((a, b) => {
+          return a.acf.horaire - b.acf.horaire;
+        });
+        setFullConcerts(data);
+        //setFilteredConcerts(data);
+      });
+  };
+
+  useEffect(() => {getConcerts }, []);
+
+  useEffect(() => {console.log(fullConcerts)}, [fullConcerts]);
 
   
 //Create context map
@@ -68,8 +86,8 @@ return(
 
  <BrowserRouter>
 <Routes>
-<Route path="/" element={<HomePage />}/>
-  <Route path="/home" element={<HomePage />} />
+<Route path="/" element={<HomePage  concerts={fullConcerts} />}/>
+  <Route path="/home" element={<HomePage concerts={fullConcerts} />} />
 <Route path="/infos" element={<Infos />} />
 <Route path="/faq" element={<Faq />} />
 <Route path="/map" element={<FullMap />} />

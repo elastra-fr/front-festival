@@ -2,9 +2,19 @@ import "./SynthProg.css";
 import JourProg from "../jourprog/Jourprog";
 import { useActionData } from "react-router-dom";
 import { useState, useEffect } from "react";
+import { addDaysTxt } from "../../utils";
+
+
 
 const SynthProg = () => {
   //Récupérer les données de l'API pour les concerts
+
+const startdate = new Date("2024-04-19");
+const startdateTxt = addDaysTxt(startdate, 0);
+const j2= addDaysTxt(startdate, 1);
+const j3= addDaysTxt(startdate, 2);
+
+
 
   const [fullConcerts, setFullConcerts] = useState([]);
   const [filteredConcerts, setFilteredConcerts] = useState([]);
@@ -32,6 +42,8 @@ const SynthProg = () => {
 
   useEffect(() => {
     getConcerts();
+
+
   }, []);
 
   useEffect(() => {
@@ -145,7 +157,7 @@ const SynthProg = () => {
   return (
     <>
       <div className="progWrapper">
-        <h2>Programmation</h2>
+        <h2>Programmation complète</h2>
         <div className="progTools">
           <h3>Filtrer par :</h3>
 
@@ -207,13 +219,13 @@ const SynthProg = () => {
         </div>
         <div className="joursWrapper">
           {filteredConcertsJ1.length > 0 && (
-            <JourProg jour="Vendredi 30 juillet" data={filteredConcertsJ1} />
+            <JourProg jour={startdateTxt} data={filteredConcertsJ1} />
           )}
           {filteredConcertsJ2.length > 0 && (
-            <JourProg jour="Samedi 31 juillet" data={filteredConcertsJ2} />
+            <JourProg jour={j2} data={filteredConcertsJ2} />
           )}
           {filteredConcertsJ3.length > 0 && (
-            <JourProg jour="Dimanche 1er août" data={filteredConcertsJ3} />
+            <JourProg jour={j3} data={filteredConcertsJ3} />
           )}
           {/*<JourProg jour="Vendredi 30 juillet" />
           <JourProg jour="Samedi 31 juillet" />

@@ -13,7 +13,7 @@ import Actu from "../../components/actu/Actu";
 
 
 
-const HomePage = () => {
+const HomePage = ({concerts}) => {
 
 //Titre de la page
   document.title = 'Accueil | NATION SOUND';
@@ -44,7 +44,7 @@ const HomePage = () => {
 
       <main>
         <section className="live">
-          <Live />
+          <Live concerts={concerts}/>
         </section>
 
         <section id="prog" className="prog">
