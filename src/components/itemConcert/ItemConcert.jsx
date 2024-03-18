@@ -2,7 +2,7 @@ import React from 'react';
 import './ItemConcert.css';
 
 const ItemConcert = ({src, groupe, horaire, genre, desc, scene}) => {
-    console.log(src);
+    //console.log(src);
 let locsrc ;
 
      if (src === null || src === undefined || src === "")

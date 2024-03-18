@@ -1,0 +1,55 @@
+.mainActu{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+gap: 20px;
+color: white;
+width: 90%;
+margin: 0 auto;
+
+
+}
+
+.importantActu, .regularActu{
+width: 100%;
+}
+
+.importantActu h2{
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: red;
+    padding: 20px;
+    text-align: right;
+
+}
+
+.importantActu h3{
+    color: red;
+    padding: 20px;
+}
+
+.regularActu h3{
+    padding: 20px;
+}   
+
+
+
+.regularActu h2{
+
+ font-size: 1.5rem;
+    font-weight: bold;
+    padding: 20px;
+         text-align: right;
+
+
+}
+
+
+.mainActu p{
+
+padding-left: 20px;
+
+}

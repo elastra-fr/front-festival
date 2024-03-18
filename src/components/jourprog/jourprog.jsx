@@ -5,7 +5,7 @@ import './Jourprog.css';
 const JourProg = ({jour, data}) => {
 
     
-    console.log(data);
+    //console.log(data);
     return (
         <>
         <div className="jour">

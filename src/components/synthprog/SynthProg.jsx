@@ -201,7 +201,7 @@ const SynthProg = () => {
           </select>
 </div>
 
-          <button onClick={deleteFilters}>Reinitilialiser les filtres</button>
+          <button onClick={deleteFilters}>Reinitialiser</button>
 
 
         </div>

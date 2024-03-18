@@ -8,6 +8,7 @@ import SynthProg from "../../components/synthprog/SynthProg";
 import TuileOpen from "../../components/tuileopen/TuileOpen";
 import { useContext, useState } from "react"; 
 import Map from "../../components/map/Map";
+import Actu from "../../components/actu/Actu";
 
 
 
@@ -51,22 +52,20 @@ const HomePage = () => {
         </section>
 
         <section id='actu' className="actu">
+            <Actu />
+
             
         </section>
 
         <section className="homemap">
-          
-          <TuilesLiens txt="Ouvrir la carte interactive" img="/images/mapneedle.avif" to="/map"/>
+
        
         </section>
 
         <div className="tuilesWrapper">
-          <TuilesLiens
-            txt="Informations pratiques"
-            img="/images/info.avif"
-            to="/infos"
-          />
-          <TuilesLiens txt="FAQ" img="/images/faq.avif" to="/faq" />
+          
+          <TuilesLiens txt="Ouvrir notre carte interactive" img="/images/mapneedle.avif" to="/map"/>
+          <TuilesLiens txt="Informations - FAQ" img="/images/faq.avif" to="/faq" />
         </div>
       </main>
 

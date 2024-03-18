@@ -11,10 +11,12 @@ const ModalYesNo = ({handleModal}) => {
 <div className='modal'>
     <div className='modalContent'>
         <h2 className='titreModal'>Lien exterieur</h2>
-        <p className='textModal'>Vous allez être redirigé vers le site de notre partenaire. Souhaitez-vous continuer ?</p>
+        <p className='textModal'>Vous allez être redirigé vers le site de notre partenaire. Un nouvel onglet va s'ouvrir. Souhaitez-vous continuer ?</p>
         <div className='modalBtns'>
            
-            <button className='btnModalNo' onClick={
+
+
+            <button className='btnModal' onClick={
 ()=>{
 
     window.open('https://www.fnacspectacles.com/', '_blank');
@@ -22,7 +24,8 @@ const ModalYesNo = ({handleModal}) => {
 }
 
             }>Oui</button>
-             <button className='btnModalYes' onClick={handleModal}>Non</button>
+             <button className='btnModal' onClick={handleModal}>Non</button>
+             
         </div>
     </div>
 

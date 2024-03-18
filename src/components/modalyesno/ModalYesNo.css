@@ -17,8 +17,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 30%;
-    height: 30%;
+    width: 80%;
+    height: 40%;
     background-color: white;
     border-radius: 5px;
     padding: 20px;
@@ -36,4 +36,30 @@
     margin: 10px;
     padding: 10px;
     color: black;
+}
+
+.modalBtns{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    margin-top: 20px;
+
+}
+
+.btnModal{
+    padding: 20px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+
+}
+
+@media screen and (min-width: 768px) {
+    .modalContent{
+        width: 30%;
+        height: 30%;
+    }
+    
 }
