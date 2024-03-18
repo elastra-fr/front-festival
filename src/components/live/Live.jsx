@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import './Live.css';
+import LiveConcertItem from '../liveconcertitem/LIveConcertItem';
 
 
 const Live = ({concerts}) => {
@@ -35,13 +36,7 @@ const Live = ({concerts}) => {
 
     useEffect(() => {
     
-    if(liveConcerts.length > 0) {
-        setLiveSP(liveConcerts.filter((concert) => concert.acf.scene === "Scene Principale"));
-        setLiveS2(liveConcerts.filter((concert) => concert.acf.scene === "Scene 2"));
-        setLiveS3(liveConcerts.filter((concert) => concert.acf.scene === "Scene 3"));
-        setLiveS4(liveConcerts.filter((concert) => concert.acf.scene === "Scene 4"));
-        setLiveS5(liveConcerts.filter((concert) => concert.acf.scene === "Scene 5"));
-    }
+console.log(liveConcerts);
 
     }, [liveConcerts]);
 
@@ -88,6 +83,11 @@ let arrayToFilter = fullConcerts;
 
         setLiveConcerts(filteredArray);
 
+        setTimeout(() => {
+            isLive();
+            console.log("refresh");
+        }, 120000);
+
 
     };
 
@@ -96,11 +96,14 @@ let arrayToFilter = fullConcerts;
             <div className='mainLive'>
                 <div className='liveTitle'><img src="/images/live-12298.svg" alt="Live Title" /></div>
 
-
-
-
-                <p>Pas de concert(s) en cours actuellement</p>
-            
+                {liveConcerts.length < 1 ? 
+                    <p>Pas de Concert(s) en cours actuellement</p>
+                    : liveConcerts.map((concerts, index) => {
+                        return ( 
+                            <LiveConcertItem key={index} scene={concerts.acf.scene} artiste={concerts.acf.groupe} genre={concerts.acf.genre}/> 
+                        )
+                    })
+                }
             
             </div>
         </>
