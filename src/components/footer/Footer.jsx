@@ -6,21 +6,21 @@ import "./Footer.css";
 import ModalYesNo from "../modalyesno/ModalYesNo";
 import { useState } from "react";
 
-
 const Footer = () => {
-
   const [showModal, setShowModal] = useState(false);
-const handleModal = () => {
-    setShowModal(!showModal) ;
-};
-
+  const handleModal = () => {
+    setShowModal(!showModal);
+  };
 
   return (
     <>
       <footer>
         <div className="footerContent">
           <div className="footerContentLeft">
-           <Link to="/home"> <h3>NATION SOUND</h3></Link>
+            <Link to="/home">
+              {" "}
+              <h3>NATION SOUND</h3>
+            </Link>
             <p>Festival organisé par Live Events</p>
           </div>
           <div className="footerContentCenter">
@@ -31,7 +31,7 @@ const handleModal = () => {
               <li>
                 <HashLink to="/home#actu">Actualités</HashLink>
               </li>
-                      <li>
+              <li>
                 <Link onClick={handleModal}>Billetterie</Link>
               </li>
               <li>
@@ -49,16 +49,13 @@ const handleModal = () => {
             </ul>
           </div>
 
-            <div className="footerContentRight">
-                <Socials />
-            </div>
+          <div className="footerContentRight">
+            <Socials />
+          </div>
         </div>
-
-
-
       </footer>
 
-      {showModal && <ModalYesNo  handleModal={handleModal} />}
+      {showModal && <ModalYesNo handleModal={handleModal} />}
     </>
   );
 };

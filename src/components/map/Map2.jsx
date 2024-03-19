@@ -15,13 +15,13 @@ const Map2 = () => {
     fetch("http://festival.local/wp-json/wp/v2/mappoints")
       .then((response) => response.json())
       .then((data) => {
-        console.log(data[0].acf.Lieu);
+        //console.log(data[0].acf.Lieu);
 
         setFullMapPoints(data);
         setMapPoints(data);
 
         //length = nombre d'éléments dans le tableau
-        console.log(data.length);
+        //console.log(data.length);
       });
   }
 
@@ -46,7 +46,6 @@ const Map2 = () => {
       mapId: "391e98b9f7969c2d",
       mapTypeIds: ["roadmap", "satellite", "hybrid", "terrain"],
     });
-
 
     //Geolocalisation
     const infoWindow = new google.maps.InfoWindow();
@@ -76,7 +75,6 @@ const Map2 = () => {
         // Browser doesn't support Geolocation
         handleLocationError(false, infoWindow, map.getCenter());
       }
-
     });
 
     function handleLocationError(browserHasGeolocation, infoWindow, pos) {
@@ -88,8 +86,6 @@ const Map2 = () => {
       );
       infoWindow.open(map);
     }
-
-
 
     //Fin geolocalisation
 
@@ -200,7 +196,7 @@ const Map2 = () => {
 
   const handleChange = (e) => {
     const type = e.target.value;
-    console.log(type);
+   // console.log(type);
 
     if (type === "Tout") {
       setMapPoints(fullMapPoints);
@@ -215,7 +211,7 @@ const Map2 = () => {
       setMapPoints(filteredArray);
     }
 
-    console.log(fullMapPoints);
+    //console.log(fullMapPoints);
   };
 
   return (
@@ -241,14 +237,16 @@ const Map2 = () => {
             <option value="Espace VIP">Espace VIP</option>
           </select>
 
-         
-        <button onClick={() => window.open("https://www.google.com/maps/dir/Current+Location/48.7689,2.09454")} className="navButton">Naviguer vers le festival</button>
-          
-
-        
-
-
-
+          <button
+            onClick={() =>
+              window.open(
+                "https://www.google.com/maps/dir/Current+Location/48.7689,2.09454"
+              )
+            }
+            className="navButton"
+          >
+            Naviguer vers le festival
+          </button>
         </div>
 
         <div id="map" className="map"></div>

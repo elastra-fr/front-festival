@@ -1,29 +1,24 @@
-import { useState, createContext, useEffect } from 'react'
+import { useState, createContext, useEffect } from "react";
 //import reactLogo from './assets/react.svg'
 //import viteLogo from '/vite.svg'
 //import Header from './components/header/header'
-import './App.css'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import HomePage from './pages/homepage/HomePage'
-import Infos from './pages/infos/Infos'
-import Faq from './pages/faq/Faq'
-import FullMap from './pages/fullmap/Fullmap'
-import Mentions from './pages/mentions/Mentions'
-
-
-
+import "./App.css";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import HomePage from "./pages/homepage/HomePage";
+import Infos from "./pages/infos/Infos";
+import Faq from "./pages/faq/Faq";
+import FullMap from "./pages/fullmap/Fullmap";
+import Mentions from "./pages/mentions/Mentions";
 
 function App() {
+  const [modal, setModal] = useState(false);
+  const [fullConcerts, setFullConcerts] = useState([]);
 
+  const handleModal = () => {
+    setModal(!modal);
+  };
 
-const [modal, setModal] = useState(false);
-const [fullConcerts, setFullConcerts] = useState([]);
-
-const handleModal = () => {
-  setModal(!modal);
-};
-
- const getConcerts = () => {
+  const getConcerts = () => {
     fetch("http://festival.local/wp-json/wp/v2/concert?per_page=100")
       .then((response) => response.json())
       .then((data) => {
@@ -36,13 +31,17 @@ const handleModal = () => {
       });
   };
 
-  useEffect(() => {getConcerts }, []);
+  useEffect(() => {
+    getConcerts;
+  }, []);
 
-  useEffect(() => {console.log(fullConcerts)}, [fullConcerts]);
+  useEffect(() => {
+   // console.log(fullConcerts);
+  }, [fullConcerts]);
 
-  
-//Create context map
-{/*const MapStatus = createContext();
+  //Create context map
+  {
+    /*const MapStatus = createContext();
 
 
 const Map = () => {
@@ -62,42 +61,29 @@ return(
 
 
 
-}*/}
+}*/
+  }
 
+  //Récupérer les données de l'API pour les news
 
+  //Récupérer les données de l'API pour les concerts
 
-
-
-//Récupérer les données de l'API pour les news  
-
-
-//Récupérer les données de l'API pour les concerts
-
-
-
-
-//Récupérer les données de l'API pour les points de localisation pour les intégrer dans la map  
-
-
-
+  //Récupérer les données de l'API pour les points de localisation pour les intégrer dans la map
 
   return (
     <>
-
- <BrowserRouter>
-<Routes>
-<Route path="/" element={<HomePage  concerts={fullConcerts} />}/>
-  <Route path="/home" element={<HomePage concerts={fullConcerts} />} />
-<Route path="/infos" element={<Infos />} />
-<Route path="/faq" element={<Faq />} />
-<Route path="/map" element={<FullMap />} />
-<Route path="/mentions" element={<Mentions />} />
-
-</Routes>
-</BrowserRouter>
-
-</>
-  )
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<HomePage concerts={fullConcerts} />} />
+          <Route path="/home" element={<HomePage concerts={fullConcerts} />} />
+          <Route path="/infos" element={<Infos />} />
+          <Route path="/faq" element={<Faq />} />
+          <Route path="/map" element={<FullMap />} />
+          <Route path="/mentions" element={<Mentions />} />
+        </Routes>
+      </BrowserRouter>
+    </>
+  );
 }
 
-export default App
+export default App;

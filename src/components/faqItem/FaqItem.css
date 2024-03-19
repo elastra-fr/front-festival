@@ -1,46 +1,46 @@
-
-.faqItemWrapper{
-color: black;
-display: flex;
-flex-direction: column;
-align-items: flex-start;
-justify-content: center;
+.faqItemWrapper {
+  color: black;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
 
 }
 
-.faqItemList{
-    margin: 15px auto;
-    display: flex ;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center; 
-    gap: 10px;  
-    color: white;
+.faqItemList {
+  margin: 15px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 10px;
+  color: white;
 }
 
 
 details {
-background-color: black;
-   color: black;
-    padding: 16px;
+  background-color: black;
+  color: black;
+  padding: 16px;
 }
-   summary {
-     padding: 10px;
-     cursor: pointer;
-    background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(16,55,207,1) 47%, rgba(218,0,255,1) 100%);
-     color: white;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 10px;
-    
-   }
-   
-   summary:hover {
-     background-color: #ddd
-   }
 
-   summary svg{
-    width: 20px;
-    fill: white;
-   }
+summary {
+  padding: 10px;
+  cursor: pointer;
+  background: radial-gradient(circle, rgba(2, 0, 36, 1) 0%, rgba(16, 55, 207, 1) 47%, rgba(218, 0, 255, 1) 100%);
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+
+}
+
+summary:hover {
+  background-color: #ddd
+}
+
+summary svg {
+  width: 20px;
+  fill: white;
+}

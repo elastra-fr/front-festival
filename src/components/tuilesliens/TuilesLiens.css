@@ -1,50 +1,47 @@
-.tuileLink{
-display: grid;
-grid-template-columns: 1fr;
-grid-template-rows: 1fr;
-position: relative;
-border-radius: 10px;
-width: 100%;
-height: 100%;
+.tuileLink {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    position: relative;
+    border-radius: 10px;
+    width: 100%;
+    height: 100%;
 
 }
 
-.tuileLinkContent{
-position: absolute;
-width: 100%;
-height: 100%;
-display: flex;
-flex-direction: column;
-align-items: center;
-justify-content: center;
-grid-column: 1;
-grid-row: 1;
-z-index: 100;
-font-size: 1.4rem;
-color: white;
+.tuileLinkContent {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    grid-column: 1;
+    grid-row: 1;
+    z-index: 100;
+    font-size: 1.4rem;
+    color: white;
 }
 
-.tuileLinkContent h2{
+.tuileLinkContent h2 {
     text-align: center;
 }
 
-.tuileLinkImg{
-position: relative;
+.tuileLinkImg {
+    position: relative;
 
-grid-column: 1;
-grid-row: 1;
-z-index: 50;
+    grid-column: 1;
+    grid-row: 1;
+    z-index: 50;
 }
 
-.tuileLinkImg img{
-position: relative;
-width: 100%;
-height: 100%;
+.tuileLinkImg img {
+    position: relative;
+    width: 100%;
+    height: 100%;
 
-z-index: 50;
-object-fit: cover;
-border-radius: 10px;
+    z-index: 50;
+    object-fit: cover;
+    border-radius: 10px;
 }
-
-
-

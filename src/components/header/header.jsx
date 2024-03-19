@@ -8,7 +8,7 @@ import ModalYesNo from "../modalyesno/ModalYesNo";
 
 const Header = () => {
   const [showNav, setShowNav] = useState(false);
-const [showModal, setShowModal] = useState(false);
+  const [showModal, setShowModal] = useState(false);
 
   const getWindowWidth = () => {
     return window.innerWidth;
@@ -28,9 +28,9 @@ const [showModal, setShowModal] = useState(false);
     setShowNav(false);
   };
 
-const handleModal = () => {
-    setShowModal(!showModal) ;
-};
+  const handleModal = () => {
+    setShowModal(!showModal);
+  };
 
   return (
     <header>
@@ -93,10 +93,17 @@ const handleModal = () => {
         )}
 
         <div id="headerTitle">
-          <Link to="/home"><h1>NATION SOUND</h1></Link>
+          <Link to="/home">
+            <h1>NATION SOUND</h1>
+          </Link>
           <Socials />
 
-          <input id="ctaBilleterie" type="button" value="Billetterie" onClick={handleModal}/>
+          <input
+            id="ctaBilleterie"
+            type="button"
+            value="Billetterie"
+            onClick={handleModal}
+          />
         </div>
       </div>
 
@@ -111,8 +118,7 @@ const handleModal = () => {
         </svg>
       </div>
 
-{showModal && <ModalYesNo  handleModal={handleModal} />}
-
+      {showModal && <ModalYesNo handleModal={handleModal} />}
     </header>
   );
 };

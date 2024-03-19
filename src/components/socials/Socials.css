@@ -1,18 +1,17 @@
-
-.socials{
+.socials {
   width: 100%;
 }
 
 .socials ul {
   display: flex;
-  justify-content:space-around;
+  justify-content: space-around;
   align-items: center;
   margin-top: 20px;
   width: 80%;
   margin: 15px auto;
 }
 
-.socials > ul li svg {
+.socials>ul li svg {
   width: 25px;
   height: 25px;
   fill: #fff;

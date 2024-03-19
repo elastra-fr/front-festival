@@ -1,20 +1,16 @@
 import "./SynthProg.css";
 import JourProg from "../jourprog/Jourprog";
-import { useActionData } from "react-router-dom";
+//import { useActionData } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { addDaysTxt } from "../../utils";
-
-
 
 const SynthProg = () => {
   //Récupérer les données de l'API pour les concerts
 
-const startdate = new Date("2024-04-19");
-const startdateTxt = addDaysTxt(startdate, 0);
-const j2= addDaysTxt(startdate, 1);
-const j3= addDaysTxt(startdate, 2);
-
-
+  const startdate = new Date("2024-04-19");
+  const startdateTxt = addDaysTxt(startdate, 0);
+  const j2 = addDaysTxt(startdate, 1);
+  const j3 = addDaysTxt(startdate, 2);
 
   const [fullConcerts, setFullConcerts] = useState([]);
   const [filteredConcerts, setFilteredConcerts] = useState([]);
@@ -42,8 +38,6 @@ const j3= addDaysTxt(startdate, 2);
 
   useEffect(() => {
     getConcerts();
-
-
   }, []);
 
   useEffect(() => {
@@ -96,7 +90,7 @@ const j3= addDaysTxt(startdate, 2);
 
       let filteredArray = arrayToFilter.filter(function (item) {
         return Object.keys(filters).every((key) => {
-          console.log(key);
+          //console.log(key);
 
           if (key === "horaire") {
             return (
@@ -113,7 +107,7 @@ const j3= addDaysTxt(startdate, 2);
 
       //filteredArray.sort((a, b) => { return a.acf.horaire - b.acf.horaire; });
 
-      console.log(filteredArray);
+      //console.log(filteredArray);
       setFilteredConcerts(filteredArray);
     }
   }, [filterJour, filterScene, filterHoraire, filterGenre]);
@@ -162,60 +156,78 @@ const j3= addDaysTxt(startdate, 2);
           <h3>Filtrer par :</h3>
 
           <div className="filterWrapper">
-          <label htmlFor="jour">Jour :</label>
-          <select name="jour" id="jour" onChange={handleChange} value={filterJour}>
-            <option value="Tout">Festival complet</option>
-            <option value="J1">Vendredi 30 juillet</option>
-            <option value="J2">Samedi 31 juillet</option>
-            <option value="J3">Dimanche 1er août</option>
-          </select>
-        </div>
+            <label htmlFor="jour">Jour :</label>
+            <select
+              name="jour"
+              id="jour"
+              onChange={handleChange}
+              value={filterJour}
+            >
+              <option value="Tout">Festival complet</option>
+              <option value="J1">Vendredi 30 juillet</option>
+              <option value="J2">Samedi 31 juillet</option>
+              <option value="J3">Dimanche 1er août</option>
+            </select>
+          </div>
 
-<div className="filterWrapper">
-          <label htmlFor="scene">Scène :</label>
-          <select name="scene" id="scene" onChange={handleChange} value={filterScene}>
-            <option value="Tout">Toutes les scènes</option>
-            <option value="Scène principale">Grande scène</option>
-            <option value="Scène 2">Scène 2</option>
-            <option value="Scène 3">Scène 3</option>
-            <option value="Scène 4">Scène 4</option>
-            <option value="Scène 5">Scène 5</option>
-          </select>
-</div>
+          <div className="filterWrapper">
+            <label htmlFor="scene">Scène :</label>
+            <select
+              name="scene"
+              id="scene"
+              onChange={handleChange}
+              value={filterScene}
+            >
+              <option value="Tout">Toutes les scènes</option>
+              <option value="Scène principale">Grande scène</option>
+              <option value="Scène 2">Scène 2</option>
+              <option value="Scène 3">Scène 3</option>
+              <option value="Scène 4">Scène 4</option>
+              <option value="Scène 5">Scène 5</option>
+            </select>
+          </div>
 
-<div className="filterWrapper">
-          <label htmlFor="horaire">A partir de  :</label>
-          <select name="horaire" id="horaire" onChange={handleChange} value={filterHoraire}>
-            <option value="Tout">Tous les horaires</option>
-            <option value="15">15h</option>
-            <option value="16">16h</option>
-            <option value="17">17h</option>
-            <option value="18">18h</option>
-            <option value="19">19h</option>
-            <option value="20">20h</option>
-            <option value="21">21h</option>
-            <option value="22">22h</option>
-            <option value="23">23h</option>
-          </select>
-</div>
+          <div className="filterWrapper">
+            <label htmlFor="horaire">A partir de :</label>
+            <select
+              name="horaire"
+              id="horaire"
+              onChange={handleChange}
+              value={filterHoraire}
+            >
+              <option value="Tout">Tous les horaires</option>
+              <option value="15">15h</option>
+              <option value="16">16h</option>
+              <option value="17">17h</option>
+              <option value="18">18h</option>
+              <option value="19">19h</option>
+              <option value="20">20h</option>
+              <option value="21">21h</option>
+              <option value="22">22h</option>
+              <option value="23">23h</option>
+            </select>
+          </div>
 
-<div className="filterWrapper">
-          <label htmlFor="genre">Genre :</label>
-          <select name="genre" id="genre" onChange={handleChange} value={filterGenre}>
-            <option value="Tout">Tous les genres</option>
-            <option value="Rock">Rock</option>
-            <option value="Pop">Pop</option>
-            <option value="Electro">Electro</option>
-            <option value="Rap">Rap</option>
-            <option value="Reggae">Reggae</option>
-            <option value="Jazz">Jazz</option>
-            <option value="Metal">Metal</option>
-          </select>
-</div>
+          <div className="filterWrapper">
+            <label htmlFor="genre">Genre :</label>
+            <select
+              name="genre"
+              id="genre"
+              onChange={handleChange}
+              value={filterGenre}
+            >
+              <option value="Tout">Tous les genres</option>
+              <option value="Rock">Rock</option>
+              <option value="Pop">Pop</option>
+              <option value="Electro">Electro</option>
+              <option value="Rap">Rap</option>
+              <option value="Reggae">Reggae</option>
+              <option value="Jazz">Jazz</option>
+              <option value="Metal">Metal</option>
+            </select>
+          </div>
 
           <button onClick={deleteFilters}>Reinitialiser</button>
-
-
         </div>
         <div className="joursWrapper">
           {filteredConcertsJ1.length > 0 && (
