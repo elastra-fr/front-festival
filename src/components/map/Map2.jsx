@@ -1,11 +1,10 @@
-import React from 'react';
+import React from "react";
 import { useEffect } from "react";
 import "./Map.css";
-
+import { Link } from "react-router-dom";
 
 const Map2 = () => {
-
-   const [mapPoints, setMapPoints] = React.useState([]);
+  const [mapPoints, setMapPoints] = React.useState([]);
   const [fullMapPoints, setFullMapPoints] = React.useState([]);
 
   const mapKey = import.meta.env.VITE_FESTIVAL_APP_API_MAP;
@@ -35,173 +34,169 @@ const Map2 = () => {
     initMap();
   }, [mapPoints]);
 
-
-
-//Carte
-async function initMap() {
-
-      const position = { lat: 48.7689, lng: 2.09454 };
-  // Request needed libraries.
-  const { Map } = await google.maps.importLibrary("maps");
-  const { AdvancedMarkerElement } = await google.maps.importLibrary("marker");
-  const map = new Map(document.getElementById("map"), {
-    zoom: 15,
+  //Carte
+  async function initMap() {
+    const position = { lat: 48.7689, lng: 2.09454 };
+    // Request needed libraries.
+    const { Map } = await google.maps.importLibrary("maps");
+    const { AdvancedMarkerElement } = await google.maps.importLibrary("marker");
+    const map = new Map(document.getElementById("map"), {
+      zoom: 15,
       center: position,
       mapId: "391e98b9f7969c2d",
       mapTypeIds: ["roadmap", "satellite", "hybrid", "terrain"],
-  });
+    });
 
 
+    //Geolocalisation
+    const infoWindow = new google.maps.InfoWindow();
+    const locationButton = document.createElement("button");
+    locationButton.textContent = "Ma position";
+    locationButton.classList.add("custom-map-control-button");
+    map.controls[google.maps.ControlPosition.TOP_CENTER].push(locationButton);
+    locationButton.addEventListener("click", () => {
+      // Try HTML5 geolocation.
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+          (position) => {
+            const pos = {
+              lat: position.coords.latitude,
+              lng: position.coords.longitude,
+            };
+            infoWindow.setPosition(pos);
+            infoWindow.setContent("Vous êtes ici.");
+            infoWindow.open(map);
+            map.setCenter(pos);
+          },
+          () => {
+            handleLocationError(true, infoWindow, map.getCenter());
+          }
+        );
+      } else {
+        // Browser doesn't support Geolocation
+        handleLocationError(false, infoWindow, map.getCenter());
+      }
 
+    });
 
+    function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+      infoWindow.setPosition(pos);
+      infoWindow.setContent(
+        browserHasGeolocation
+          ? "Erreur: Le service de géolocalisation a échoué."
+          : "Erreur: Votre navigateur ne supporte pas la géolocalisation."
+      );
+      infoWindow.open(map);
+    }
 
 
 
+    //Fin geolocalisation
 
-for (let i = 0; i < mapPoints.length; i++) {
+    for (let i = 0; i < mapPoints.length; i++) {
+      let categorie = mapPoints[i].acf.categorie;
+      let color = "white";
+      let icon;
 
-let categorie = mapPoints[i].acf.categorie; 
-let color = "white";
-let icon;
+      switch (categorie) {
+        case "Scènes":
+          color = "red";
+          icon = "/images/music-solid.svg";
 
-switch (categorie) {
+          break;
 
-case "Scènes":
+        case "Buvettes":
+          icon = "/images/drink.svg";
 
-color = "red";
-icon = "/images/music-solid.svg";
+          break;
 
-  break;
+        case "Restauration":
+          icon = "/images/food.svg";
 
-case "Buvettes":
+          break;
 
+        case "Sanitaires":
+          icon = "/images/wc.svg";
+          break;
 
-icon = "/images/drink.svg";
+        case "Accueil":
+          color = "blue";
+          icon = "/images/info-solid.svg";
 
-  break;
+          break;
 
-case "Restauration":
+        case "Camping":
+          icon = "/images/camp.svg";
 
-icon = "/images/food.svg";
+          break;
 
-  break;
+        case "Parking":
+          icon = "/images/parking.svg";
 
-case "Sanitaires":
+          break;
 
-icon = "/images/wc.svg";
-  break;
+        case "Accès PMR":
+          icon = "/images/accessible.svg";
 
-case "Accueil":
+          break;
 
-color = "blue"; 
-icon = "/images/info-solid.svg";
+        case "Sécurité":
+          icon = "/images/shield.svg";
 
-  break;
+          break;
 
-case "Camping":
+        case "Secours":
+          icon = "/images/medic.svg";
 
-  icon = "/images/camp.svg";
+          break;
 
-  break;
+        case "Boutique":
+          icon = "/images/shop.svg";
 
-case "Parking":
+          break;
 
-  icon = "/images/parking.svg";
+        case "Animations":
+          icon = "/images/event.svg";
 
+          break;
 
-  break;
+        case "Espace VIP":
+          icon = "/images/vip.svg";
 
-case "Accès PMR":
-icon = "/images/accessible.svg";
+          break;
 
-  break;
+        default:
+          color = "white";
+          icon = "/images/location-pin-solid.svg";
 
-case "Sécurité":
+          break;
+      }
 
-  icon = "/images/shield.svg";
+      const point = document.createElement("div");
 
+      point.id = "customMarker" + i;
+      point.className = "customMarker";
+      point.textContent = mapPoints[i].acf.titre;
+      point.style.backgroundColor = color;
+      point.insertAdjacentHTML(
+        "beforeend",
+        '<img src="' + icon + '" alt="icon" />'
+      );
 
+      new AdvancedMarkerElement({
+        map,
+        position: {
+          lat: mapPoints[i].acf.Lieu.lat,
+          lng: mapPoints[i].acf.Lieu.lng,
+        },
+        content: point,
+      });
+    }
+  }
 
-  break;
+  initMap();
 
-case "Secours":
-
-  icon = "/images/medic.svg";
-
-  break;
-
-case "Boutique":
-
-  icon = "/images/shop.svg";
-
-  break;
-
-case "Animations":
-
-  icon = "/images/event.svg";
-
-  break;
-
-case "Espace VIP":
-
-  icon = "/images/vip.svg";
-
-  break;
-
-default:
-
-color = "white";
-icon = "/images/location-pin-solid.svg";
-
-  break;
-
-
-
-
-
-
-}
-
-  const point = document.createElement("div");
-
-point.id="customMarker"+i;
-  point.className = "customMarker";
-  point.textContent = mapPoints[i].acf.titre;
-  point.style.backgroundColor = color;
-  point.insertAdjacentHTML('beforeend', '<img src="'+icon+'" alt="icon" />');
-
-
-  new AdvancedMarkerElement({
-    map,
-    position: { lat: mapPoints[i].acf.Lieu.lat, lng: mapPoints[i].acf.Lieu.lng },
-    content: point,
-  });
-
-}
-
-
-
-}
-
-initMap();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//Gestion select
+  //Gestion select
 
   const handleChange = (e) => {
     const type = e.target.value;
@@ -223,10 +218,9 @@ initMap();
     console.log(fullMapPoints);
   };
 
-
   return (
-<>
-<div className="mapWrapper">
+    <>
+      <div className="mapWrapper">
         <h2>Carte interactive</h2>
         <div className="mapTools">
           <h3>Filtrer par :</h3>
@@ -246,14 +240,20 @@ initMap();
             <option value="Animations">Animations</option>
             <option value="Espace VIP">Espace VIP</option>
           </select>
+
+         
+        <button onClick={() => window.open("https://www.google.com/maps/dir/Current+Location/48.7689,2.09454")} className="navButton">Naviguer vers le festival</button>
+          
+
+        
+
+
+
         </div>
 
         <div id="map" className="map"></div>
       </div>
-
-
-
-</>
+    </>
   );
 };
 
