@@ -9,6 +9,7 @@ import Map2 from '../../components/map/Map2';
 const FullMap = () => {
 
 document.title = 'Carte interactive | NATION SOUND';
+ window.scrollTo(0, 0);
 
 
     return (

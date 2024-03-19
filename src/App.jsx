@@ -9,6 +9,7 @@ import Infos from "./pages/infos/Infos";
 import Faq from "./pages/faq/Faq";
 import FullMap from "./pages/fullmap/Fullmap";
 import Mentions from "./pages/mentions/Mentions";
+import FullActu from "./pages/fullactu/FullActu";
 
 function App() {
   const [modal, setModal] = useState(false);
@@ -76,6 +77,8 @@ return(
           <Route path="/faq" element={<Faq />} />
           <Route path="/map" element={<FullMap />} />
           <Route path="/mentions" element={<Mentions />} />
+          <Route path="/fullactu" element={<FullActu />} /> 
+
         </Routes>
       </BrowserRouter>
     </>

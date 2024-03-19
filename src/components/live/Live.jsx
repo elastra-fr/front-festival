@@ -82,7 +82,7 @@ const Live = ({ concerts }) => {
         <div className="liveTitle">
           <img src="/images/live-12298.svg" alt="Live Title" />
         </div>
-
+<div className="liveWrapper">
         {liveConcerts.length < 1 ? (
           <p>Pas de Concert(s) en cours actuellement</p>
         ) : (
@@ -97,6 +97,8 @@ const Live = ({ concerts }) => {
             );
           })
         )}
+        
+        </div>
       </div>
     </>
   );

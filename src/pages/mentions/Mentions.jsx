@@ -6,7 +6,7 @@ import './Mentions.css';
 const Mentions = () => {
 
 document.title = 'Mentions Légales | NATION SOUND';
-
+ window.scrollTo(0, 0);
 
     return (
  <>

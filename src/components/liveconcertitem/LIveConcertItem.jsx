@@ -1,4 +1,5 @@
 import React from "react";
+import "./LiveConcertItem.css";
 
 const LiveConcertItem = ({ scene, artiste, genre }) => {
   return (
