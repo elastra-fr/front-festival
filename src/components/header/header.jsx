@@ -6,9 +6,14 @@ import { HashLink } from "react-router-hash-link";
 import { useState } from "react";
 import ModalYesNo from "../modalyesno/ModalYesNo";
 
+
 const Header = () => {
   const [showNav, setShowNav] = useState(false);
   const [showModal, setShowModal] = useState(false);
+
+  
+
+
 
   const getWindowWidth = () => {
     return window.innerWidth;
@@ -31,6 +36,20 @@ const Header = () => {
   const handleModal = () => {
     setShowModal(!showModal);
   };
+
+  //Rend fixe l'element mainNav lors du scroll avec un effet de transition
+  window.addEventListener("scroll", () => {
+    let mainNav = document.getElementById("mainNav");
+    if (window.scrollY > 480) {
+      mainNav.style.position = "fixed";
+      mainNav.style.backgroundColor = "black";
+      mainNav.style.transition = "all 0.5s";
+    } else {
+      mainNav.style.position = "absolute";
+      mainNav.style.backgroundColor = "transparent";
+
+    }
+  });
 
   return (
     <header>
@@ -91,6 +110,8 @@ const Header = () => {
             alt="Une personne qui danse sur un fond de couleur bleu nuit."
           ></img>
         )}
+
+
 
         <div id="headerTitle">
           <Link to="/home">

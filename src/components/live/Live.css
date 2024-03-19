@@ -3,7 +3,9 @@
 color: white;
 min-height: 100px;
 width: 95%;
+
 margin: 0 auto;
+margin-top: 115px;
 padding: 20px;
 display: flex;
 flex-direction: column;
