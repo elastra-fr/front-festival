@@ -24,7 +24,7 @@ const SynthProg = () => {
   const [filterGenre, setFilterGenre] = useState("Tout");
 
   const getConcerts = () => {
-    fetch("http://festival.local/wp-json/wp/v2/concert?per_page=100")
+    fetch("https://www.api.nationsound2024-festival.fr/wp-json/wp/v2/concert?per_page=100")
       .then((response) => response.json())
       .then((data) => {
         //console.log(data);

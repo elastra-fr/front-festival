@@ -64,11 +64,7 @@ return(
 }*/
   }
 
-  //Récupérer les données de l'API pour les news
-
-  //Récupérer les données de l'API pour les concerts
-
-  //Récupérer les données de l'API pour les points de localisation pour les intégrer dans la map
+  
 
   return (
     <>

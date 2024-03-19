@@ -12,7 +12,7 @@ const Map2 = () => {
   //Fonction pour récupérer les données de la carte
 
   function getMapData() {
-    fetch("http://festival.local/wp-json/wp/v2/mappoints")
+    fetch("https://www.api.nationsound2024-festival.fr/wp-json/wp/v2/mappoints?per_page=100")
       .then((response) => response.json())
       .then((data) => {
         //console.log(data[0].acf.Lieu);

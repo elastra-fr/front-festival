@@ -9,7 +9,7 @@ const Actu = () => {
   const [actu, setActu] = useState([]);
 
   const getActu = () => {
-    fetch("http://festival.local/wp-json/wp/v2/actus?per_page=100")
+    fetch("https://www.api.nationsound2024-festival.fr/wp-json/wp/v2/actus?per_page=100")
       .then((response) => response.json())
       .then((data) => {
         //console.log(data);
