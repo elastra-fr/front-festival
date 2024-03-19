@@ -5,11 +5,12 @@ import LiveConcertItem from "../liveconcertitem/LIveConcertItem";
 const Live = ({ concerts }) => {
   const [fullConcerts, setFullConcerts] = React.useState([]);
   const [liveConcerts, setLiveConcerts] = React.useState([]);
-  const [liveSP, setLiveSP] = React.useState([]);
+  const[refresh, setRefresh] = React.useState(""); 
+  /*const [liveSP, setLiveSP] = React.useState([]);
   const [liveS2, setLiveS2] = React.useState([]);
   const [liveS3, setLiveS3] = React.useState([]);
   const [liveS4, setLiveS4] = React.useState([]);
-  const [liveS5, setLiveS5] = React.useState([]);
+  const [liveS5, setLiveS5] = React.useState([]);*/
 
   const getConcerts = () => {
     fetch("https://www.api.nationsound2024-festival.fr/wp-json/wp/v2/concert?per_page=100")
@@ -68,7 +69,9 @@ const Live = ({ concerts }) => {
       });
     });
 
+setRefresh(new Date().toLocaleTimeString());
     setLiveConcerts(filteredArray);
+
 
     setTimeout(() => {
       isLive();
@@ -81,6 +84,7 @@ const Live = ({ concerts }) => {
       <div className="mainLive">
         <div className="liveTitle">
           <img src="/images/live-12298.svg" alt="Live Title" />
+          <span className="refreshInfos">{"(Mise à jour : " + refresh+")"}</span>
         </div>
 <div className="liveWrapper">
         {liveConcerts.length < 1 ? (
