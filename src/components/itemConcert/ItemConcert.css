@@ -90,15 +90,26 @@ align-items: center;
 
 }
 
+.headerCardConcert h3{
+    margin: 0;
+}
+
 .infosCardConcert{
 
 background-color: black;
 align-self: center;
 justify-self:left;
+font-size: 0.9rem;
 padding: 5px;
 
-
 }
+
+.infosCardConcert p{
+ font-size: 0.9rem;
+ margin: 0;
+ 
+ }
+
 
 .footerCardConcert
 {
