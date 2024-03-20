@@ -42,11 +42,22 @@ const Header = () => {
     let mainNav = document.getElementById("mainNav");
     if (window.scrollY > 480) {
       mainNav.style.position = "fixed";
-      mainNav.style.backgroundColor = "black";
+      mainNav.style.background ="radial-gradient(circle, rgba(2, 0, 36, 1) 0%, rgba(16, 55, 207, 1) 47%, rgba(218, 0, 255, 1) 100%)";
       mainNav.style.transition = "all 0.5s";
+      mainNav.style.maxWidth = "1440px";
+      mainNav.style.margin = "0 auto";
+
+
+
+
     } else {
       mainNav.style.position = "absolute";
       mainNav.style.backgroundColor = "transparent";
+      mainNav.style.background = "none";
+
+
+
+      
 
     }
   });
