@@ -12,7 +12,9 @@ const Map2 = () => {
   //Fonction pour récupérer les données de la carte
 
   function getMapData() {
-    fetch("https://www.api.nationsound2024-festival.fr/wp-json/wp/v2/mappoints?per_page=100")
+    fetch(
+      "https://www.api.nationsound2024-festival.fr/wp-json/wp/v2/mappoints?per_page=100"
+    )
       .then((response) => response.json())
       .then((data) => {
         //console.log(data[0].acf.Lieu);
@@ -46,6 +48,7 @@ const Map2 = () => {
       mapId: "391e98b9f7969c2d",
       mapTypeIds: ["roadmap", "satellite", "hybrid", "terrain"],
       fullscreenControl: false,
+     
     });
 
     //Geolocalisation
@@ -53,7 +56,7 @@ const Map2 = () => {
     const locationButton = document.createElement("button");
     locationButton.textContent = "Ma position";
     locationButton.classList.add("custom-map-control-button");
-   map.controls[google.maps.ControlPosition.TOP_RIGHT].push(locationButton);
+    map.controls[google.maps.ControlPosition.TOP_RIGHT].push(locationButton);
     locationButton.addEventListener("click", () => {
       // Try HTML5 geolocation.
       if (navigator.geolocation) {
@@ -189,63 +192,93 @@ const Map2 = () => {
         content: point,
       });
 
-//Ajout d'un listener pour ouvrir une fenêtre modal au clic sur un marqueur
+      //Ajout d'un listener pour ouvrir une fenêtre modal au clic sur un marqueur
 
-//Ajout d'un listener pour ouvrir une fenêtre modal au clic sur un marqueur
+      //Ajout d'un listener pour ouvrir une fenêtre modal au clic sur un marqueur
 
-point.addEventListener("click", function () {
+      point.addEventListener("click", function () {
+        let titre = mapPoints[i].acf.titre;
+        let description = mapPoints[i].acf.infos;
 
-  let titre= mapPoints[i].acf.titre;
-  let description= mapPoints[i].acf.infos;
+        console.log(titre + " " + description);
 
-  console.log(titre + " " + description) ;
+        const modal = document.createElement("div");
+        modal.className = "modal";
+        modal.id = "modal" + i;
+        modal.innerHTML = `
+          <div class="maps-modal-content">
+            <span class="close" id="close${i}">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+                <path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/>
+              </svg>
+            </span>
+            <h2>${mapPoints[i].acf.titre}</h2>
+            <p>${mapPoints[i].acf.infos}</p>
+            <p>
+              <a href="https://www.google.com/maps/dir/Current+Location/${mapPoints[i].acf.Lieu.lat},${mapPoints[i].acf.Lieu.lng}" target="_blank">Naviguer vers ce lieu</a>
+            </p>
+          </div>
+        `;
+
+        document.body.appendChild(modal);
+
+        const span = document.getElementById("close" + i);
+
+        span.addEventListener("click", function () {
+          modal.remove();
+        });
+
+        window.onclick = function (event) {
+          if (event.target == modal) {
+            modal.style.display = "none";
+          }
+        };
+      });
+
+            point.addEventListener("touchstart", function () {
+        let titre = mapPoints[i].acf.titre;
+        let description = mapPoints[i].acf.infos;
+
+        console.log(titre + " " + description);
+
+        const modal = document.createElement("div");
+        modal.className = "modal";
+        modal.id = "modal" + i;
+        modal.innerHTML = `
+          <div class="maps-modal-content">
+            <span class="close" id="close${i}">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+                <path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/>
+              </svg>
+            </span>
+            <h2>${mapPoints[i].acf.titre}</h2>
+            <p>${mapPoints[i].acf.infos}</p>
+            <p>
+              <a href="https://www.google.com/maps/dir/Current+Location/${mapPoints[i].acf.Lieu.lat},${mapPoints[i].acf.Lieu.lng}" target="_blank">Naviguer vers ce lieu</a>
+            </p>
+          </div>
+        `;
+
+        document.body.appendChild(modal);
+
+        const span = document.getElementById("close" + i);
+
+        span.addEventListener("touchstart", function () {
+          modal.remove();
+        });
+
+        window.onclick = function (event) {
+          if (event.target == modal) {
+            modal.style.display = "none";
+          }
+        };
+      });
 
 
-  const modal = document.createElement("div");
-  modal.className = "modal";
-  modal.id = "modal" + i;
-  modal.innerHTML = `
-  <div class="maps-modal-content">
-  <span class="close" id="close${i}">
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/></svg></span>
-  
-  <h2>${mapPoints[i].acf.titre}</h2>
-  <p>${mapPoints[i].acf.infos}</p>
-  <p><a href="https://www.google.com/maps/dir/Current+Location/${mapPoints[i].acf.Lieu.lat},${mapPoints[i].acf.Lieu.lng}" target="_blank">Naviguer vers ce lieu</a></p>
-  </div>
-  `;
 
-  document.body.appendChild(modal);
-
-  const span = document.getElementById("close" + i);
-
-span.addEventListener("click", function () {
-modal.remove();
-});
-
-  window.onclick = function (event) {
-    if (event.target == modal) {
-      modal.style.display = "none";
-    }
-  };
-
-
-
-
-
-});
       
-
-
-
     }
-
-
-
-
   }
-
-
 
   initMap();
 
@@ -253,7 +286,7 @@ modal.remove();
 
   const handleChange = (e) => {
     const type = e.target.value;
-   // console.log(type);
+    // console.log(type);
 
     if (type === "Tout") {
       setMapPoints(fullMapPoints);
@@ -294,7 +327,7 @@ modal.remove();
             <option value="Espace VIP">Espace VIP</option>
           </select>
 
-         { /*<button
+          {/*<button
             onClick={() =>
               window.open(
                 "https://www.google.com/maps/dir/Current+Location/48.7689,2.09454"
@@ -304,8 +337,14 @@ modal.remove();
           >
             Naviguer vers le festival
           </button>*/}
+                  <Link
+          className="lienNavig"
+          to="https://www.google.com/maps/dir/Current+Location/48.7689,2.09454"
+          target="_blank"
+        >
+          Naviguer vers le site du Festival
+        </Link>
         </div>
-<Link className="lienNavig" to="https://www.google.com/maps/dir/Current+Location/48.7689,2.09454" target="_blank">Naviguer vers le site du Festival</Link>
 
 
         <div id="map" className="map"></div>
