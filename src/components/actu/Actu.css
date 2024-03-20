@@ -1,5 +1,5 @@
 .mainActu {
-    
+
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -10,7 +10,7 @@
     color: white;
     width: 90%;
     margin: 0 auto;
-    
+
 
 }
 
@@ -56,7 +56,7 @@
 
 }
 
-.lienFullActu{
+.lienFullActu {
     text-decoration: underline;
     color: white;
     font-weight: bold;

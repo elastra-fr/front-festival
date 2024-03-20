@@ -68,7 +68,8 @@ const Header = () => {
         <nav id="mainNav" className={`${showNav ? "showNav" : "hideNav"}`}>
           <ul>
             <li>
-              <Link to="/home" onClick={() => setShowNav(false)}>
+              <Link to="/home" onClick={() => {setShowNav(false)
+              scrollTo(0,0)}}>
                 Accueil
               </Link>
             </li>

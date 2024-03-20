@@ -43,7 +43,7 @@ const HomePage = ({concerts}) => {
       <Header />
 
       <main>
-        <section className="live">
+        <section id="live" className="live">
           <Live concerts={concerts}/>
         </section>
 
