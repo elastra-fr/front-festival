@@ -30,6 +30,7 @@ const deviceWidth = window.innerWidth;
 
         //length = nombre d'éléments dans le tableau
         //console.log(data.length);
+        console.log(data);
       });
   }
 
@@ -134,7 +135,7 @@ if(deviceWidth<768){
           break;
 
         case "Accueil":
-          color = "blue";
+ 
           icon = "/images/info-solid.svg";
 
           break;
