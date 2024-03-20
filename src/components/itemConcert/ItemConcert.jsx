@@ -17,9 +17,9 @@ const ItemConcert = ({ src, groupe, horaire, genre, desc, scene }) => {
         <img src={locsrc} alt="concert" />
       </div>
       <div className="textConcert">
-        <h3>{groupe}</h3>
-        <p className="textConcertInfos">{horaire + "H - " + scene} </p>
-        <p>{genre + "  : " + desc}</p>
+        <div className="headerCardConcert"><h3>{groupe}</h3></div>
+        <div className="infosCardConcert"><p className="textConcertInfos">{horaire + "H - " + scene} </p></div>
+        <div className="footerCardConcert"><p>{genre + "  : " + desc}</p></div>
       </div>
     </div>
   );
