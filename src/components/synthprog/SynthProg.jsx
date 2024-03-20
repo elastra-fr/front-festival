@@ -164,9 +164,9 @@ const SynthProg = () => {
               value={filterJour}
             >
               <option value="Tout">Festival complet</option>
-              <option value="J1">Vendredi 30 juillet</option>
-              <option value="J2">Samedi 31 juillet</option>
-              <option value="J3">Dimanche 1er août</option>
+              <option value="J1">{startdateTxt}</option>
+              <option value="J2">{j2}</option>
+              <option value="J3">{j3}</option>
             </select>
           </div>
 

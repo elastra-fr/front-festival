@@ -14,6 +14,11 @@ let nbperpage;
 
 switch(location){
 
+case "/":
+
+nbperpage=10;
+
+break;
 
 case "/home":
 

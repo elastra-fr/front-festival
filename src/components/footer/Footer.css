@@ -30,6 +30,7 @@
 
 .footerContentCenter ul {
     display: flex;
+    flex-direction: column;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
@@ -62,11 +63,18 @@
     align-items: center;
 }
 
-.footerContentRight .socials {
+.footerContentRight >.socials {
 
-    max-width: 90%;
-
+width: 100%;
 }
+
+.footerContentRight >.socials ul {
+ 
+    flex-direction: row;
+    gap: 30px;
+}   
+
+
 
 @media screen and (min-width: 768px) {
 
@@ -77,12 +85,25 @@
 
     }
 
-    .footerContentRight .socials {
 
-        max-width: 95%;
+
+    .footerContentCenter ul {flex-direction: row;}
+
+        .footerContentRight .socials ul {
+            
+       flex-direction: column;
+         gap: 10px;
 
     }
 
 
+
+}
+
+@media screen and (min-width: 1000px){
+    
+.footerContentRight .socials ul {
+    flex-direction: row;
+    gap: 20px;}
 
 }

@@ -4,6 +4,12 @@ import "./Map.css";
 import { Link } from "react-router-dom";
 
 const Map2 = () => {
+
+//Récupérer la largeur de l'écran
+const deviceWidth = window.innerWidth;
+
+
+
   const [mapPoints, setMapPoints] = React.useState([]);
   const [fullMapPoints, setFullMapPoints] = React.useState([]);
 
@@ -39,11 +45,19 @@ const Map2 = () => {
   //Carte
   async function initMap() {
     const position = { lat: 48.7689, lng: 2.09454 };
+let zoom;
+
+if(deviceWidth<768){
+  zoom=14;
+}else{
+  zoom=15;
+}
+
     // Request needed libraries.
     const { Map } = await google.maps.importLibrary("maps");
     const { AdvancedMarkerElement } = await google.maps.importLibrary("marker");
     const map = new Map(document.getElementById("map"), {
-      zoom: 15,
+      zoom: zoom,
       center: position,
       mapId: "391e98b9f7969c2d",
       mapTypeIds: ["roadmap", "satellite", "hybrid", "terrain"],
