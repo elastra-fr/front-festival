@@ -45,6 +45,7 @@ const Map2 = () => {
       center: position,
       mapId: "391e98b9f7969c2d",
       mapTypeIds: ["roadmap", "satellite", "hybrid", "terrain"],
+      fullscreenControl: false,
     });
 
     //Geolocalisation
@@ -52,7 +53,7 @@ const Map2 = () => {
     const locationButton = document.createElement("button");
     locationButton.textContent = "Ma position";
     locationButton.classList.add("custom-map-control-button");
-    map.controls[google.maps.ControlPosition.TOP_CENTER].push(locationButton);
+   map.controls[google.maps.ControlPosition.TOP_RIGHT].push(locationButton);
     locationButton.addEventListener("click", () => {
       // Try HTML5 geolocation.
       if (navigator.geolocation) {
@@ -172,7 +173,7 @@ const Map2 = () => {
 
       point.id = "customMarker" + i;
       point.className = "customMarker";
-      point.textContent = mapPoints[i].acf.titre;
+      //point.textContent = mapPoints[i].acf.titre;
       point.style.backgroundColor = color;
       point.insertAdjacentHTML(
         "beforeend",
@@ -187,8 +188,64 @@ const Map2 = () => {
         },
         content: point,
       });
+
+//Ajout d'un listener pour ouvrir une fenêtre modal au clic sur un marqueur
+
+//Ajout d'un listener pour ouvrir une fenêtre modal au clic sur un marqueur
+
+point.addEventListener("click", function () {
+
+  let titre= mapPoints[i].acf.titre;
+  let description= mapPoints[i].acf.infos;
+
+  console.log(titre + " " + description) ;
+
+
+  const modal = document.createElement("div");
+  modal.className = "modal";
+  modal.id = "modal" + i;
+  modal.innerHTML = `
+  <div class="maps-modal-content">
+  <span class="close" id="close${i}">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/></svg></span>
+  
+  <h2>${mapPoints[i].acf.titre}</h2>
+  <p>${mapPoints[i].acf.infos}</p>
+  <p><a href="https://www.google.com/maps/dir/Current+Location/${mapPoints[i].acf.Lieu.lat},${mapPoints[i].acf.Lieu.lng}" target="_blank">Naviguer vers ce lieu</a></p>
+  </div>
+  `;
+
+  document.body.appendChild(modal);
+
+  const span = document.getElementById("close" + i);
+
+span.addEventListener("click", function () {
+modal.remove();
+});
+
+  window.onclick = function (event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
     }
+  };
+
+
+
+
+
+});
+      
+
+
+
+    }
+
+
+
+
   }
+
+
 
   initMap();
 
@@ -219,7 +276,7 @@ const Map2 = () => {
       <div className="mapWrapper">
         <h2>Carte interactive</h2>
         <div className="mapTools">
-          <h3>Filtrer par :</h3>
+          <label htmlFor="filtremap">Filtrer par :</label>
           <select name="filtremap" id="filtremap" onChange={handleChange}>
             <option value="Tout">Tout</option>
             <option value="Scènes">Scènes</option>
@@ -237,7 +294,7 @@ const Map2 = () => {
             <option value="Espace VIP">Espace VIP</option>
           </select>
 
-          <button
+         { /*<button
             onClick={() =>
               window.open(
                 "https://www.google.com/maps/dir/Current+Location/48.7689,2.09454"
@@ -246,8 +303,10 @@ const Map2 = () => {
             className="navButton"
           >
             Naviguer vers le festival
-          </button>
+          </button>*/}
         </div>
+<Link className="lienNavig" to="https://www.google.com/maps/dir/Current+Location/48.7689,2.09454" target="_blank">Naviguer vers le site du Festival</Link>
+
 
         <div id="map" className="map"></div>
       </div>

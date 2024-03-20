@@ -26,9 +26,10 @@ color: black;
     width: 95%;
     margin: 15px auto;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     gap: 10px;
+    padding: 10px;
 }
 
 /* HTML marker styles */
@@ -36,7 +37,7 @@ color: black;
   background-color : white;
   border-radius: 8px;
   color: black;
-  font-size: 14px;
+  font-size: 1rem;
   font-weight: bolder;
   padding: 10px 15px;
   position: relative;
@@ -47,8 +48,14 @@ color: black;
 }
 
 .customMarker img {
- width: 20px;
- height: 20px;
+ width: 15px;
+ height: 15px;
+
+}
+
+.infosMarker{
+background-color: white ;
+z-index: 1000;
 
 }
 
@@ -64,7 +71,8 @@ color: black;
   height: 0;
   border-left: 8px solid transparent;
   border-right: 8px solid transparent;
-  border-top: 8px solid white;
+  border-top: 8px solid black;
+  color: inherit;
 }
 
 .custom-map-control-button {
@@ -83,3 +91,47 @@ color: black;
   background: rgb(235, 235, 235);
 }
 
+.mapWrapper h2{
+    color: white;
+    margin: 15px auto;
+    margin-left: 15px;
+}
+
+.maps-modal-content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 20px;
+    background-color: black;
+    color: white;
+    border-radius: 10px;
+}
+
+.maps-modal-content a{
+    
+    color: white;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.maps-modal-content span svg{
+    fill: white;
+    width: 20px;
+    height: 20px;
+}
+
+.maps-modal-content span svg:hover{
+    fill: red;
+    cursor: pointer;
+} 
+
+.lienNavig{
+    text-decoration: underline;
+    color: white;
+    font-weight: bold;
+    padding: 20px;
+    text-align: right;
+    font-size: 1rem;
+    margin-bottom: 20px;}
