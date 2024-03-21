@@ -12,7 +12,7 @@ const TuilesLiens = ({ txt, img, to }) => {
           </div>
 
           <div className="tuileLinkImg">
-            <img src={img} alt=""  loading="lazy"/>
+            <img src={img} alt="" loading="lazy" />
           </div>
         </div>
       </Link>

@@ -2,7 +2,7 @@ import React from "react";
 import "./ModalYesNo.css";
 
 const ModalYesNo = ({ handleModal }) => {
-  // Add your component logic here
+
 
   return (
     <>

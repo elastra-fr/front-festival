@@ -7,7 +7,7 @@ import TuilesLiens from "../../components/tuilesliens/TuilesLiens";
 
 const Faq = () => {
   document.title = "Informations - FAQ | NATION SOUND";
-   window.scrollTo(0, 0);
+  window.scrollTo(0, 0);
 
   return (
     <>

@@ -3,7 +3,7 @@ import ItemConcert from "../itemConcert/ItemConcert";
 import "./Jourprog.css";
 
 const JourProg = ({ jour, data }) => {
-  //console.log(data);
+  
   return (
     <>
       <div className="jour">

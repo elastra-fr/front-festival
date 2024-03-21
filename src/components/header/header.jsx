@@ -6,14 +6,9 @@ import { HashLink } from "react-router-hash-link";
 import { useState } from "react";
 import ModalYesNo from "../modalyesno/ModalYesNo";
 
-
 const Header = () => {
   const [showNav, setShowNav] = useState(false);
   const [showModal, setShowModal] = useState(false);
-
-  
-
-
 
   const getWindowWidth = () => {
     return window.innerWidth;
@@ -42,23 +37,15 @@ const Header = () => {
     let mainNav = document.getElementById("mainNav");
     if (window.scrollY > 480) {
       mainNav.style.position = "fixed";
-      mainNav.style.background ="radial-gradient(circle, rgba(2, 0, 36, 1) 0%, rgba(16, 55, 207, 1) 47%, rgba(218, 0, 255, 1) 100%)";
+      mainNav.style.background =
+        "radial-gradient(circle, rgba(2, 0, 36, 1) 0%, rgba(16, 55, 207, 1) 47%, rgba(218, 0, 255, 1) 100%)";
       mainNav.style.transition = "all 0.5s";
       mainNav.style.maxWidth = "1440px";
       mainNav.style.margin = "0 auto";
-
-
-
-
     } else {
       mainNav.style.position = "absolute";
       mainNav.style.backgroundColor = "transparent";
       mainNav.style.background = "none";
-
-
-
-      
-
     }
   });
 
@@ -68,8 +55,13 @@ const Header = () => {
         <nav id="mainNav" className={`${showNav ? "showNav" : "hideNav"}`}>
           <ul>
             <li>
-              <Link to="/home" onClick={() => {setShowNav(false)
-              scrollTo(0,0)}}>
+              <Link
+                to="/home"
+                onClick={() => {
+                  setShowNav(false);
+                  scrollTo(0, 0);
+                }}
+              >
                 Accueil
               </Link>
             </li>
@@ -122,8 +114,6 @@ const Header = () => {
             alt="Une personne qui danse sur un fond de couleur bleu nuit."
           ></img>
         )}
-
-
 
         <div id="headerTitle">
           <Link to="/home">

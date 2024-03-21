@@ -1,6 +1,5 @@
 import "./SynthProg.css";
 import JourProg from "../jourprog/Jourprog";
-//import { useActionData } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { addDaysTxt } from "../../utils";
 
@@ -24,10 +23,11 @@ const SynthProg = () => {
   const [filterGenre, setFilterGenre] = useState("Tout");
 
   const getConcerts = () => {
-    fetch("https://www.api.nationsound2024-festival.fr/wp-json/wp/v2/concert?per_page=100")
+    fetch(
+      "https://www.api.nationsound2024-festival.fr/wp-json/wp/v2/concert?per_page=100"
+    )
       .then((response) => response.json())
       .then((data) => {
-        //console.log(data);
         data.sort((a, b) => {
           return a.acf.horaire - b.acf.horaire;
         });
@@ -75,7 +75,7 @@ const SynthProg = () => {
     ) {
       setFilteredConcerts(fullConcerts);
     } else {
-      //console.log("Filtrage nécessaire");
+   
 
       let filters = {
         jour: filterJour,
@@ -84,13 +84,13 @@ const SynthProg = () => {
         genre: filterGenre,
       };
 
-      //iterate over the filters object to filter fullConcerts
+  
 
       let arrayToFilter = fullConcerts;
 
       let filteredArray = arrayToFilter.filter(function (item) {
         return Object.keys(filters).every((key) => {
-          //console.log(key);
+   
 
           if (key === "horaire") {
             return (
@@ -103,22 +103,18 @@ const SynthProg = () => {
         });
       });
 
-      //order filteredArray by horaire
 
-      //filteredArray.sort((a, b) => { return a.acf.horaire - b.acf.horaire; });
-
-      //console.log(filteredArray);
       setFilteredConcerts(filteredArray);
     }
   }, [filterJour, filterScene, filterHoraire, filterGenre]);
 
   const handleChange = (e) => {
     let id = e.target.id;
-    // console.log(id);
+
 
     let value = e.target.value;
 
-    //console.log(value);
+
 
     switch (id) {
       case "jour":
@@ -239,22 +235,10 @@ const SynthProg = () => {
           {filteredConcertsJ3.length > 0 && (
             <JourProg jour={j3} data={filteredConcertsJ3} />
           )}
-          {/*<JourProg jour="Vendredi 30 juillet" />
-          <JourProg jour="Samedi 31 juillet" />
-          <JourProg jour="Dimanche 1er août" />*/}
+   
         </div>
 
-        {/*<section className="newWrapper">
-          {filteredConcerts.map((concert, index) => (
-            <div className="newConcert" key={index}>
-              <h3>{concert.title.rendered}</h3>
-              <p>{concert.acf.artiste}</p>
-              <p>{concert.acf.horaire}</p>
-              <p>{concert.acf.scene}</p>
-              <p>{concert.acf.genre}</p>
-            </div>
-          ))}
-        </section>*/}
+
       </div>
     </>
   );

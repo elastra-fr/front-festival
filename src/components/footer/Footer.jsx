@@ -7,6 +7,8 @@ import ModalYesNo from "../modalyesno/ModalYesNo";
 import { useState } from "react";
 
 const Footer = () => {
+
+  //Fenêtre modale pour la billetterie externe
   const [showModal, setShowModal] = useState(false);
   const handleModal = () => {
     setShowModal(!showModal);

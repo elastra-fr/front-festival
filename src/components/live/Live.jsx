@@ -2,21 +2,17 @@ import React, { useEffect } from "react";
 import "./Live.css";
 import LiveConcertItem from "../liveconcertitem/LIveConcertItem";
 
-const Live = ({ concerts }) => {
+const Live = () => {
   const [fullConcerts, setFullConcerts] = React.useState([]);
   const [liveConcerts, setLiveConcerts] = React.useState([]);
-  const[refresh, setRefresh] = React.useState(""); 
-  /*const [liveSP, setLiveSP] = React.useState([]);
-  const [liveS2, setLiveS2] = React.useState([]);
-  const [liveS3, setLiveS3] = React.useState([]);
-  const [liveS4, setLiveS4] = React.useState([]);
-  const [liveS5, setLiveS5] = React.useState([]);*/
+  const [refresh, setRefresh] = React.useState("");
 
   const getConcerts = () => {
-    fetch("https://www.api.nationsound2024-festival.fr/wp-json/wp/v2/concert?per_page=100")
+    fetch(
+      "https://www.api.nationsound2024-festival.fr/wp-json/wp/v2/concert?per_page=100"
+    )
       .then((response) => response.json())
       .then((data) => {
-        //  console.log(data);
         data.sort((a, b) => {
           return a - b;
         });
@@ -29,13 +25,8 @@ const Live = ({ concerts }) => {
   }, []);
 
   useEffect(() => {
-    //console.log(fullConcerts);
     isLive();
   }, [fullConcerts]);
-
-  useEffect(() => {
-    //console.log(liveConcerts);
-  }, [liveConcerts]);
 
   const equivalentJ = (date) => {
     switch (date) {
@@ -59,8 +50,6 @@ const Live = ({ concerts }) => {
       horaire: nowH,
     };
 
-    //console.log(filters);
-
     let arrayToFilter = fullConcerts;
 
     let filteredArray = arrayToFilter.filter(function (item) {
@@ -69,39 +58,40 @@ const Live = ({ concerts }) => {
       });
     });
 
-setRefresh(new Date().toLocaleTimeString());
+    setRefresh(new Date().toLocaleTimeString());
     setLiveConcerts(filteredArray);
+  };
 
-
+  useEffect(() => {
     setTimeout(() => {
       isLive();
-      //console.log("refresh");
     }, 120000);
-  };
+  }, [liveConcerts]);
 
   return (
     <>
       <div className="mainLive">
         <div className="liveTitle">
           <img src="/images/live-12298.svg" alt="Live Title" />
-          <span className="refreshInfos">{"(Mise à jour : " + refresh+")"}</span>
+          <span className="refreshInfos">
+            {"(Mise à jour : " + refresh + ")"}
+          </span>
         </div>
-<div className="liveWrapper">
-        {liveConcerts.length < 1 ? (
-          <p>Pas de Concert(s) en cours actuellement</p>
-        ) : (
-          liveConcerts.map((concerts, index) => {
-            return (
-              <LiveConcertItem
-                key={index}
-                scene={concerts.acf.scene}
-                artiste={concerts.acf.groupe}
-                genre={concerts.acf.genre}
-              />
-            );
-          })
-        )}
-        
+        <div className="liveWrapper">
+          {liveConcerts.length < 1 ? (
+            <p>Pas de Concert(s) en cours actuellement</p>
+          ) : (
+            liveConcerts.map((concerts, index) => {
+              return (
+                <LiveConcertItem
+                  key={index}
+                  scene={concerts.acf.scene}
+                  artiste={concerts.acf.groupe}
+                  genre={concerts.acf.genre}
+                />
+              );
+            })
+          )}
         </div>
       </div>
     </>

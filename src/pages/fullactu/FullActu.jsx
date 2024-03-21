@@ -11,7 +11,7 @@ const FullActu = () => {
 const location = useLocation();
 document.title = 'Actu | NATION SOUND';
     window.scrollTo(0, 0);
-console.log(location);
+
     return (
 <>
 <Header />

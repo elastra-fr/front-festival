@@ -1,7 +1,7 @@
 import React from 'react';
 import Header from '../../components/header/Header';
 import Footer from '../../components/footer/Footer';
-import Map from '../../components/map/Map';
+//import Map from '../../components/map/Map';
 import Live from '../../components/live/Live';
 import Map2 from '../../components/map/Map2';
 

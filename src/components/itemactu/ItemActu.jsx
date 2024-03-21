@@ -5,7 +5,7 @@ import { txtDate } from "../../utils";
 const ItemActu = ({ date, intitule, texteactu }) => {
   let textDate = txtDate(date);
 
-  //console.log(textDate);
+
 
   return (
     <>

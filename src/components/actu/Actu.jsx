@@ -8,7 +8,7 @@ const Actu = () => {
   const location = useLocation().pathname;
 
   let nbperpage;
-
+//Limitation du nombre d'articles affichés en fonction de la page
   switch (location) {
     case "/":
       nbperpage = 10;
@@ -28,11 +28,13 @@ const Actu = () => {
     default:
   }
 
-  console.log(nbperpage);
 
   const [fullActu, setFullActu] = useState([]);
   const [importantActu, setImportantActu] = useState([]);
   const [actu, setActu] = useState([]);
+
+
+//Récupération des articles du composant Actu
 
   const getActu = () => {
     fetch(
@@ -41,7 +43,7 @@ const Actu = () => {
     )
       .then((response) => response.json())
       .then((data) => {
-        //console.log(data);
+     
         setFullActu(data);
       });
   };
@@ -59,10 +61,7 @@ const Actu = () => {
     }
   }, [fullActu]);
 
-  useEffect(() => {
-    //console.log(importantActu);
-    //console.log(actu);
-  }, [importantActu, actu]);
+  useEffect(() => {}, [importantActu, actu]);
 
   return (
     <>

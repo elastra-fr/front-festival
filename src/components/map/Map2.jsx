@@ -23,14 +23,11 @@ const deviceWidth = window.innerWidth;
     )
       .then((response) => response.json())
       .then((data) => {
-        //console.log(data[0].acf.Lieu);
+    
 
         setFullMapPoints(data);
         setMapPoints(data);
 
-        //length = nombre d'éléments dans le tableau
-        //console.log(data.length);
-        console.log(data);
       });
   }
 
@@ -54,7 +51,6 @@ if(deviceWidth<768){
   zoom=15;
 }
 
-    // Request needed libraries.
     const { Map } = await google.maps.importLibrary("maps");
     const { AdvancedMarkerElement } = await google.maps.importLibrary("marker");
     const map = new Map(document.getElementById("map"), {
@@ -73,7 +69,7 @@ if(deviceWidth<768){
     locationButton.classList.add("custom-map-control-button");
     map.controls[google.maps.ControlPosition.TOP_RIGHT].push(locationButton);
     locationButton.addEventListener("click", () => {
-      // Try HTML5 geolocation.
+//Test geolocalisation
       if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(
           (position) => {
@@ -91,7 +87,7 @@ if(deviceWidth<768){
           }
         );
       } else {
-        // Browser doesn't support Geolocation
+       // Le navigateur ne supporte pas la géolocalisation
         handleLocationError(false, infoWindow, map.getCenter());
       }
     });
@@ -191,7 +187,6 @@ if(deviceWidth<768){
 
       point.id = "customMarker" + i;
       point.className = "customMarker";
-      //point.textContent = mapPoints[i].acf.titre;
       point.style.backgroundColor = color;
       point.insertAdjacentHTML(
         "beforeend",
@@ -207,7 +202,7 @@ if(deviceWidth<768){
         content: point,
       });
 
-      //Ajout d'un listener pour ouvrir une fenêtre modal au clic sur un marqueur
+    
 
       //Ajout d'un listener pour ouvrir une fenêtre modal au clic sur un marqueur
 
@@ -215,7 +210,6 @@ if(deviceWidth<768){
         let titre = mapPoints[i].acf.titre;
         let description = mapPoints[i].acf.infos;
 
-        console.log(titre + " " + description);
 
         const modal = document.createElement("div");
         modal.className = "modal";
@@ -253,8 +247,6 @@ if(deviceWidth<768){
             point.addEventListener("touchstart", function () {
         let titre = mapPoints[i].acf.titre;
         let description = mapPoints[i].acf.infos;
-
-        console.log(titre + " " + description);
 
         const modal = document.createElement("div");
         modal.className = "modal";
@@ -301,7 +293,6 @@ if(deviceWidth<768){
 
   const handleChange = (e) => {
     const type = e.target.value;
-    // console.log(type);
 
     if (type === "Tout") {
       setMapPoints(fullMapPoints);
@@ -316,7 +307,7 @@ if(deviceWidth<768){
       setMapPoints(filteredArray);
     }
 
-    //console.log(fullMapPoints);
+
   };
 
   return (
@@ -342,16 +333,6 @@ if(deviceWidth<768){
             <option value="Espace VIP">Espace VIP</option>
           </select>
 
-          {/*<button
-            onClick={() =>
-              window.open(
-                "https://www.google.com/maps/dir/Current+Location/48.7689,2.09454"
-              )
-            }
-            className="navButton"
-          >
-            Naviguer vers le festival
-          </button>*/}
                   <Link
           className="lienNavig"
           to="https://www.google.com/maps/dir/Current+Location/48.7689,2.09454"

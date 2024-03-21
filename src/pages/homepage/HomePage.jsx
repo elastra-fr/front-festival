@@ -5,9 +5,7 @@ import TuilesLiens from "../../components/tuilesliens/TuilesLiens";
 import "./HomePage.css";
 import Live from "../../components/live/Live";
 import SynthProg from "../../components/synthprog/SynthProg";
-import TuileOpen from "../../components/tuileopen/TuileOpen";
 import { useContext, useState } from "react"; 
-import Map from "../../components/map/Map";
 import Actu from "../../components/actu/Actu";
 
 
@@ -17,26 +15,6 @@ const HomePage = ({concerts}) => {
 
 //Titre de la page
   document.title = 'Accueil | NATION SOUND';
-
-  
-
-
-
-//const [mapShow, setMapShow] = useState(false);
-
-
-
-/*const handleTuileOpen = () => {
-
-
-  setMapShow(!mapShow);
-  console.log(mapShow);
-}*/
-
-
-
-
-
 
   return (
     <>
@@ -69,10 +47,6 @@ const HomePage = ({concerts}) => {
         </div>
       </main>
 
-     {/*
-mapShow ? <Map /> : null
-
-     */} 
 
 
       <Footer />
