@@ -1,9 +1,8 @@
-import React from "react";
+import React, {useState} from "react";
 import { Link } from "react-router-dom";
 import "./Header.css";
 import Socials from "../socials/Socials";
 import { HashLink } from "react-router-hash-link";
-import { useState } from "react";
 import ModalYesNo from "../modalyesno/ModalYesNo";
 
 const Header = () => {
@@ -33,21 +32,38 @@ const Header = () => {
   };
 
   //Rend fixe l'element mainNav lors du scroll avec un effet de transition
-  window.addEventListener("scroll", () => {
-    let mainNav = document.getElementById("mainNav");
-    if (window.scrollY > 480) {
-      mainNav.style.position = "fixed";
-      mainNav.style.background =
-        "radial-gradient(circle, rgba(2, 0, 36, 1) 0%, rgba(16, 55, 207, 1) 47%, rgba(218, 0, 255, 1) 100%)";
-      mainNav.style.transition = "all 0.5s";
-      mainNav.style.maxWidth = "1440px";
-      mainNav.style.margin = "0 auto";
-    } else {
-      mainNav.style.position = "absolute";
-      mainNav.style.backgroundColor = "transparent";
-      mainNav.style.background = "none";
-    }
-  });
+
+  const fixedNavClass = "fixed-nav";
+
+const transparentNavClass = "transparent-nav";
+
+
+
+function toggleNavClasses() {
+
+  const mainNav = document.getElementById("mainNav");
+
+  if (window.scrollY > 480) {
+
+    mainNav.classList.add(fixedNavClass);
+
+    mainNav.classList.remove(transparentNavClass);
+
+  } else {
+
+    mainNav.classList.remove(fixedNavClass);
+
+    mainNav.classList.add(transparentNavClass);
+
+  }
+
+}
+
+
+
+window.addEventListener("scroll", toggleNavClasses);
+
+
 
   return (
     <header>

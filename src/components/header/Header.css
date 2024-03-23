@@ -115,14 +115,10 @@ z-index: 30;
 
 #mainNav {
     position: absolute;
-
     z-index: 200;
-
     transition: left 1s;
     margin-right: 40px;
     width: 100%;
-
-
 }
 
 .showNav {
@@ -197,7 +193,7 @@ header{
     #mainNav {
         top: unset;
         display: flex;
-        position: static;
+        /*position: static;*/
         grid-column: 1;
         grid-row: 1;
         z-index: 100;
@@ -211,14 +207,42 @@ header{
         align-items: center;
     }
 
-    .fixedNav{
+    .fixed-nav {
+
+  position: fixed!important;
+
+  background: radial-gradient(circle, rgba(2, 0, 36, 1) 0%, rgba(16, 55, 207, 1) 47%, rgba(218, 0, 255, 1) 100%);
+
+  transition: all 0.5s;
+
+  max-width: 1440px;
+
+  margin: 0 auto;
+
+}
+
+
+
+/* Define styles for transparent navigation */
+
+.transparent-nav {
+
+  position: absolute;
+
+  background-color: transparent;
+
+  background: none;
+
+}
+
+   /* .fixedNav{
     position: fixed;
     background: "radial-gradient(circle, rgba(2, 0, 36, 1) 0%, rgba(16, 55, 207, 1) 47%, rgba(218, 0, 255, 1) 100%)";
     max-width: 1440px;
     margin: 0 auto;
     
     z-index: 30;
-}
+}*/
 
     #mainNav ul {
         display: flex;
@@ -230,11 +254,11 @@ header{
         
     }
 
-    .fixedNav{
+  /*  .fixedNav{
         position: fixed;
         background-color: black;
         
-    }
+    }*/
 
     #closeMainNav {
 

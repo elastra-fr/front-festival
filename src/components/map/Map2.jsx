@@ -13,8 +13,6 @@ const deviceWidth = window.innerWidth;
   const [mapPoints, setMapPoints] = React.useState([]);
   const [fullMapPoints, setFullMapPoints] = React.useState([]);
 
-  const mapKey = import.meta.env.VITE_FESTIVAL_APP_API_MAP;
-
   //Fonction pour récupérer les données de la carte
 
   function getMapData() {
