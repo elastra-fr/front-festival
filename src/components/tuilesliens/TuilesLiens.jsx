@@ -4,12 +4,11 @@ import "./TuilesLiens.css";
 import PropTypes from "prop-types";
 
 const TuilesLiens = ({ txt, img, to }) => {
-
   TuilesLiens.propTypes = {
     txt: PropTypes.string.isRequired,
     img: PropTypes.string.isRequired,
     to: PropTypes.string.isRequired,
-  }; 
+  };
 
   return (
     <>

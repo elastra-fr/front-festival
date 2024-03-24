@@ -7,13 +7,12 @@
 
 }
 
-header{
-height: 100px;
-width: 100%;
-position: fixed;
-top: 0;
-z-index: 30;
-
+header {
+    height: 100px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 30;
 }
 
 
@@ -93,25 +92,6 @@ z-index: 30;
 
 }
 
-#headerMusic {
-
-
-
-    grid-column: 1;
-    grid-row: 1;
-    z-index: 110;
-    width: 100%;
-    height: 10%;
-    position: relative;
-
-
-}
-
-#headerMusic img {
-    width: 100%;
-    object-fit: cover;
-}
-
 
 #mainNav {
     position: absolute;
@@ -170,7 +150,7 @@ z-index: 30;
 
 #ctaBilleterie {
 
-    
+
     display: none;
 }
 
@@ -178,11 +158,11 @@ z-index: 30;
 
 @media screen and (min-width: 768px) {
 
-header{
-    position: relative;
-    height: unset ;
-    top: unset;
-}
+    header {
+        position: relative;
+        height: unset;
+        top: unset;
+    }
 
     .burgerMenu {
         display: none;
@@ -193,7 +173,6 @@ header{
     #mainNav {
         top: unset;
         display: flex;
-        /*position: static;*/
         grid-column: 1;
         grid-row: 1;
         z-index: 100;
@@ -209,56 +188,43 @@ header{
 
     .fixed-nav {
 
-  position: fixed!important;
+        position: fixed !important;
 
-  background: radial-gradient(circle, rgba(2, 0, 36, 1) 0%, rgba(16, 55, 207, 1) 47%, rgba(218, 0, 255, 1) 100%);
+        background: radial-gradient(circle, rgba(2, 0, 36, 1) 0%, rgba(16, 55, 207, 1) 47%, rgba(218, 0, 255, 1) 100%);
 
-  transition: all 0.5s;
+        transition: all 0.5s;
 
-  max-width: 1440px;
+        max-width: 1440px;
 
-  margin: 0 auto;
+        margin: 0 auto;
 
-}
+    }
 
 
 
-/* Define styles for transparent navigation */
 
-.transparent-nav {
+    .transparent-nav {
 
-  position: absolute;
+        position: absolute;
 
-  background-color: transparent;
+        background-color: transparent;
 
-  background: none;
+        background: none;
 
-}
+    }
 
-   /* .fixedNav{
-    position: fixed;
-    background: "radial-gradient(circle, rgba(2, 0, 36, 1) 0%, rgba(16, 55, 207, 1) 47%, rgba(218, 0, 255, 1) 100%)";
-    max-width: 1440px;
-    margin: 0 auto;
-    
-    z-index: 30;
-}*/
 
     #mainNav ul {
         display: flex;
         flex-direction: row;
         background-color: transparent;
-        height:40px;
+        height: 40px;
         font-size: 1.1rem;
         font-weight: normal;
-        
+
     }
 
-  /*  .fixedNav{
-        position: fixed;
-        background-color: black;
-        
-    }*/
+
 
     #closeMainNav {
 
@@ -292,22 +258,22 @@ header{
 
     #ctaBilleterie {
 
-    padding: 25px;
-    background: none;
-    border: none;
-    border-radius: 15px;
-    font-size: 1.5rem;
-    font-weight: bolder;
-    border: 2px solid white;
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+        padding: 25px;
+        background: none;
+        border: none;
+        border-radius: 15px;
+        font-size: 1.5rem;
+        font-weight: bolder;
+        border: 2px solid white;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 
-#ctaBilleterie:hover {
-    cursor: pointer;
-}
+    #ctaBilleterie:hover {
+        cursor: pointer;
+    }
 
 
 }

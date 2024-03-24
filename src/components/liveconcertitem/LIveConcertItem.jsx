@@ -3,13 +3,12 @@ import "./LiveConcertItem.css";
 import PropTypes from "prop-types";
 
 const LiveConcertItem = ({ scene, artiste, genre }) => {
-
   LiveConcertItem.propTypes = {
     scene: PropTypes.string.isRequired,
     artiste: PropTypes.string.isRequired,
     genre: PropTypes.string.isRequired,
   };
-  
+
   return (
     <>
       <div className="live-concert-item">

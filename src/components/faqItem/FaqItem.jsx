@@ -1,6 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
 import "./FaqItem.css";
-import { useState } from "react";
 import PropTypes from "prop-types";
 
 const FaqItem = ({ titre, contenu }) => {

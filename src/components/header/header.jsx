@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./Header.css";
 import Socials from "../socials/Socials";
@@ -35,35 +35,23 @@ const Header = () => {
 
   const fixedNavClass = "fixed-nav";
 
-const transparentNavClass = "transparent-nav";
+  const transparentNavClass = "transparent-nav";
 
+  function toggleNavClasses() {
+    const mainNav = document.getElementById("mainNav");
 
+    if (window.scrollY > 480) {
+      mainNav.classList.add(fixedNavClass);
 
-function toggleNavClasses() {
+      mainNav.classList.remove(transparentNavClass);
+    } else {
+      mainNav.classList.remove(fixedNavClass);
 
-  const mainNav = document.getElementById("mainNav");
-
-  if (window.scrollY > 480) {
-
-    mainNav.classList.add(fixedNavClass);
-
-    mainNav.classList.remove(transparentNavClass);
-
-  } else {
-
-    mainNav.classList.remove(fixedNavClass);
-
-    mainNav.classList.add(transparentNavClass);
-
+      mainNav.classList.add(transparentNavClass);
+    }
   }
 
-}
-
-
-
-window.addEventListener("scroll", toggleNavClasses);
-
-
+  window.addEventListener("scroll", toggleNavClasses);
 
   return (
     <header>

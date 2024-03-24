@@ -1,26 +1,27 @@
-.faqItemWrapper {
-  color: black;
+.faqItemList,
+summary {
+  color: white;
+  gap: 10px;
+}
+
+.faqItemWrapper,
+.faqItemList {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-
 }
+
+
+
 
 .faqItemList {
   margin: 15px auto;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-  gap: 10px;
-  color: white;
 }
 
 
 details {
   background-color: black;
-  color: black;
   padding: 16px;
 }
 
@@ -28,11 +29,9 @@ summary {
   padding: 10px;
   cursor: pointer;
   background: radial-gradient(circle, rgba(2, 0, 36, 1) 0%, rgba(16, 55, 207, 1) 47%, rgba(218, 0, 255, 1) 100%);
-  color: white;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 10px;
 
 }
 

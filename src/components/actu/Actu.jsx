@@ -1,5 +1,4 @@
-import React from "react";
-import { useState, useEffect } from "react";
+import React, {useState, useEffect} from "react";
 import ItemActu from "../itemactu/ItemActu";
 import "./Actu.css";
 import { Link, useLocation } from "react-router-dom";
@@ -8,7 +7,7 @@ const Actu = () => {
   const location = useLocation().pathname;
 
   let nbperpage;
-//Limitation du nombre d'articles affichés en fonction de la page
+  //Limitation du nombre d'articles affichés en fonction de la page
   switch (location) {
     case "/":
       nbperpage = 10;
@@ -28,13 +27,11 @@ const Actu = () => {
     default:
   }
 
-
   const [fullActu, setFullActu] = useState([]);
   const [importantActu, setImportantActu] = useState([]);
   const [actu, setActu] = useState([]);
 
-
-//Récupération des articles du composant Actu
+  //Récupération des articles du composant Actu
 
   const getActu = () => {
     fetch(
@@ -43,7 +40,6 @@ const Actu = () => {
     )
       .then((response) => response.json())
       .then((data) => {
-     
         setFullActu(data);
       });
   };

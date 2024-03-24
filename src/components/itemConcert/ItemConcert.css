@@ -4,7 +4,6 @@
     grid-template-columns: 1fr;
     grid-template-rows: 1fr;
     width: 100%;
-
     margin: 0px auto;
     max-height: 200px;
     -webkit-box-shadow: 5px 8px 25px 0px rgba(255, 255, 255, 0.9);
@@ -33,7 +32,6 @@
 
 .imgConcert img {
     width: 100%;
-
     max-height: 200px;
     object-fit: cover;
     border-radius: 5px;
@@ -42,22 +40,11 @@
 
 
 .textConcert {
-    /*padding: 10px;*/
     grid-column: 1;
     grid-row: 1;
-   /* display: flex;
-    flex-direction: column;
-    width: 100%;
-    height: 100%;
-    justify-content: flex-end;
-    align-items: flex-start;*/
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 0.3fr 1fr 0.5fr;
-    
-
-
-
 }
 
 .textConcert h3 {
@@ -79,7 +66,6 @@
 
 .headerCardConcert{
 
-/*background-color: rgba(255, 255, 255, 0.5);*/
 background-color: black;
 color: white;
 justify-self: right;

@@ -75,8 +75,6 @@ const SynthProg = () => {
     ) {
       setFilteredConcerts(fullConcerts);
     } else {
-   
-
       let filters = {
         jour: filterJour,
         scene: filterScene,
@@ -84,14 +82,10 @@ const SynthProg = () => {
         genre: filterGenre,
       };
 
-  
-
       let arrayToFilter = fullConcerts;
 
       let filteredArray = arrayToFilter.filter(function (item) {
         return Object.keys(filters).every((key) => {
-   
-
           if (key === "horaire") {
             return (
               filters[key] === "Tout" ||
@@ -103,7 +97,6 @@ const SynthProg = () => {
         });
       });
 
-
       setFilteredConcerts(filteredArray);
     }
   }, [filterJour, filterScene, filterHoraire, filterGenre]);
@@ -111,10 +104,7 @@ const SynthProg = () => {
   const handleChange = (e) => {
     let id = e.target.id;
 
-
     let value = e.target.value;
-
-
 
     switch (id) {
       case "jour":
@@ -235,10 +225,7 @@ const SynthProg = () => {
           {filteredConcertsJ3.length > 0 && (
             <JourProg jour={j3} data={filteredConcertsJ3} />
           )}
-   
         </div>
-
-
       </div>
     </>
   );

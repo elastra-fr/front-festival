@@ -1,13 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
 import Socials from "../socials/Socials";
 import "./Footer.css";
 import ModalYesNo from "../modalyesno/ModalYesNo";
-import { useState } from "react";
 
 const Footer = () => {
-
   //Fenêtre modale pour la billetterie externe
   const [showModal, setShowModal] = useState(false);
   const handleModal = () => {

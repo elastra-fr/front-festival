@@ -2,11 +2,9 @@ import React from "react";
 import "./ModalYesNo.css";
 import PropTypes from "prop-types";
 
-
 const ModalYesNo = ({ handleModal }) => {
-
   ModalYesNo.propTypes = {
-    handleModal: PropTypes.func.isRequired
+    handleModal: PropTypes.func.isRequired,
   };
 
   return (

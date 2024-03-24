@@ -3,7 +3,6 @@ import "./ItemConcert.css";
 import PropTypes from "prop-types";
 
 const ItemConcert = ({ src, groupe, horaire, genre, desc, scene }) => {
-
   ItemConcert.propTypes = {
     src: PropTypes.string,
     groupe: PropTypes.string.isRequired,

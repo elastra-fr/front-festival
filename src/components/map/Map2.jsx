@@ -4,14 +4,12 @@ import "./Map.css";
 import { Link } from "react-router-dom";
 
 const Map2 = () => {
-
-//Récupérer la largeur de l'écran
-const deviceWidth = window.innerWidth;
-
-
+  //Récupérer la largeur de l'écran pour adapter le zoom de la carte
+  const deviceWidth = window.innerWidth;
 
   const [mapPoints, setMapPoints] = React.useState([]);
   const [fullMapPoints, setFullMapPoints] = React.useState([]);
+  const [loading, setLoading] = React.useState(true); //Affichage du loader
 
   //Fonction pour récupérer les données de la carte
 
@@ -21,11 +19,9 @@ const deviceWidth = window.innerWidth;
     )
       .then((response) => response.json())
       .then((data) => {
-    
-
+  
         setFullMapPoints(data);
         setMapPoints(data);
-
       });
   }
 
@@ -41,13 +37,13 @@ const deviceWidth = window.innerWidth;
   //Carte
   async function initMap() {
     const position = { lat: 48.7689, lng: 2.09454 };
-let zoom;
+    let zoom;
 
-if(deviceWidth<768){
-  zoom=14;
-}else{
-  zoom=15;
-}
+    if (deviceWidth < 768) {
+      zoom = 14;
+    } else {
+      zoom = 15;
+    }
 
     const { Map } = await google.maps.importLibrary("maps");
     const { AdvancedMarkerElement } = await google.maps.importLibrary("marker");
@@ -57,7 +53,6 @@ if(deviceWidth<768){
       mapId: "391e98b9f7969c2d",
       mapTypeIds: ["roadmap", "satellite", "hybrid", "terrain"],
       fullscreenControl: false,
-     
     });
 
     //Geolocalisation
@@ -67,7 +62,7 @@ if(deviceWidth<768){
     locationButton.classList.add("custom-map-control-button");
     MyMap.controls[google.maps.ControlPosition.TOP_RIGHT].push(locationButton);
     locationButton.addEventListener("click", () => {
-//Test geolocalisation
+      //Test geolocalisation
       if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(
           (position) => {
@@ -85,7 +80,7 @@ if(deviceWidth<768){
           }
         );
       } else {
-       // Le navigateur ne supporte pas la géolocalisation
+        // Le navigateur ne supporte pas la géolocalisation
         handleLocationError(false, infoWindow, MyMap.getCenter());
       }
     });
@@ -129,7 +124,6 @@ if(deviceWidth<768){
           break;
 
         case "Accueil":
- 
           icon = "/images/info-solid.svg";
 
           break;
@@ -200,14 +194,11 @@ if(deviceWidth<768){
         content: point,
       });
 
-    
-
       //Ajout d'un listener pour ouvrir une fenêtre modal au clic sur un marqueur
 
       point.addEventListener("click", function () {
-       /* let titre = mapPoints[i].acf.titre;
+        /* let titre = mapPoints[i].acf.titre;
         let description = mapPoints[i].acf.infos;*/
-
 
         const modal = document.createElement("div");
         modal.className = "modal";
@@ -242,7 +233,7 @@ if(deviceWidth<768){
         };
       });
 
-            point.addEventListener("touchstart", function () {
+      point.addEventListener("touchstart", function () {
         /*let titre = mapPoints[i].acf.titre;
         let description = mapPoints[i].acf.infos;*/
 
@@ -278,11 +269,9 @@ if(deviceWidth<768){
           }
         };
       });
-
-
-
-      
     }
+
+    setLoading(false);
   }
 
   initMap();
@@ -304,8 +293,6 @@ if(deviceWidth<768){
 
       setMapPoints(filteredArray);
     }
-
-
   };
 
   return (
@@ -331,16 +318,18 @@ if(deviceWidth<768){
             <option value="Espace VIP">Espace VIP</option>
           </select>
 
-                  <Link
-          className="lienNavig"
-          to="https://www.google.com/maps/dir/Current+Location/48.7689,2.09454"
-          target="_blank"
-        >
-          Naviguer vers le site du Festival
-        </Link>
+          <Link
+            className="lienNavig"
+            to="https://www.google.com/maps/dir/Current+Location/48.7689,2.09454"
+            target="_blank"
+          >
+            Naviguer vers le site du Festival
+          </Link>
         </div>
 
-
+        {loading && (
+          <div className="loader">Chargement des données de la carte...</div>
+        )}
         <div id="map" className="map"></div>
       </div>
     </>

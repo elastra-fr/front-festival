@@ -12,8 +12,6 @@ const ItemActu = ({ date, intitule, texteactu }) => {
     texteactu: PropTypes.string.isRequired,
   };
 
-
-
   return (
     <>
       <article className="itemActu">
