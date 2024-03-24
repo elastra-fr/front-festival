@@ -49,9 +49,9 @@ if(deviceWidth<768){
   zoom=15;
 }
 
-    const { GMap } = await google.maps.importLibrary("maps");
+    const { Map } = await google.maps.importLibrary("maps");
     const { AdvancedMarkerElement } = await google.maps.importLibrary("marker");
-    const map = new GMap(document.getElementById("map"), {
+    const MyMap = new Map(document.getElementById("map"), {
       zoom: zoom,
       center: position,
       mapId: "391e98b9f7969c2d",
@@ -65,7 +65,7 @@ if(deviceWidth<768){
     const locationButton = document.createElement("button");
     locationButton.textContent = "Ma position";
     locationButton.classList.add("custom-map-control-button");
-    map.controls[google.maps.ControlPosition.TOP_RIGHT].push(locationButton);
+    MyMap.controls[google.maps.ControlPosition.TOP_RIGHT].push(locationButton);
     locationButton.addEventListener("click", () => {
 //Test geolocalisation
       if (navigator.geolocation) {
@@ -78,15 +78,15 @@ if(deviceWidth<768){
             infoWindow.setPosition(pos);
             infoWindow.setContent("Vous êtes ici.");
             infoWindow.open(map);
-            map.setCenter(pos);
+            MyMap.setCenter(pos);
           },
           () => {
-            handleLocationError(true, infoWindow, map.getCenter());
+            handleLocationError(true, infoWindow, MyMap.getCenter());
           }
         );
       } else {
        // Le navigateur ne supporte pas la géolocalisation
-        handleLocationError(false, infoWindow, map.getCenter());
+        handleLocationError(false, infoWindow, MyMap.getCenter());
       }
     });
 
@@ -97,7 +97,7 @@ if(deviceWidth<768){
           ? "Erreur: Le service de géolocalisation a échoué."
           : "Erreur: Votre navigateur ne supporte pas la géolocalisation."
       );
-      infoWindow.open(map);
+      infoWindow.open(MyMap);
     }
 
     //Fin geolocalisation
@@ -192,7 +192,7 @@ if(deviceWidth<768){
       );
 
       new AdvancedMarkerElement({
-        map,
+        MyMap,
         position: {
           lat: mapPoints[i].acf.Lieu.lat,
           lng: mapPoints[i].acf.Lieu.lng,
