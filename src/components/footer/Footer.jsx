@@ -26,7 +26,11 @@ const Footer = () => {
           <div className="footerContentCenter">
             <ul>
               <li>
-                <Link to="/home">Accueil</Link>
+                <Link to="/home"
+                onClick={() => {
+                Element.scrollTo(0, 0);
+                }}
+                >Accueil</Link>
               </li>
               <li>
                 <HashLink to="/home#actu">Actualités</HashLink>
