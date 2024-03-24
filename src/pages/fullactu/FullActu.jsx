@@ -8,7 +8,7 @@ import { useLocation } from 'react-router-dom';
 
 const FullActu = () => {
 
-const location = useLocation();
+/*const location = useLocation();*/
 document.title = 'Actu | NATION SOUND';
     window.scrollTo(0, 0);
 

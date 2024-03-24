@@ -5,13 +5,19 @@ import TuilesLiens from "../../components/tuilesliens/TuilesLiens";
 import "./HomePage.css";
 import Live from "../../components/live/Live";
 import SynthProg from "../../components/synthprog/SynthProg";
-import { useContext, useState } from "react"; 
+//import { useContext, useState } from "react"; 
 import Actu from "../../components/actu/Actu";
+import PropTypes from "prop-types";
 
 
 
 
 const HomePage = ({concerts}) => {
+
+  HomePage.propTypes = {
+    concerts: PropTypes.array.isRequired
+  
+  };
 
 //Titre de la page
   document.title = 'Accueil | NATION SOUND';

@@ -1,9 +1,16 @@
 import React from "react";
 import "./ItemActu.css";
 import { txtDate } from "../../utils";
+import PropTypes from "prop-types";
 
 const ItemActu = ({ date, intitule, texteactu }) => {
   let textDate = txtDate(date);
+
+  ItemActu.propTypes = {
+    date: PropTypes.string.isRequired,
+    intitule: PropTypes.string.isRequired,
+    texteactu: PropTypes.string.isRequired,
+  };
 
 
 

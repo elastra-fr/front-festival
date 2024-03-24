@@ -1,6 +1,17 @@
 import React from "react";
 import "./TuileOpen.css";
+import PropTypes from "prop-types";
+
 const TuileOpen = ({ txt, img, click }) => {
+
+
+  TuileOpen.propTypes = {
+    txt: PropTypes.string.isRequired,
+    img: PropTypes.string.isRequired,
+    click: PropTypes.func.isRequired  
+  };
+
+
   return (
     <>
       <div className="tuileOpen">

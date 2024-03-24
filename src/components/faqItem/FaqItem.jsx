@@ -1,9 +1,15 @@
 import React from "react";
 import "./FaqItem.css";
 import { useState } from "react";
+import PropTypes from "prop-types";
 
 const FaqItem = ({ titre, contenu }) => {
   const [chevronUp, setChevronUp] = useState(false);
+
+  FaqItem.propTypes = {
+    titre: PropTypes.string.isRequired,
+    contenu: PropTypes.array.isRequired,
+  };
 
   return (
     <>

@@ -1,8 +1,15 @@
 import React from "react";
 import ItemConcert from "../itemConcert/ItemConcert";
+import PropTypes from "prop-types";
 import "./Jourprog.css";
 
 const JourProg = ({ jour, data }) => {
+
+
+  JourProg.propTypes = {
+    jour: PropTypes.string.isRequired,
+    data: PropTypes.array.isRequired,
+  };
   
   return (
     <>
