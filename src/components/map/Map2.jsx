@@ -77,7 +77,7 @@ if(deviceWidth<768){
             };
             infoWindow.setPosition(pos);
             infoWindow.setContent("Vous êtes ici.");
-            infoWindow.open(map);
+            infoWindow.open(MyMap);
             MyMap.setCenter(pos);
           },
           () => {
@@ -192,7 +192,7 @@ if(deviceWidth<768){
       );
 
       new AdvancedMarkerElement({
-        MyMap,
+        map: MyMap,
         position: {
           lat: mapPoints[i].acf.Lieu.lat,
           lng: mapPoints[i].acf.Lieu.lng,
