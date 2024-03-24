@@ -49,9 +49,9 @@ if(deviceWidth<768){
   zoom=15;
 }
 
-    const { Map } = await google.maps.importLibrary("maps");
+    const { GMap } = await google.maps.importLibrary("maps");
     const { AdvancedMarkerElement } = await google.maps.importLibrary("marker");
-    const map = new Map(document.getElementById("map"), {
+    const map = new GMap(document.getElementById("map"), {
       zoom: zoom,
       center: position,
       mapId: "391e98b9f7969c2d",
@@ -205,8 +205,8 @@ if(deviceWidth<768){
       //Ajout d'un listener pour ouvrir une fenêtre modal au clic sur un marqueur
 
       point.addEventListener("click", function () {
-        let titre = mapPoints[i].acf.titre;
-        let description = mapPoints[i].acf.infos;
+       /* let titre = mapPoints[i].acf.titre;
+        let description = mapPoints[i].acf.infos;*/
 
 
         const modal = document.createElement("div");
@@ -243,8 +243,8 @@ if(deviceWidth<768){
       });
 
             point.addEventListener("touchstart", function () {
-        let titre = mapPoints[i].acf.titre;
-        let description = mapPoints[i].acf.infos;
+        /*let titre = mapPoints[i].acf.titre;
+        let description = mapPoints[i].acf.infos;*/
 
         const modal = document.createElement("div");
         modal.className = "modal";
