@@ -9,7 +9,7 @@ const Map2 = () => {
 
   const [mapPoints, setMapPoints] = React.useState([]);
   const [fullMapPoints, setFullMapPoints] = React.useState([]);
-  const [loading, setLoading] = React.useState(true); //Affichage du loader
+  //const [loading, setLoading] = React.useState(true); //Affichage du loader
 
   //Fonction pour récupérer les données de la carte
 
@@ -234,8 +234,6 @@ const Map2 = () => {
       });
 
       point.addEventListener("touchstart", function () {
-        /*let titre = mapPoints[i].acf.titre;
-        let description = mapPoints[i].acf.infos;*/
 
         const modal = document.createElement("div");
         modal.className = "modal";
@@ -271,7 +269,7 @@ const Map2 = () => {
       });
     }
 
-    setLoading(false);
+   
   }
 
   initMap();
@@ -327,9 +325,7 @@ const Map2 = () => {
           </Link>
         </div>
 
-        {loading && (
-          <div className="loader">Chargement des données de la carte...</div>
-        )}
+
         <div id="map" className="map"></div>
       </div>
     </>
