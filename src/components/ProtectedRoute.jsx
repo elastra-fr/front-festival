@@ -1,15 +1,20 @@
-// src/components/ProtectedRoute.js
-
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Navigate, Outlet } from 'react-router-dom';
 import { AuthContext } from '../context/AuthContext';
 
 const ProtectedRoute = () => {
-    const { isAuthenticated } = useContext(AuthContext);
+  const [isLoading, setIsLoading] = useState(true);
+  const { isAuthenticated } = useContext(AuthContext);
 
-    return isAuthenticated ? <Outlet /> : <Navigate to="/login" />;
+  useEffect(() => {
+    setIsLoading(false);
+  }, [isAuthenticated]);
+
+  if (isLoading) {
+    return <p>Chargement...</p>;
+  }
+
+  return isAuthenticated ? <Outlet /> : <Navigate to="/login" />;
 };
 
 export default ProtectedRoute;
-
-

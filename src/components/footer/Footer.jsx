@@ -48,8 +48,10 @@ const Footer = () => {
                 <Link to="/map">Carte</Link>
               </li>
 
-              <li></li>
-              <li></li>
+              <li>
+                <Link to="/partner">Nos partenaires</Link>
+              </li>
+              
             </ul>
           </div>
 

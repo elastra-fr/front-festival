@@ -13,6 +13,7 @@ import UserProfil from "./pages/userprofil/UserProfil";
 import ExclusiveContent from "./pages/exclusivecontent/ExclusiveContent";
 import { AuthProvider } from "./context/AuthContext";
 import ProtectedRoute from "./components/ProtectedRoute";
+import Partners from "./pages/partners/Partners";
 
 function App() {
 
@@ -52,6 +53,7 @@ function App() {
           <Route path="/map" element={<FullMap />} />
           <Route path="/mentions" element={<Mentions />} />
           <Route path="/fullactu" element={<FullActu />} />
+          <Route path="/partner" element={<Partners />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
                   <Route element={<ProtectedRoute />}>
