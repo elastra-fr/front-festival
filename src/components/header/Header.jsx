@@ -4,10 +4,14 @@ import "./Header.css";
 import Socials from "../socials/Socials";
 import { HashLink } from "react-router-hash-link";
 import ModalYesNo from "../modalyesno/ModalYesNo";
+import { AuthContext } from "../../context/AuthContext";
 
 const Header = () => {
+
+  const { isAuthenticated } = React.useContext(AuthContext);
   const [showNav, setShowNav] = useState(false);
   const [showModal, setShowModal] = useState(false);
+
 
   const getWindowWidth = () => {
     return window.innerWidth;
@@ -89,6 +93,24 @@ const Header = () => {
                 Carte interactive
               </Link>
             </li>
+
+          {isAuthenticated ? (
+
+            <li>
+              <Link to="/userprofil" onClick={() => setShowNav(false)}>
+                Mon profil
+              </Link>
+            </li>
+
+          ):(
+            <li>
+              <Link to="/login" onClick={() => setShowNav(false)}>
+                Connexion
+              </Link>
+            </li>
+
+          )}
+
             <li>
               <div id="closeMainNav" onClick={closeMainNav}>
                 <svg

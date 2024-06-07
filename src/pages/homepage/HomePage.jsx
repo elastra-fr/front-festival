@@ -12,6 +12,7 @@ const HomePage = ({ concerts }) => {
     concerts: PropTypes.array.isRequired,
   };
 
+
   //Titre de la page
   document.title = "Accueil | NATION SOUND";
 

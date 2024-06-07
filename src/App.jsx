@@ -7,6 +7,12 @@ import Faq from "./pages/faq/Faq";
 import FullMap from "./pages/fullmap/Fullmap";
 import Mentions from "./pages/mentions/Mentions";
 import FullActu from "./pages/fullactu/FullActu";
+import Login from "./pages/login/Login";
+import Register from "./pages/register/Register";
+import UserProfil from "./pages/userprofil/UserProfil";
+import ExclusiveContent from "./pages/exclusivecontent/ExclusiveContent";
+import { AuthProvider } from "./context/AuthContext";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 function App() {
 
@@ -36,6 +42,7 @@ function App() {
 
   return (
     <>
+    <AuthProvider>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<HomePage concerts={fullConcerts} />} />
@@ -45,8 +52,16 @@ function App() {
           <Route path="/map" element={<FullMap />} />
           <Route path="/mentions" element={<Mentions />} />
           <Route path="/fullactu" element={<FullActu />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+                  <Route element={<ProtectedRoute />}>
+            <Route path="/userprofil" element={<UserProfil />} />
+            <Route path="/exclusive-content" element={<ExclusiveContent />} />
+          </Route>
+
         </Routes>
       </BrowserRouter>
+      </AuthProvider>
     </>
   );
 }
