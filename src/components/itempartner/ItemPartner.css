@@ -1,0 +1,36 @@
+
+.itemPartner{
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 200px;
+    height: 300px;
+    background-color: #f9f9f9;
+}
+
+.itemPartnerImg{
+    width: 100%;
+    height: 150px;
+    border-radius: 5px;
+}
+
+.itemPartnerImg img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.itemPartnerText{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+    color: black;
+}
+
+.itemPartnerText p{
+   color: black;
+}

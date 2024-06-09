@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import Header from '../../components/header/Header';
 import Footer from '../../components/footer/Footer';
 import { fetchPartnerCategories, fetchPartnerByCategoryId } from '../../api';
+import ItemPartner from '../../components/itempartner/ItemPartner';
 
 
 const Partners = () => {
@@ -47,6 +48,7 @@ useEffect(() => {
             {/* Your component content goes here */}
 <main id="mainPartner">
 
+
             <div className="partnerTools">
             <h2>Nos partenaires</h2>
             
@@ -68,16 +70,18 @@ useEffect(() => {
 
             <div className="partnerList">   
                       {partners.length > 0 ? (
-    partners.map(partner => (
-      <div key={partner.id} className="partner">
-        <img src={partner.url_logo || "https://picsum.photos/200/300"} onError={(e)=>{e.target.onerror=null ; e.target.source="https://picsum.photos/200"}} alt={partner.name} />
-        <p>{partner.name}</p>
-        <p>{partner.description}</p>
-      </div>
-    ))
-  ) : (
-    <p>Aucun partenaire trouvé pour cette catégorie.</p>
-  )}
+                          partners.map(partner => (
+                            <ItemPartner
+                              key={partner.id}
+                              partnerId={partner.id}
+                              imgUrl={partner.url_logo || "https://picsum.photos/200/300"}
+                              name={partner.name}
+                              description={partner.description}
+                            />
+                          ))
+                        ) : (
+                          <p>Aucun partenaire trouvé pour cette catégorie.</p>
+                        )}
 
 
             </div>

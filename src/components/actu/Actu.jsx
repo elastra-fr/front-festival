@@ -2,38 +2,29 @@ import React, {useState, useEffect} from "react";
 import ItemActu from "../itemactu/ItemActu";
 import "./Actu.css";
 import { Link, useLocation } from "react-router-dom";
+import { fetchNews } from "../../api";
 
 const Actu = () => {
-  const location = useLocation().pathname;
 
-  let nbperpage;
+  const [News, setNews] = useState([]);
+
+ const location = useLocation().pathname;
+
+let limit;
   //Limitation du nombre d'articles affichés en fonction de la page
-  switch (location) {
-    case "/":
-      nbperpage = 10;
+if (location === "/home" || location === "/") {
+  limit = "all";
+}
 
-      break;
+  //const [fullActu, setFullActu] = useState([]);
+  //const [importantActu, setImportantActu] = useState([]);
+  //const [actu, setActu] = useState([]);
 
-    case "/home":
-      nbperpage = 10;
 
-      break;
-
-    case "/fullactu":
-      nbperpage = 100;
-
-      break;
-
-    default:
-  }
-
-  const [fullActu, setFullActu] = useState([]);
-  const [importantActu, setImportantActu] = useState([]);
-  const [actu, setActu] = useState([]);
 
   //Récupération des articles du composant Actu
 
-  const getActu = () => {
+  /*const getActu = () => {
     fetch(
       "https://www.api.nationsound2024-festival.fr/wp-json/wp/v2/actus?per_page=" +
         nbperpage
@@ -42,11 +33,27 @@ const Actu = () => {
       .then((data) => {
         setFullActu(data);
       });
-  };
+  };*/
 
   useEffect(() => {
-    getActu();
+    //getActu();
+
+    async function fetchData() {
+      try {
+        const data = await fetchNews(limit);
+       setNews(data);
+      } catch (error) {
+        console.error(error);
+      }
+
+    }
+
+    fetchData();
+
+
   }, []);
+  
+  /*
 
   useEffect(() => {
     if (fullActu.length > 0) {
@@ -58,18 +65,44 @@ const Actu = () => {
   }, [fullActu]);
 
   useEffect(() => {}, [importantActu, actu]);
-
+*/
   return (
     <>
       <div className="mainActu">
         <h2>ACTUALITE NATION SOUND </h2>
         {location === "/home" ? (
+          <>
           <Link to="/fullactu" className="lienFullActu">
             Voir l'actu complète du festival
           </Link>
+
+          </>
+
         ) : (
-          ""
+          
+""
+
         )}
+
+            <section className="importantActu">
+          <h2>Dernières Actualités</h2>
+
+          {News.map((actu, index) => {
+            return (
+              <ItemActu
+                key={index}
+                date={actu.newsDate.date}
+                intitule={actu.title}
+                texteactu={actu.content}
+              />
+            );
+          })}
+        </section>      
+
+
+{/*
+
+  
 
         <section className="importantActu">
           <h2>Dernière Minute</h2>
@@ -100,6 +133,8 @@ const Actu = () => {
             );
           })}
         </section>
+*/}
+
       </div>
     </>
   );
