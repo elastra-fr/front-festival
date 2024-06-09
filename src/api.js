@@ -48,9 +48,32 @@ async function fetchNews(limit = 5) {
   } 
 }
 
+
 export { fetchNews };
 
+/**
+ * Récupération des évènement qui donneront lieu à un bandeau rouge
+ * @returns {Promise<Array>}
+ */
+async function fetchRedBandEvents() {
+  const response = await fetch(`${BASE_URL}/news/alert`);
+  const data = await response.json();
+  if (data.status === 'success') {
+    return data.data;
+  } else {
+    throw new Error(data.error);
+  }
 
+}
+
+export { fetchRedBandEvents };
+
+
+
+/**
+ * Recupération des données de la FAQ depuis l'API
+ * @returns {Promise<Array>}
+ */
 async function fetchFaq() {
   const response = await fetch(`${BASE_URL}/faq`);
   const data = await response.json();
@@ -62,5 +85,7 @@ async function fetchFaq() {
 }
 
 export { fetchFaq };
+
+
 
 

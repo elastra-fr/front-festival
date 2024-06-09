@@ -1,0 +1,38 @@
+
+.redBand {
+
+
+background-color: red;
+color: white;
+position: absolute;
+z-index: 10000;
+width: 100%;
+max-width: 1440px;
+display: flex;
+flex-direction: column;
+
+}
+
+.eventItem {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  color: white;
+}
+
+.redBandContent {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: 80%;
+  color: white;
+}
+
+#alertButton {
+padding: 15px;
+margin: 15px;
+background-color: white;
+color: red;
+font-weight: bold;
+border-radius: 10px;
+}

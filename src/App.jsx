@@ -14,6 +14,7 @@ import ExclusiveContent from "./pages/exclusivecontent/ExclusiveContent";
 import { AuthProvider } from "./context/AuthContext";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Partners from "./pages/partners/Partners";
+import RedBand from "./components/redband/RedBand";
 
 function App() {
 
@@ -45,6 +46,7 @@ function App() {
     <>
     <AuthProvider>
       <BrowserRouter>
+      <RedBand />
         <Routes>
           <Route path="/" element={<HomePage concerts={fullConcerts} />} />
           <Route path="/home" element={<HomePage concerts={fullConcerts} />} />
