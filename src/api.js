@@ -86,6 +86,24 @@ async function fetchFaq() {
 
 export { fetchFaq };
 
+/**
+ * Récupération des filtres pour la programmation
+ * Jours et horaires
+ *
+ */
+
+async function fetchFilters() {
+  const response = await fetch(`${BASE_URL}/concert/filters`);
+  const data = await response.json();
+  if (data.status === 'success') {
+    return data.data;
+  } else {
+    throw new Error(data.error);
+  }
+
+}
+
+export { fetchFilters };
 
 
 

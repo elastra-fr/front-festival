@@ -9,13 +9,7 @@ const ItemPartner = ({partnerId, imgUrl, name, description}) => {
 
             <div className="itemPartnerImg">
 
-                <img src={imgUrl} alt="logo partenaire" onError={
-                    (e) => {
-                        e.target.onerror = null;
-                        e.target.src = "https://picsum.photos/200/300";
-                    }
-                
-                }/>
+                <img src={imgUrl} alt="logo partenaire"/>
 
             </div>
 

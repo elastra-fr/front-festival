@@ -134,6 +134,10 @@ const SynthProg = () => {
     setFilterGenre("Tout");
   };
 
+
+
+
+
   return (
     <>
       <div className="progWrapper">

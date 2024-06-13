@@ -23,7 +23,7 @@ useEffect(() => {
     //Partenaires
     const partnerData = await fetchPartnerByCategoryId(selectedCategory);
     setPartners(partnerData);
-
+console.log(partnerData);
 
 
 
@@ -74,7 +74,7 @@ useEffect(() => {
                             <ItemPartner
                               key={partner.id}
                               partnerId={partner.id}
-                              imgUrl={partner.url_logo || "https://picsum.photos/200/300"}
+                              imgUrl={partner.url_logo ? partner.url_logo : "https://via.placeholder.com/150"}
                               name={partner.name}
                               description={partner.description}
                             />

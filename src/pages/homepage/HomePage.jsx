@@ -6,6 +6,7 @@ import Live from "../../components/live/Live";
 import SynthProg from "../../components/synthprog/SynthProg";
 import Actu from "../../components/actu/Actu";
 import PropTypes from "prop-types";
+import ApiSynthProg from "../../components/synthprog/ApiSynthProg";
 
 const HomePage = ({ concerts }) => {
   HomePage.propTypes = {
@@ -27,6 +28,8 @@ const HomePage = ({ concerts }) => {
 
         <section id="prog" className="prog">
           <SynthProg />
+          <ApiSynthProg />
+
         </section>
 
         <section id="actu" className="actu">
