@@ -105,5 +105,20 @@ async function fetchFilters() {
 
 export { fetchFilters };
 
+/**
+ * Récupération de la programmation
+ */
 
+async function fetchConcerts(filterJour, filterScene, filterHoraire, filterGenre) {
+  console.log(filterJour, filterScene, filterHoraire, filterGenre);
+  const response = await fetch(`${BASE_URL}/concert?jour=${filterJour}&scene=${filterScene}&horaire=${filterHoraire}&genre=${filterGenre}`);
+  const data = await response.json();
+  if (data.status === 'success') {
+    return data.data;
+  } else {
+    throw new Error(data.error);
+  }
+}
+
+export { fetchConcerts };
 

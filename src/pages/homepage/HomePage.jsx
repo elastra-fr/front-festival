@@ -27,7 +27,7 @@ const HomePage = ({ concerts }) => {
         </section>
 
         <section id="prog" className="prog">
-          <SynthProg />
+          {/*<SynthProg />*/}
           <ApiSynthProg />
 
         </section>
