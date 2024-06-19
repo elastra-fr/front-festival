@@ -33,7 +33,7 @@ const ApiItemConcert = ({ src, srcSet, sizes, groupe, horaire, genre, desc, scen
           <h3>{groupe}</h3>
         </div>
         <div className="infosCardConcert">
-          <p className="textConcertInfos">{horaire + "H - " + scene} </p>
+          <p className="textConcertInfos">{horaire + " - " + scene} </p>
         </div>
         <div className="footerCardConcert">
           <p>{genre + "  : " + desc}</p>

@@ -22,9 +22,15 @@ let texDate=days[jourSemaine]+" "+jour+" "+months[mois] +" "+annee;
 
 return texDate;
 
+}
 
+//Fonction qui retourne  l'heure en format texte
 
-} 
+export const formatTime = (dateString) => {
+  const date = new Date(dateString);
+  const hours = date.getHours();
+  return `${hours}H`;
+};
 
 /*
   export const getConcerts = () => {
