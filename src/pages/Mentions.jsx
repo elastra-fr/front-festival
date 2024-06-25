@@ -1,7 +1,7 @@
 import React from "react";
-import Header from "../../components/header/Header";
-import Footer from "../../components/footer/Footer";
-import "./Mentions.css";
+import Header from "../components/header/Header";
+import Footer from "../components/footer/Footer";
+
 
 const Mentions = () => {
   document.title = "Mentions Légales | NATION SOUND";

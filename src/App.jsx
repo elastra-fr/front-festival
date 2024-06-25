@@ -1,19 +1,19 @@
 import { useState, useEffect } from "react";
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import HomePage from "./pages/homepage/HomePage";
-import Infos from "./pages/infos/Infos";
-import Faq from "./pages/faq/Faq";
-import FullMap from "./pages/fullmap/Fullmap";
-import Mentions from "./pages/mentions/Mentions";
-import FullActu from "./pages/fullactu/FullActu";
-import Login from "./pages/login/Login";
-import Register from "./pages/register/Register";
-import UserProfil from "./pages/userprofil/UserProfil";
-import ExclusiveContent from "./pages/exclusivecontent/ExclusiveContent";
+import HomePage from "./pages/HomePage";
+import Infos from "./pages/Infos";
+import Faq from "./pages/Faq";
+import FullMap from "./pages/Fullmap";
+import Mentions from "./pages/Mentions";
+import FullActu from "./pages/FullActu";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+import UserProfil from "./pages/UserProfil";
+import ExclusiveContent from "./pages/ExclusiveContent";
 import { AuthProvider } from "./context/AuthContext";
 import ProtectedRoute from "./components/ProtectedRoute";
-import Partners from "./pages/partners/Partners";
+import Partners from "./pages/Partners";
 import RedBand from "./components/redband/RedBand";
 
 function App() {

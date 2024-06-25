@@ -1,7 +1,7 @@
-import Header from '../../components/header/Header';
-import Footer from '../../components/footer/Footer';
+import Header from '../components/header/Header';
+import Footer from '../components/footer/Footer';
 import React, { useState } from 'react';
-import { registerUser } from '../../services/authService';
+import { registerUser } from '../services/authService';
 
 const Register = () => {
 

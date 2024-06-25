@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
-import { AuthContext } from "../../context/AuthContext";
-import Header from "../../components/header/Header";
-import Footer from "../../components/footer/Footer";
+import { AuthContext } from "../context/AuthContext";
+import Header from "../components/header/Header";
+import Footer from "../components/footer/Footer";
 
 const UserProfil = () => {
   const { logout } = React.useContext(AuthContext);

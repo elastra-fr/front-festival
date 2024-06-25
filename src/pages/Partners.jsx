@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from 'react';
-import Header from '../../components/header/Header';
-import Footer from '../../components/footer/Footer';
-import { fetchPartnerCategories, fetchPartnerByCategoryId } from '../../api';
-import ItemPartner from '../../components/itempartner/ItemPartner';
+import Header from '../components/header/Header';
+import Footer from '../components/footer/Footer';
+import { fetchPartnerCategories, fetchPartnerByCategoryId } from '../api';
+import ItemPartner from '../components/itempartner/ItemPartner';
 
 
 const Partners = () => {

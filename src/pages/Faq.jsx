@@ -1,10 +1,9 @@
 import React, {useEffect, useState} from "react";
-import Header from "../../components/header/Header";
-import Footer from "../../components/footer/Footer";
-import "./Faq.css";
-import FaqItem from "../../components/faqItem/FaqItem";
-import TuilesLiens from "../../components/tuilesliens/TuilesLiens";
-import { fetchFaq } from "../../api";
+import Header from "../components/header/Header";
+import Footer from "../components/footer/Footer";
+import FaqItem from "../components/faqItem/FaqItem";
+import TuilesLiens from "../components/tuilesliens/TuilesLiens";
+import { fetchFaq } from "../api";
 
 const Faq = () => {
   document.title = "Informations - FAQ | NATION SOUND";
