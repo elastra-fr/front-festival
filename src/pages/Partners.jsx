@@ -52,7 +52,7 @@ console.log(partnerData);
             <div className="partnerTools">
             <h2>Nos partenaires</h2>
             
-            <select name="partnerType" id="partnerType" value={selectedCategory} onChange={(e)=>setSelectedCategory(e.target.value)}>
+            <select name="partnerType" className="appSelect" id="partnerType" value={selectedCategory} onChange={(e)=>setSelectedCategory(e.target.value)}>
                 <option  value="all">Tous</option>
                   {partnerCategories.map(category => (
     <option key={category.id} value={category.id}>

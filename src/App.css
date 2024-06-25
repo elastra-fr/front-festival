@@ -27,6 +27,13 @@ background-color: black;
 
 }
 
+.appSelect{
+font-size: 1rem;
+padding: 10px;
+border-radius: 5px;
+border: none;
+  }
+
 /****Profil utilisateur****/
 
 #userProfil
@@ -85,13 +92,16 @@ gap: 20px;
 }
 
 
-
-
-
 .partnerTools{
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.partnerList{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
 }
 
 
@@ -276,6 +286,8 @@ background-color: black;
 }
 
 
+
+
 @media screen and (min-width: 768px){
 
 .mainFaq a  .tuileLink{
@@ -326,5 +338,14 @@ gap: 10px;
  
  
   }
+
+.partnerTools{
+
+margin-top: 100px;
+flex-direction: column;
+gap: 20px;
+
+}
+
   
 }
