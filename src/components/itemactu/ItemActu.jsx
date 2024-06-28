@@ -1,7 +1,7 @@
-import React from "react";
 import "./ItemActu.css";
 import { txtDate } from "../../utils";
 import PropTypes from "prop-types";
+import React from "react";
 
 const ItemActu = ({ date, intitule, texteactu }) => {
   let textDate = txtDate(date);

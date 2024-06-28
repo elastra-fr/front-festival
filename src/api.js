@@ -22,7 +22,7 @@ export { fetchPartnerCategories };
 
 
 async function fetchPartnerByCategoryId(categoryId) {
-    console.log(categoryId);
+    
   let url = `${BASE_URL}/partner`;
   if (categoryId !== "all") {
     url += `/category/${categoryId}`;
@@ -110,7 +110,6 @@ export { fetchFilters };
  */
 
 async function fetchConcerts(filterJour, filterScene, filterHoraire, filterGenre) {
-  console.log(filterJour, filterScene, filterHoraire, filterGenre);
   const response = await fetch(`${BASE_URL}/concert?jour=${filterJour}&scene=${filterScene}&horaire=${filterHoraire}&genre=${filterGenre}`);
   const data = await response.json();
   if (data.status === 'success') {
@@ -121,4 +120,45 @@ async function fetchConcerts(filterJour, filterScene, filterHoraire, filterGenre
 }
 
 export { fetchConcerts };
+
+/*Récupération des catégories de points pour la carte*/
+
+async function fetchMapCategories() {
+
+  const response = await fetch(`${BASE_URL}/map/points/category`);
+  const data = await response.json();
+  if (data.status === 'success') {
+    return data.data;
+  } else {
+    throw new Error(data.error);
+  }
+
+}
+
+export { fetchMapCategories };
+
+//Récupération des points pour la carte
+
+async function fetchMapPoints(categoryId) {
+
+  let url = `${BASE_URL}/map/marker`;
+  if (categoryId !== "") {
+    url += `/${categoryId}`;
+  }
+
+else {
+  url = `${BASE_URL}/map/marker`;
+}
+
+  const response = await fetch(url);
+  const data = await response.json();
+  if (data.status === 'success') {
+    return data.data;
+  } else {
+    throw new Error(data.error);
+  }
+
+}
+
+export { fetchMapPoints };
 

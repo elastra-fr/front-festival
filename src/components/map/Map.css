@@ -136,3 +136,44 @@ z-index: 1000;
     font-size: 1rem;
     margin-bottom: 20px;
     }
+
+    /*Leaf map*/
+
+    #leafMap{
+        width: 95%;
+        height: 95%;
+      max-height: 800px;
+        margin: 15px auto;
+        z-index: 10;
+        
+    } 
+
+    .map-select{
+    
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+
+
+    }
+
+    .leaflet-control-custom{
+
+    width: 180px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+    }
+
+    .leaflet-control-custom button{
+
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: white;
+    border: none;
+
+    }
+

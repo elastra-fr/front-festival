@@ -1,6 +1,6 @@
-import React, { useState } from "react";
 import "./FaqItem.css";
 import PropTypes from "prop-types";
+import React, { useState } from "react";
 
 const FaqItem = ({ titre, contenu }) => {
   const [chevronUp, setChevronUp] = useState(false);

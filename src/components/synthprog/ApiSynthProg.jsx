@@ -39,7 +39,6 @@ useEffect(() => {
 
             const InitialConcerts = await fetchConcerts(filterJour, filterScene, filterHoraire, filterGenre);
             setFilteredConcerts(InitialConcerts);
-            console.log(InitialConcerts);
             
 
 
@@ -56,7 +55,6 @@ useEffect(() => {
         try {
             const concerts = await fetchConcerts(filterJour, filterScene, filterHoraire, filterGenre);
             setFilteredConcerts(concerts);
-            console.log(concerts);
         } catch (error) {
             console.error(error);
         }
