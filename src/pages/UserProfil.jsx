@@ -1,14 +1,21 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState, useContext} from "react";
 import { AuthContext } from "../context/AuthContext";
 import Header from "../components/header/Header";
 import Footer from "../components/footer/Footer";
 
 const UserProfil = () => {
-  const { logout } = React.useContext(AuthContext);
-  const [userData, setUserData] = React.useState(null);
-  const [firstName, setFirstName] = React.useState("");
-    const [lastName, setLastName] = React.useState("");
-    const [email, setEmail] = React.useState("");
+  const { logout } = useContext(AuthContext);
+  const [userData, setUserData] = useState(null);
+  const [firstName, setFirstName] = useState("");
+    const [lastName, setLastName] = useState("");
+        const [email, setEmail] =useState("");
+     const [originalFirstName, setOriginalFirstName] = useState("");
+  const [originalLastName, setOriginalLastName] = useState("");
+  const [originalEmail, setOriginalEmail] = useState("");
+    const [eventNotification, setEventNotification] = useState(false);
+    const [newsletter, setNewsletter] = useState(false);
+    
+
 
   useEffect(() => {
     const fetchUserData = async () => {
@@ -26,9 +33,15 @@ const UserProfil = () => {
         setEmail(data.data.email);
         setFirstName(data.data.firstName);
         setLastName(data.data.lastName);
+        setOriginalFirstName(data.data.firstName);
+        setOriginalLastName(data.data.lastName);
+        setOriginalEmail(data.data.email);
+
+        setEventNotification(data.data.eventNotification);
+        setNewsletter(data.data.newsletter);
 
         setUserData(data.data);
-        console.log(data);
+        
       } catch (error) {
         console.error(error);
       }
@@ -37,6 +50,86 @@ const UserProfil = () => {
     fetchUserData();
   }, []);
 
+//Gérer la modification des préférences
+
+  const handleUpdateUserPreferences = async (e) => {
+    e.preventDefault();
+
+    try {
+      const response = await fetch(
+        "https://backend.nationsound2024-festival.fr/api/user/profil/edit",
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${sessionStorage.getItem("jwtToken")}`,
+          },
+          body: JSON.stringify({
+            eventNotification,
+            newsletter,
+          }),
+        }
+      );
+
+      const data = await response.json();
+
+      if (data.status === "success") {
+        alert("Vos préférences ont été mises à jour");
+      } else {
+        alert("Une erreur est survenue");
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+//Gérer la modification des informations
+
+ const handleUpdateUserData = async (e) => {
+    e.preventDefault();
+
+    const updatedFields = {};
+
+    if (firstName !== originalFirstName) updatedFields.firstName = firstName;
+    if (lastName !== originalLastName) updatedFields.lastName = lastName;
+    if (email !== originalEmail) updatedFields.email = email;
+
+    if (Object.keys(updatedFields).length === 0) {
+      alert("Aucune modification détectée.");
+      return;
+    }
+
+    try {
+      const response = await fetch(
+        "https://backend.nationsound2024-festival.fr/api/user/profil/edit",
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${sessionStorage.getItem("jwtToken")}`,
+          },
+          body: JSON.stringify(updatedFields),
+        }
+      );
+
+      const data = await response.json();
+
+      if (data.status === "success") {
+        alert("Vos informations ont été mises à jour");
+        // Mettre à jour les valeurs d'origine après la mise à jour réussie
+        setOriginalFirstName(firstName);
+        setOriginalLastName(lastName);
+        setOriginalEmail(email);
+      } else {
+        alert("Une erreur est survenue");
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+
+//Gérer la deconnexion
   const handleLogout = () => {
     logout();
   };
@@ -76,7 +169,7 @@ const UserProfil = () => {
 
        
 
-            <form id="updateUserDataForm">
+            <form id="updateUserDataForm" onSubmit={handleUpdateUserData}>
 
                 <div className="form-group">
                     <label htmlFor="firstName">Prénom</label>
@@ -116,7 +209,7 @@ const UserProfil = () => {
           <section>
             <h2>Mes préférences</h2>
 
-    <form id="updateUserPreferencesForm">
+    <form id="updateUserPreferencesForm" onSubmit={handleUpdateUserPreferences}>
 
 <div className="profilFormGroup">
           <label htmlFor="artistes">Je souhaite recevoir la newsletter</label>
@@ -125,7 +218,8 @@ const UserProfil = () => {
               id="artistes"
               name="artistes"
               value="artistes"
-              checked={userData.artistes}
+              checked={newsletter}
+              onChange={(e) => {setNewsletter(e.target.checked)}} 
             />
       
 </div>
@@ -139,7 +233,8 @@ const UserProfil = () => {
               id="concerts"
               name="concerts"
               value="concerts"
-              checked={userData.concerts}
+              checked={eventNotification}
+              onChange={(e) => {setEventNotification(e.target.checked)}}
             />
    
     </div>

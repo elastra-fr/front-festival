@@ -141,7 +141,6 @@ async function fetchLiveConcerts() {
 export { fetchLiveConcerts };
 
 
-
 /*Récupération des catégories de points pour la carte*/
 
 async function fetchMapCategories() {
