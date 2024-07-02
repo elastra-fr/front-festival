@@ -121,6 +121,27 @@ async function fetchConcerts(filterJour, filterScene, filterHoraire, filterGenre
 
 export { fetchConcerts };
 
+/**
+ * Récupération des concerts en cours
+ * 
+ * 
+ * 
+ */
+
+async function fetchLiveConcerts() {
+  const response = await fetch(`${BASE_URL}/concert/now`);
+  const data = await response.json();
+  if (data.status === 'success') {
+    return data.data;
+  } else {
+    throw new Error(data.error);
+  }
+}
+
+export { fetchLiveConcerts };
+
+
+
 /*Récupération des catégories de points pour la carte*/
 
 async function fetchMapCategories() {

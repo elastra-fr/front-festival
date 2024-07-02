@@ -46,7 +46,7 @@ const UserProfil = () => {
       <Header />
 
       {userData ? (
-        <div id="userProfil">
+        <main id="userProfil">
           <section>
             
             <div id="profilToolBar">
@@ -54,10 +54,10 @@ const UserProfil = () => {
             <a href="#" onClick={handleLogout}>Se déconnecter</a>
             </div>
 
-
+            <div id="welcomeUser">
             <p>Bonjour {userData.firstName}</p>
 
-            <p>Bienvenue sur votre espace festivalier</p>
+            <p>Bienvenue sur votre espace festivalier.</p>
 
             <p>
               Dans cet espace vous pouvez consulter et modifier vos informations
@@ -68,6 +68,7 @@ const UserProfil = () => {
               Vous pouvez également consulter les contenus exclusifs réservés
               aux festivaliers.
             </p>
+            </div>
           </section>
 
           <section>
@@ -79,13 +80,13 @@ const UserProfil = () => {
 
                 <div className="form-group">
                     <label htmlFor="firstName">Prénom</label>
-                    <input type="text" id="firstName" name="firstName" required placeholder="Nom" value={userData.firstName} onChange={(e)=>setFirstName(e.target.value)}/>
+                    <input type="text" id="firstName" name="firstName" required placeholder="Nom" value={firstName} onChange={(e)=>setFirstName(e.target.value)}/>
                 </div>
 
                 <div className="form-group">
 
                     <label htmlFor="lastName">Nom</label>
-                    <input type="text" id="lastName" name="lastName" required placeholder="Prénom" value={userData.lastName} onChange={(e)=>setLastName(e.target.value)}/>
+                    <input type="text" id="lastName" name="lastName" required placeholder="Prénom" value={lastName} onChange={(e)=>setLastName(e.target.value)}/>
                 </div>
 
                 <div className="form-group">
@@ -95,7 +96,7 @@ const UserProfil = () => {
                         id="email"
                         name="email"
                         required
-                        value={userData.email}
+                        value={email}
                         placeholder="Email"
                         onChange={(e) => setEmail(e.target.value)}
                     />
@@ -118,7 +119,7 @@ const UserProfil = () => {
     <form id="updateUserPreferencesForm">
 
 <div className="profilFormGroup">
-          <label htmlFor="artistes">Je souhaite recevoir des informations sur les artistes</label>
+          <label htmlFor="artistes">Je souhaite recevoir la newsletter</label>
             <input
               type="checkbox"
               id="artistes"
@@ -132,7 +133,7 @@ const UserProfil = () => {
             
 
 <div className="profilFormGroup">
-             <label htmlFor="concerts">Je souhaite recevoir des informations sur les concerts</label>
+             <label htmlFor="concerts">Je souhaite recevoir des informations exclusives sur les concerts et animations</label>
             <input
               type="checkbox"
               id="concerts"
@@ -143,23 +144,13 @@ const UserProfil = () => {
    
     </div>
 
-<div className="profilFormGroup">
-           <label htmlFor="animations">Je souhaite recevoir des informations sur les animations</label>
-            <input
-              type="checkbox"
-              id="animations"
-              name="animations"
-              value="animations"
-              checked={userData.animations}
-            />
-     
 
-</div>
+<div className="form-group">
             <button type="submit">Modifier mes préférences</button>
-      
+      </div>
         </form>
           </section>
-        </div>
+        </main>
       ) : (
         <p>Chargement...</p>
       )}

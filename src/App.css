@@ -46,13 +46,20 @@ margin: 20px auto;
   padding: 20px;
 width: 80%;
 gap: 20px;
+border-radius: 10px;
 
 }
 
 #userProfil section{
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 10px;
+}
+
+#updateUserDataForm{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 #userProfil p{
@@ -133,11 +140,32 @@ gap:20px;
 .form-group{
 display: flex;
 flex-direction: column;
+gap: 10px;
 }
+
+.error{
+color: red;
+}
+
 
 .login p, .register p{
 color: black;
 }
+
+.form-group button{
+padding: 10px;
+
+}
+
+.form-group input[type="text"], .form-group input[type="password"], .form-group input[type="email"]{
+
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid grey;
+  
+
+}
+
 
 /*Page d'accueil*/
 
