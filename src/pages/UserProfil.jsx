@@ -134,6 +134,38 @@ const UserProfil = () => {
     logout();
   };
 
+  //Gérer la suppression du compte
+
+  const handleDeleteAccount = async (e) => {
+
+    e.preventDefault();
+
+    try {
+      const response = await fetch(
+        "https://backend.nationsound2024-festival.fr/api/user/profil/delete",
+        {
+          method: "DELETE",
+          headers: {
+            Authorization: `Bearer ${sessionStorage.getItem("jwtToken")}`,
+          },
+        }
+      );
+
+      const data = await response.json();
+
+      if (data.status === "success") {
+        alert("Votre compte a été supprimé");
+        logout();
+      } else {
+        alert("Une erreur est survenue");
+      }
+
+    } catch (error) {
+      console.error(error);
+    }
+
+  };
+
   return (
     <div>
       <Header />
@@ -245,6 +277,27 @@ const UserProfil = () => {
       </div>
         </form>
           </section>
+
+<section>
+
+  <form id="deleteAccountForm" onSubmit={handleDeleteAccount}>
+
+<h2>Supprimer mon compte</h2>
+
+<p>Vous souhaitez supprimer votre compte ?</p>
+
+<p>Attention, cette action est irréversible.</p>
+
+<div className="form-group">
+<button>Supprimer mon compte</button>
+
+</div>
+
+</form>
+
+</section>
+
+
         </main>
       ) : (
         <p>Chargement...</p>

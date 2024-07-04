@@ -57,6 +57,8 @@ catch (error) {
 
             <h2>Se connecter</h2>
 
+            <span>Tous les champs sont obligatoires.</span>
+
             {error && <p className="error">{error}</p>}
 
             <div className="form-group">
@@ -74,7 +76,7 @@ catch (error) {
             </div>
         </form>
 
-        <p>Vous n'avez pas de compte ? <a href="/register">Inscrivez-vous</a></p>
+        <p>Vous n'avez pas de compte ? <a href="/register">Inscrivez-vous ici</a></p>
 
     </section>
 
