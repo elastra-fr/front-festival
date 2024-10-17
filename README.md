@@ -3,9 +3,11 @@
 
 # Développement d'une application web ou web mobile partie Front End.
 
-## Environnement de développement 
 
-## Environnement de production
+Projet réalisé avec le Framework Javascript React (v18.2).
+Via le bundler Vite
+
+
 
 ## Sécurité et Authentification
 
