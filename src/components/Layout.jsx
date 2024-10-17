@@ -10,9 +10,9 @@ const Layout = () => {
       <RedBand />
         <Header />
      
-      <main>
+      <>
         <Outlet />
-      </main>
+      </>
         <Footer />
     </>
   );
