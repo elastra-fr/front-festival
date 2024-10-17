@@ -1,8 +1,8 @@
-import Footer from "../components/footer/Footer";
-import Header from "../components/header/Header";
+//import Footer from "../components/footer/Footer";
+//import Header from "../components/header/Header";
 import TuilesLiens from "../components/tuilesliens/TuilesLiens";
 import Live from "../components/live/Live";
-import SynthProg from "../components/synthprog/SynthProg";
+//import SynthProg from "../components/synthprog/SynthProg";
 import Actu from "../components/actu/Actu";
 import PropTypes from "prop-types";
 import ApiSynthProg from "../components/synthprog/ApiSynthProg";
@@ -18,7 +18,7 @@ const HomePage = ({ concerts }) => {
 
   return (
     <>
-      <Header />
+    
 
       <main>
         <section id="live" className="live">
@@ -51,7 +51,7 @@ const HomePage = ({ concerts }) => {
         </div>
       </main>
 
-      <Footer />
+    
     </>
   );
 };

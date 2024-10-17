@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
-import Header from '../components/header/Header';
-import Footer from '../components/footer/Footer';
+//import Header from '../components/header/Header';
+//import Footer from '../components/footer/Footer';
 import { fetchPartnerCategories, fetchPartnerByCategoryId } from '../api';
 import ItemPartner from '../components/itempartner/ItemPartner';
 
@@ -44,7 +44,7 @@ console.log(partnerData);
     return (
         <>
 
-        <Header />
+      
             {/* Your component content goes here */}
 <main id="mainPartner">
 
@@ -91,7 +91,7 @@ console.log(partnerData);
 </main>
 
 
-            <Footer />
+      
         </>
     );
 };

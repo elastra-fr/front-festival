@@ -1,6 +1,6 @@
 import React from "react";
-import Header from "../components/header/Header";
-import Footer from "../components/footer/Footer";
+//import Header from "../components/header/Header";
+//import Footer from "../components/footer/Footer";
 
 
 const Mentions = () => {
@@ -9,7 +9,7 @@ const Mentions = () => {
 
   return (
     <>
-      <Header />
+      
 
       <main className="mainMentions">
         <h1>Mentions légales</h1>
@@ -151,7 +151,7 @@ const Mentions = () => {
         </section>
       </main>
 
-      <Footer />
+      
     </>
   );
 };

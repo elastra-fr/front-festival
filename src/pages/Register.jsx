@@ -1,5 +1,5 @@
-import Header from '../components/header/Header';
-import Footer from '../components/footer/Footer';
+//import Header from '../components/header/Header';
+//import Footer from '../components/footer/Footer';
 import React, { useState } from 'react';
 import { registerUser } from '../services/authService';
 
@@ -39,7 +39,7 @@ const Register = () => {
 
     return (
         <>
-            <Header />
+            
             <main>
                 <section className="register">
                     <form id="registerForm" onSubmit={handleSubmit}>
@@ -109,7 +109,7 @@ const Register = () => {
                     <p>Vous avez déjà un compte ? <a href="/login">Connectez-vous</a></p>
                 </section>
             </main>
-            <Footer />
+            
         </>
     );
 };

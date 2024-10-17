@@ -1,6 +1,6 @@
 import React from "react";
-import Header from "../components/header/Header";
-import Footer from "../components/footer/Footer";
+//import Header from "../components/header/Header";
+//import Footer from "../components/footer/Footer";
 import Live from "../components/live/Live";
 import ApiMap from "../components/map/ApiMap";
 
@@ -11,7 +11,6 @@ const FullMap = () => {
 
   return (
     <>
-      <Header />
 
       <main className="mainFullMap">
         <Live />
@@ -19,7 +18,6 @@ const FullMap = () => {
         <ApiMap />
       </main>
 
-      <Footer />
     </>
   );
 };
