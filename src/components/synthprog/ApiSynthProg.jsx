@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import { fetchFilters, fetchConcerts } from '../../api';
 import { txtDate } from '../../utils';
 import ApiJourProg from '../jourprog/ApiJourProg';
+import './SynthProg.css';
 
 const ApiSynthProg = () => {
     // Your code here

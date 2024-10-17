@@ -7,6 +7,7 @@ import Actu from "../components/actu/Actu";
 import PropTypes from "prop-types";
 import ApiSynthProg from "../components/synthprog/ApiSynthProg";
 
+
 const HomePage = ({ concerts }) => {
   HomePage.propTypes = {
     concerts: PropTypes.array.isRequired,
