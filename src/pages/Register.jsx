@@ -40,7 +40,7 @@ const Register = () => {
     return (
         <>
             
-            <main>
+            <main id="mainRegister">
                 <section className="register">
                     <form id="registerForm" onSubmit={handleSubmit}>
                         <h2>Inscription</h2>
@@ -104,9 +104,19 @@ const Register = () => {
                         <div className="form-group">
                             <button type="submit">S'inscrire</button>
                         </div>
+                            <p>Vous avez déjà un compte ? <a href="/login">Connectez-vous</a></p>
                     </form>
 
-                    <p>Vous avez déjà un compte ? <a href="/login">Connectez-vous</a></p>
+                    <div className="registerInfos">
+
+
+                        <p>Enregistrez vous pour accéder à des espaces exclusifs, gérer votre profil, vos notifications et vos préférence.</p>
+
+
+
+
+                    </div>
+                
                 </section>
             </main>
             

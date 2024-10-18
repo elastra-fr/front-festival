@@ -16,6 +16,7 @@ import ProtectedRoute from "./components/ProtectedRoute";
 import Partners from "./pages/Partners";
 //import RedBand from "./components/redband/RedBand";
 import Layout from "./components/Layout";
+import NotFoundPage from "./pages/NotFoundPage";
 
 function App() {
 
@@ -67,6 +68,7 @@ function App() {
           {/* Routes sans Layout (comme login et register) */}
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
+                      <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </BrowserRouter>
     </AuthProvider>
