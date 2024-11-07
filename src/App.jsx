@@ -59,6 +59,9 @@ function App() {
             <Route path="/mentions" element={<Mentions />} />
             <Route path="/fullactu" element={<FullActu />} />
             <Route path="/partner" element={<Partners />} />
+             <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+                      <Route path="*" element={<NotFoundPage />} />
             <Route element={<ProtectedRoute />}>
               <Route path="/userprofil" element={<UserProfil />} />
               <Route path="/exclusive-content" element={<ExclusiveContent />} />
@@ -66,9 +69,7 @@ function App() {
           </Route>
           
           {/* Routes sans Layout (comme login et register) */}
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-                      <Route path="*" element={<NotFoundPage />} />
+         
         </Routes>
       </BrowserRouter>
     </AuthProvider>
