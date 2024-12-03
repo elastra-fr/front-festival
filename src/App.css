@@ -34,6 +34,16 @@ border-radius: 5px;
 border: none;
   }
 
+.appInputText{
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid grey;
+  }
+
+  .appInputText:focus{
+    border: 1px solid red;
+  }
+
 /****Profil utilisateur****/
 
 #userProfil
@@ -133,10 +143,19 @@ display: flex;
 flex-direction: column;
 height: auto;
 padding: 40px;
-background-color: white;
 border-radius: 10px;
 box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-color: black;
+color:white;
+
+}
+
+.login p, .login a, .register a{
+  color : white;
+  margin: 15px;
+}
+
+.login a, .register a{
+  text-decoration: underline;
 }
 
 .register{
@@ -155,13 +174,12 @@ flex-direction: column;
 gap:20px;
 width: 100%;
 
+
 }
 
 #registerForm{
 
 width: 100%;
-background-color: white;
-color: black;
 padding: 15px;
 border-top-left-radius: 10px;
 border-bottom-left-radius: 10px;
@@ -199,9 +217,6 @@ color: red;
 }
 
 
-.login p{
-color: black;
-}
 
 .form-group button{
 padding: 10px;
@@ -216,6 +231,8 @@ padding: 10px;
   
 
 }
+
+
 
 
 /*Page d'accueil*/

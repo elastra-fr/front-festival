@@ -68,7 +68,7 @@ function App() {
             </Route>
           </Route>
           
-          {/* Routes sans Layout (comme login et register) */}
+          {/* Routes sans Layout si besoin*/}
          
         </Routes>
       </BrowserRouter>

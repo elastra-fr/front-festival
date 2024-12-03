@@ -110,7 +110,7 @@ const Register = () => {
                     <div className="registerInfos">
 
 
-                        <p>Enregistrez vous pour accéder à des espaces exclusifs, gérer votre profil, vos notifications et vos préférence.</p>
+                        <p>Enregistrez vous pour accéder à des espaces exclusifs, gérer votre profil, vos notifications et vos préférences.</p>
 
 
 
