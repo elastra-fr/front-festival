@@ -1,6 +1,4 @@
-import React, {useEffect, useState} from "react";
-import Header from "../components/header/Header";
-import Footer from "../components/footer/Footer";
+import {useEffect, useState} from "react";
 import FaqItem from "../components/faqItem/FaqItem";
 import TuilesLiens from "../components/tuilesliens/TuilesLiens";
 import { fetchFaq } from "../api";
@@ -28,7 +26,7 @@ const [faq, setFaq] = useState([]);
 
   return (
     <>
-      <Header />
+
 
       <main className="mainFaq">
         <h1>Informations - FAQ</h1>
@@ -68,7 +66,7 @@ const [faq, setFaq] = useState([]);
         </div>
       </main>
 
-      <Footer />
+  
     </>
   );
 };

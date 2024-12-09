@@ -14,7 +14,9 @@ import ExclusiveContent from "./pages/ExclusiveContent";
 import { AuthProvider } from "./context/AuthContext";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Partners from "./pages/Partners";
-import RedBand from "./components/redband/RedBand";
+//import RedBand from "./components/redband/RedBand";
+import Layout from "./components/Layout";
+import NotFoundPage from "./pages/NotFoundPage";
 
 function App() {
 
@@ -44,28 +46,33 @@ function App() {
 
   return (
     <>
-    <AuthProvider>
+<AuthProvider>
       <BrowserRouter>
-      <RedBand />
         <Routes>
-          <Route path="/" element={<HomePage concerts={fullConcerts} />} />
-          <Route path="/home" element={<HomePage concerts={fullConcerts} />} />
-          <Route path="/infos" element={<Infos />} />
-          <Route path="/faq" element={<Faq />} />
-          <Route path="/map" element={<FullMap />} />
-          <Route path="/mentions" element={<Mentions />} />
-          <Route path="/fullactu" element={<FullActu />} />
-          <Route path="/partner" element={<Partners />} />
-          <Route path="/login" element={<Login />} />
+          {/* Routes avec Layout */}
+          <Route element={<Layout />}>
+            <Route path="/" element={<HomePage concerts={fullConcerts} />} />
+            <Route path="/home" element={<HomePage concerts={fullConcerts} />} />
+            <Route path="/infos" element={<Infos />} />
+            <Route path="/faq" element={<Faq />} />
+            <Route path="/map" element={<FullMap />} />
+            <Route path="/mentions" element={<Mentions />} />
+            <Route path="/fullactu" element={<FullActu />} />
+            <Route path="/partner" element={<Partners />} />
+             <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
-                  <Route element={<ProtectedRoute />}>
-            <Route path="/userprofil" element={<UserProfil />} />
-            <Route path="/exclusive-content" element={<ExclusiveContent />} />
+                      <Route path="*" element={<NotFoundPage />} />
+            <Route element={<ProtectedRoute />}>
+              <Route path="/userprofil" element={<UserProfil />} />
+              <Route path="/exclusive-content" element={<ExclusiveContent />} />
+            </Route>
           </Route>
-
+          
+          {/* Routes sans Layout si besoin*/}
+         
         </Routes>
       </BrowserRouter>
-      </AuthProvider>
+    </AuthProvider>
     </>
   );
 }

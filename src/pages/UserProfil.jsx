@@ -1,7 +1,6 @@
 import React, { useEffect, useState, useContext} from "react";
 import { AuthContext } from "../context/AuthContext";
-import Header from "../components/header/Header";
-import Footer from "../components/footer/Footer";
+
 
 const UserProfil = () => {
   const { logout } = useContext(AuthContext);
@@ -168,7 +167,7 @@ const UserProfil = () => {
 
   return (
     <div>
-      <Header />
+      
 
       {userData ? (
         <main id="userProfil">
@@ -305,7 +304,7 @@ const UserProfil = () => {
 
 
 
-      <Footer />
+      
     </div>
   );
 };

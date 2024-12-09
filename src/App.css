@@ -34,6 +34,16 @@ border-radius: 5px;
 border: none;
   }
 
+.appInputText{
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid grey;
+  }
+
+  .appInputText:focus{
+    border: 1px solid red;
+  }
+
 /****Profil utilisateur****/
 
 #userProfil
@@ -114,27 +124,86 @@ border-radius: 10px;
 
 /*Formulaire de Login*/
 
-.login, .register{
+#mainRegister{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin: 20px auto;
+  width: 80%;
+  color: white;
+  min-height: 80vh;
+}
+
+
+.login{
 
 width: 40%;
-margin: 20px auto;
+margin: 100px auto;
 display: flex;
 flex-direction: column;
-
 height: auto;
 padding: 40px;
-background-color: white;
 border-radius: 10px;
 box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-color: black;
+color:white;
+
 }
+
+.login p, .login a, .register a{
+  color : white;
+  margin: 15px;
+}
+
+.login a, .register a{
+  text-decoration: underline;
+}
+
+.register{
+
+display: flex;
+flex-direction: column-reverse;
+padding: 40px;
+height: 100%;
+
+ }
 
 #loginForm, #registerForm{
 
 display: flex;
 flex-direction: column;
 gap:20px;
+width: 100%;
 
+
+}
+
+#registerForm{
+
+width: 100%;
+padding: 15px;
+border-top-left-radius: 10px;
+border-bottom-left-radius: 10px;
+
+}
+
+.registerInfos{
+
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+gap: 20px;
+width: 100%;
+color : white;
+padding: 15px; 
+
+
+}
+
+.registerInfos p{
+  color: white;
+  text-align: right;
+  font-size: 2rem;
 }
 
 .form-group{
@@ -148,9 +217,6 @@ color: red;
 }
 
 
-.login p, .register p{
-color: black;
-}
 
 .form-group button{
 padding: 10px;
@@ -165,6 +231,46 @@ padding: 10px;
   
 
 }
+
+
+/**Eye eye slash sur les input**/	
+
+.form-group-password {
+    position: relative;
+}
+
+.form-group-password input {
+    width: 100%;
+    padding: 0.5rem;
+    padding-right: 2.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.form-group-password .password-toggle {
+    position: absolute;
+    top: calc(50% + 14px);
+    right: 0.5rem;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.form-group-password .password-toggle svg {
+    width: 20px;
+    height: 20px;
+    stroke: #666;
+    transition: stroke 0.3s ease;
+}
+
+.form-group-password .password-toggle:hover svg {
+    stroke: #333;
+}
+
 
 
 /*Page d'accueil*/
@@ -216,6 +322,21 @@ padding-top: 40px;
     }
 
 
+  /**Page register**/
+
+  .register{
+    flex-direction: row;
+  }
+
+  .registerInfos, .registerForm{
+    width: 50%;
+  }
+
+
+
+
+
+
 
 }
 
@@ -237,7 +358,7 @@ gap: 10px;
 
 }
 
-.mainMentions h2, p {
+.mainMentions h2, .mainMentions p {
 
     margin: 10px;
     padding: 10px;
@@ -251,7 +372,7 @@ color: black;
 
 }
 
-.mentions h2, p {
+.mentions h2, .mentions p {
 
     color: white;
 }
@@ -313,6 +434,17 @@ background-color: black;
 
 }
 
+/**Page 404**/
+
+#mainPageNotFound{
+
+
+background-color: white;
+width: 100%;
+height: 100vh;
+
+}
+
 
 
 
@@ -362,7 +494,9 @@ gap: 10px;
 @media screen and (max-width: 768px){
   .login, .register{
  
-    width: 80%;
+    width: 95%;
+    margin: 150px auto;
+    height: auto;
  
  
   }

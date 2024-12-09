@@ -1,6 +1,6 @@
 import React from 'react';
-import Header from '../components/header/Header';
-import Footer from '../components/footer/Footer';
+//import Header from '../components/header/Header';
+//import Footer from '../components/footer/Footer';
 import Actu from '../components/actu/Actu';
 
 
@@ -12,7 +12,7 @@ document.title = 'Actu | NATION SOUND';
 
     return (
 <>
-<Header />
+
 
 <main className='mainFullActu'>
 
@@ -20,7 +20,7 @@ document.title = 'Actu | NATION SOUND';
 
 </main>
 
-<Footer />
+
 
 </>
     );

@@ -3,7 +3,7 @@ import React from 'react';
 const ExclusiveContent = () => {
     return (
         <div>
-            {/* Your exclusive content goes here */}
+            <p>Ceci est une page test pour du contenu exclusifs réservés aux utilisateurs identifiés.</p>
         </div>
     );
 };

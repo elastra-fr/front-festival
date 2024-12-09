@@ -2,6 +2,7 @@ import React from 'react';
 import ApiItemConcert from '../itemConcert/ApiItemConcert';
 import PropTypes from 'prop-types';
 import { txtDate, formatTime } from '../../utils';
+import './Jourprog.css';
 
 const ApiJourProg = ({ jour, data }) => {
   return (
