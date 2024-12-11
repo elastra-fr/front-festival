@@ -25,3 +25,6 @@ dist-ssr
 
 
 .env
+localhost.crt
+localhost.key
+localhost.csr

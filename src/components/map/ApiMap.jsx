@@ -104,8 +104,8 @@ const ApiMap = () => {
     if (select && categories.length > 0) {
       categories.forEach((category) => {
         const option = document.createElement("option");
-        option.value = category.id;
-        option.text = category.PointCategory;
+        option.value = category.map_pooint_category_id;
+        option.text = category.map_point_category;
         select.add(option);
       });
     }

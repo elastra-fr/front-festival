@@ -46,8 +46,9 @@ function App() {
 
   return (
     <>
-<AuthProvider>
+      
       <BrowserRouter>
+<AuthProvider>
         <Routes>
           {/* Routes avec Layout */}
           <Route element={<Layout />}>
@@ -71,8 +72,10 @@ function App() {
           {/* Routes sans Layout si besoin*/}
          
         </Routes>
+      </AuthProvider>      
       </BrowserRouter>
-    </AuthProvider>
+      
+
     </>
   );
 }

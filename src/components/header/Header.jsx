@@ -1,14 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import "./Header.css";
 import Socials from "../socials/Socials";
 import { HashLink } from "react-router-hash-link";
 import ModalYesNo from "../modalyesno/ModalYesNo";
-import { AuthContext } from "../../context/AuthContext";
+import { useAuth } from "../../context/AuthContext";
+
 
 const Header = () => {
 
-  const { isAuthenticated } = React.useContext(AuthContext);
+  const { isAuthenticated } = useAuth();
   const [showNav, setShowNav] = useState(false);
   const [showModal, setShowModal] = useState(false);
 

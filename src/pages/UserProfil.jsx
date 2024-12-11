@@ -1,9 +1,9 @@
 import React, { useEffect, useState, useContext} from "react";
-import { AuthContext } from "../context/AuthContext";
+import { useAuth } from "../context/AuthContext";
 
 
 const UserProfil = () => {
-  const { logout } = useContext(AuthContext);
+  const { logout } = useContext(useAuth);
   const [userData, setUserData] = useState(null);
   const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");

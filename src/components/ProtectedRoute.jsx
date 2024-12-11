@@ -1,20 +1,20 @@
-import React, { useContext, useEffect, useState } from 'react';
-import { Navigate, Outlet } from 'react-router-dom';
-import { AuthContext } from '../context/AuthContext';
+import { Navigate, Outlet } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
+
+
 
 const ProtectedRoute = () => {
-  const [isLoading, setIsLoading] = useState(true);
-  const { isAuthenticated } = useContext(AuthContext);
+  const { isAuthenticated, isLoading } = useAuth();
 
-  useEffect(() => {
-    setIsLoading(false);
-  }, [isAuthenticated]);
+  //console.log('ProtectedRoute exécuté :', { isAuthenticated, isLoading });
 
+  // Bloquer l'accès tant que la vérification est en cours
   if (isLoading) {
-    return <p>Chargement...</p>;
+    return <div>Chargement...</div>; // Vous pouvez personnaliser ce message
   }
 
-  return isAuthenticated ? <Outlet /> : <Navigate to="/login" />;
+  // Autoriser uniquement si authentifié
+  return isAuthenticated ? <Outlet /> : <Navigate to="/" replace />;
 };
 
 export default ProtectedRoute;
