@@ -15,9 +15,12 @@ const ItemActu = ({ date, intitule, texteactu }) => {
   return (
     <>
       <article className="itemActu">
-        <h3>{intitule}</h3>
+        <div className="contentActu">        
+          <h3>{intitule}</h3>
         <span className="dateActu">{"Publié le  " + textDate}</span>
         <p>{texteactu}</p>
+        </div>
+
       </article>
     </>
   );
