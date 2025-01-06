@@ -68,7 +68,7 @@ export const verifyAuth = async () => {
 
 export const logoutUser = async () => {
     const response = await fetch(`${API_URL}/logout`, {
-        method: 'POST',
+        method: 'GET',
         credentials: 'include', // Inclut les cookies
         headers: {
             'Content-Type': 'application/json',

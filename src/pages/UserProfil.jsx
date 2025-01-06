@@ -1,46 +1,44 @@
-import React, { useEffect, useState, useContext} from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { useAuth } from "../context/AuthContext";
 
-
 const UserProfil = () => {
-  const { logout } = useContext(useAuth);
+
+  const { logout } = useAuth();
+  
   const [userData, setUserData] = useState(null);
   const [firstName, setFirstName] = useState("");
-    const [lastName, setLastName] = useState("");
-        const [email, setEmail] =useState("");
-     const [originalFirstName, setOriginalFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [originalFirstName, setOriginalFirstName] = useState("");
   const [originalLastName, setOriginalLastName] = useState("");
   const [originalEmail, setOriginalEmail] = useState("");
-    const [eventNotification, setEventNotification] = useState(false);
-    const [newsletter, setNewsletter] = useState(false);
-    
+  const [eventNotification, setEventNotification] = useState(false);
+  const [newsletter, setNewsletter] = useState(false);
 
-
+  // Récupérer les données utilisateur avec le cookie automatiquement envoyé
   useEffect(() => {
     const fetchUserData = async () => {
       try {
         const response = await fetch(
           "https://backend.nationsound2024-festival.fr/api/user/profil",
           {
-            headers: {
-              Authorization: `Bearer ${sessionStorage.getItem("jwtToken")}`,
-            },
+            method: "GET",
+            credentials: "include", // Important pour inclure les cookies automatiquement
           }
         );
 
         const data = await response.json();
-        setEmail(data.data.email);
-        setFirstName(data.data.firstName);
-        setLastName(data.data.lastName);
-        setOriginalFirstName(data.data.firstName);
-        setOriginalLastName(data.data.lastName);
-        setOriginalEmail(data.data.email);
-
-        setEventNotification(data.data.eventNotification);
-        setNewsletter(data.data.newsletter);
-
-        setUserData(data.data);
-        
+        if (data.data) {
+          setEmail(data.data.email);
+          setFirstName(data.data.firstName);
+          setLastName(data.data.lastName);
+          setOriginalFirstName(data.data.firstName);
+          setOriginalLastName(data.data.lastName);
+          setOriginalEmail(data.data.email);
+          setEventNotification(data.data.eventNotification);
+          setNewsletter(data.data.newsletter);
+          setUserData(data.data);
+        }
       } catch (error) {
         console.error(error);
       }
@@ -49,8 +47,7 @@ const UserProfil = () => {
     fetchUserData();
   }, []);
 
-//Gérer la modification des préférences
-
+  // Gérer la modification des préférences
   const handleUpdateUserPreferences = async (e) => {
     e.preventDefault();
 
@@ -61,12 +58,12 @@ const UserProfil = () => {
           method: "PUT",
           headers: {
             "Content-Type": "application/json",
-            Authorization: `Bearer ${sessionStorage.getItem("jwtToken")}`,
           },
           body: JSON.stringify({
             eventNotification,
             newsletter,
           }),
+          credentials: "include", // Pour inclure les cookies dans la requête
         }
       );
 
@@ -82,9 +79,8 @@ const UserProfil = () => {
     }
   };
 
-//Gérer la modification des informations
-
- const handleUpdateUserData = async (e) => {
+  // Gérer la modification des informations
+  const handleUpdateUserData = async (e) => {
     e.preventDefault();
 
     const updatedFields = {};
@@ -105,9 +101,9 @@ const UserProfil = () => {
           method: "PUT",
           headers: {
             "Content-Type": "application/json",
-            Authorization: `Bearer ${sessionStorage.getItem("jwtToken")}`,
           },
           body: JSON.stringify(updatedFields),
+          credentials: "include", // Pour inclure les cookies dans la requête
         }
       );
 
@@ -127,16 +123,13 @@ const UserProfil = () => {
     }
   };
 
-
-//Gérer la deconnexion
+  // Gérer la déconnexion
   const handleLogout = () => {
     logout();
   };
 
-  //Gérer la suppression du compte
-
+  // Gérer la suppression du compte
   const handleDeleteAccount = async (e) => {
-
     e.preventDefault();
 
     try {
@@ -144,9 +137,7 @@ const UserProfil = () => {
         "https://backend.nationsound2024-festival.fr/api/user/profil/delete",
         {
           method: "DELETE",
-          headers: {
-            Authorization: `Bearer ${sessionStorage.getItem("jwtToken")}`,
-          },
+          credentials: "include", // Pour inclure les cookies dans la requête
         }
       );
 
@@ -158,153 +149,142 @@ const UserProfil = () => {
       } else {
         alert("Une erreur est survenue");
       }
-
     } catch (error) {
       console.error(error);
     }
-
   };
 
   return (
     <div>
-      
-
       {userData ? (
         <main id="userProfil">
           <section>
-            
             <div id="profilToolBar">
-            <h2>Mon profil</h2>
-            <a href="#" onClick={handleLogout}>Se déconnecter</a>
+              <h2>Mon profil</h2>
+              <a href="#" onClick={handleLogout}>
+                Se déconnecter
+              </a>
             </div>
 
             <div id="welcomeUser">
-            <p>Bonjour {userData.firstName}</p>
-
-            <p>Bienvenue sur votre espace festivalier.</p>
-
-            <p>
-              Dans cet espace vous pouvez consulter et modifier vos informations
-              personnelles ainsi que vos préférences.
-            </p>
-
-            <p>
-              Vous pouvez également consulter les contenus exclusifs réservés
-              aux festivaliers.
-            </p>
+              <p>Bonjour {userData.firstName}</p>
+              <p>Bienvenue sur votre espace festivalier.</p>
+              <p>
+                Dans cet espace vous pouvez consulter et modifier vos
+                informations personnelles ainsi que vos préférences.
+              </p>
+              <p>
+                Vous pouvez également consulter les contenus exclusifs réservés
+                aux festivaliers.
+              </p>
             </div>
           </section>
 
           <section>
             <h2>Mes informations</h2>
 
-       
-
             <form id="updateUserDataForm" onSubmit={handleUpdateUserData}>
+              <div className="form-group">
+                <label htmlFor="firstName">Prénom</label>
+                <input
+                  type="text"
+                  id="firstName"
+                  name="firstName"
+                  required
+                  placeholder="Nom"
+                  value={firstName}
+                  onChange={(e) => setFirstName(e.target.value)}
+                />
+              </div>
 
-                <div className="form-group">
-                    <label htmlFor="firstName">Prénom</label>
-                    <input type="text" id="firstName" name="firstName" required placeholder="Nom" value={firstName} onChange={(e)=>setFirstName(e.target.value)}/>
-                </div>
+              <div className="form-group">
+                <label htmlFor="lastName">Nom</label>
+                <input
+                  type="text"
+                  id="lastName"
+                  name="lastName"
+                  required
+                  placeholder="Prénom"
+                  value={lastName}
+                  onChange={(e) => setLastName(e.target.value)}
+                />
+              </div>
 
-                <div className="form-group">
+              <div className="form-group">
+                <label htmlFor="email">Adresse e-mail</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  required
+                  value={email}
+                  placeholder="Email"
+                  onChange={(e) => setEmail(e.target.value)}
+                />
+              </div>
 
-                    <label htmlFor="lastName">Nom</label>
-                    <input type="text" id="lastName" name="lastName" required placeholder="Prénom" value={lastName} onChange={(e)=>setLastName(e.target.value)}/>
-                </div>
-
-                <div className="form-group">
-                    <label htmlFor="email">Adresse e-mail</label>
-                    <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        required
-                        value={email}
-                        placeholder="Email"
-                        onChange={(e) => setEmail(e.target.value)}
-                    />
-
-                </div>
-
-                <div className="form-group">
-
-                    <button type="submit">Modifier mes informations</button>
-
-                </div>
-
+              <div className="form-group">
+                <button type="submit">Modifier mes informations</button>
+              </div>
             </form>
-
           </section>
 
           <section>
             <h2>Mes préférences</h2>
 
-    <form id="updateUserPreferencesForm" onSubmit={handleUpdateUserPreferences}>
+            <form
+              id="updateUserPreferencesForm"
+              onSubmit={handleUpdateUserPreferences}
+            >
+              <div className="profilFormGroup">
+                <label htmlFor="newsletter">
+                  Je souhaite recevoir la newsletter
+                </label>
+                <input
+                  type="checkbox"
+                  id="newsletter"
+                  name="newsletter"
+                  value="newsletter"
+                  checked={newsletter}
+                  onChange={(e) => setNewsletter(e.target.checked)}
+                />
+              </div>
 
-<div className="profilFormGroup">
-          <label htmlFor="artistes">Je souhaite recevoir la newsletter</label>
-            <input
-              type="checkbox"
-              id="artistes"
-              name="artistes"
-              value="artistes"
-              checked={newsletter}
-              onChange={(e) => {setNewsletter(e.target.checked)}} 
-            />
-      
-</div>
+              <div className="profilFormGroup">
+                <label htmlFor="eventNotification">
+                  Je souhaite recevoir des informations exclusives sur les
+                  concerts et animations
+                </label>
+                <input
+                  type="checkbox"
+                  id="eventNotification"
+                  name="eventNotification"
+                  value="eventNotification"
+                  checked={eventNotification}
+                  onChange={(e) => setEventNotification(e.target.checked)}
+                />
+              </div>
 
-            
-
-<div className="profilFormGroup">
-             <label htmlFor="concerts">Je souhaite recevoir des informations exclusives sur les concerts et animations</label>
-            <input
-              type="checkbox"
-              id="concerts"
-              name="concerts"
-              value="concerts"
-              checked={eventNotification}
-              onChange={(e) => {setEventNotification(e.target.checked)}}
-            />
-   
-    </div>
-
-
-<div className="form-group">
-            <button type="submit">Modifier mes préférences</button>
-      </div>
-        </form>
+              <div className="form-group">
+                <button type="submit">Modifier mes préférences</button>
+              </div>
+            </form>
           </section>
 
-<section>
-
-  <form id="deleteAccountForm" onSubmit={handleDeleteAccount}>
-
-<h2>Supprimer mon compte</h2>
-
-<p>Vous souhaitez supprimer votre compte ?</p>
-
-<p>Attention, cette action est irréversible.</p>
-
-<div className="form-group">
-<button>Supprimer mon compte</button>
-
-</div>
-
-</form>
-
-</section>
-
-
+          <section>
+            <form id="deleteAccountForm" onSubmit={handleDeleteAccount}>
+              <h2>Supprimer mon compte</h2>
+              <p>Vous souhaitez supprimer votre compte ?</p>
+              <p>Attention, cette action est irréversible.</p>
+              <div className="form-group">
+                <button>Supprimer mon compte</button>
+              </div>
+            </form>
+          </section>
         </main>
       ) : (
         <p>Chargement...</p>
       )}
-
-
-
-      
     </div>
   );
 };

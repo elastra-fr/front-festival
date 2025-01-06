@@ -18,7 +18,7 @@ export const AuthProvider = ({ children }) => {
                 setIsAuthenticated(true);
                 setUser(userData); // Mettre à jour les infos utilisateur si nécessaire
             } catch (error) {
-                //console.error('Erreur de vérification du token:', error);
+                console.error('Erreur de vérification du token:', error);
                 setIsAuthenticated(false);
                 setUser(null);
             } finally {
@@ -44,6 +44,11 @@ export const AuthProvider = ({ children }) => {
     const logout = async () => {
         try {
             await logoutUser();
+
+            //Nettoyer le cookie 
+
+
+
             setIsAuthenticated(false);
             setUser(null); // Réinitialise les infos utilisateur
             navigate('/login'); // Redirige vers la page de connexion

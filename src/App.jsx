@@ -23,7 +23,7 @@ function App() {
   const [fullConcerts, setFullConcerts] = useState([]);
 
 
-
+/*
   const getConcerts = () => {
     fetch("http://festival.local/wp-json/wp/v2/concert?per_page=100")
       .then((response) => response.json())
@@ -38,7 +38,7 @@ function App() {
   useEffect(() => {
     getConcerts;
   }, []);
-
+*/
 
 
 
