@@ -1,5 +1,4 @@
-// src/context/AuthContext.jsx
-import React, { createContext, useState, useContext, useEffect } from 'react';
+import React, { createContext, useState, useContext, useEffect} from 'react';
 import { useNavigate } from 'react-router-dom';
 import { authenticateUser, verifyAuth, logoutUser } from '../services/authService';
 
@@ -15,6 +14,7 @@ export const AuthProvider = ({ children }) => {
         const checkAuthStatus = async () => {
             try {
                 const userData = await verifyAuth();
+                console.log('Auth verified:', userData);
                 setIsAuthenticated(true);
                 setUser(userData); // Mettre à jour les infos utilisateur si nécessaire
             } catch (error) {
@@ -30,10 +30,15 @@ export const AuthProvider = ({ children }) => {
     }, []);
 
     const login = async (email, password) => {
+        console.log('Tentative de connexion...');
         try {
             const userData = await authenticateUser(email, password);
+            console.log('Utilisateur connecté:', userData);
+
+            const verifiedUserData = await verifyAuth();
+
             setIsAuthenticated(true);
-            setUser(userData); // Met à jour les infos utilisateur
+            setUser(verifiedUserData); // Met à jour les infos utilisateur
             navigate('/'); // Redirige vers la page d'accueil ou une autre
         } catch (error) {
             console.error('Erreur lors de la connexion :', error);
@@ -44,11 +49,7 @@ export const AuthProvider = ({ children }) => {
     const logout = async () => {
         try {
             await logoutUser();
-
-            //Nettoyer le cookie 
-
-
-
+            console.log('Déconnexion effectuée');
             setIsAuthenticated(false);
             setUser(null); // Réinitialise les infos utilisateur
             navigate('/login'); // Redirige vers la page de connexion
@@ -56,6 +57,10 @@ export const AuthProvider = ({ children }) => {
             console.error('Erreur lors de la déconnexion :', error);
         }
     };
+
+    useEffect(() => {
+        console.log('État de l\'authentification:', isAuthenticated, user);
+    }, [isAuthenticated, user]);
 
     return (
         <AuthContext.Provider

@@ -52,18 +52,20 @@ export const registerUser = async (firstName, lastName, email, password) => {
 };
 
 export const verifyAuth = async () => {
-
-    console.log('verifyAuth');
+    console.log('Vérification de l\'authentification...');
     const response = await fetch(`${API_URL}/check-auth`, {
         method: 'GET',
         credentials: 'include', // Inclut les cookies
     });
 
     if (!response.ok) {
+        console.error('Erreur d\'authentification :', response.status);
         throw new Error('Not authenticated');
     }
 
-    return await response.json(); // Renvoie les données d'utilisateur si authentifié
+    const userData = await response.json();
+    console.log('Utilisateur vérifié:', userData); // Affiche les données utilisateur
+    return userData; // Renvoie les données utilisateur
 };
 
 export const logoutUser = async () => {

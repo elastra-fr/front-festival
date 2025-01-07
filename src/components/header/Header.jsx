@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./Header.css";
 import Socials from "../socials/Socials";
@@ -12,6 +12,11 @@ const Header = () => {
   const { isAuthenticated } = useAuth();
   const [showNav, setShowNav] = useState(false);
   const [showModal, setShowModal] = useState(false);
+
+  useEffect(() => {
+    console.log(isAuthenticated);
+}, [isAuthenticated]);
+
 
 
   const getWindowWidth = () => {
@@ -35,6 +40,8 @@ const Header = () => {
   const handleModal = () => {
     setShowModal(!showModal);
   };
+
+
 
   //Rend fixe l'element mainNav lors du scroll avec un effet de transition
 

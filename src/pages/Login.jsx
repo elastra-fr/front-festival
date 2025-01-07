@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
-import { authenticateUser } from '../services/authService';
+//import { authenticateUser } from '../services/authService';
 import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../context/AuthContext';
 
 const Login = () => {
     document.title = 'Login | NATION SOUND';
 
+    const { login } = useAuth();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
@@ -25,7 +27,9 @@ const Login = () => {
         }
 
         try {
-            await authenticateUser(email, password);
+            //await authenticateUser(email, password);
+   
+            await login(email,password);
             navigate('/home'); // Redirection après connexion réussie
         } catch (error) {
             setError('Adresse e-mail ou mot de passe incorrect.');
