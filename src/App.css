@@ -48,17 +48,19 @@ border: none;
 
 #userProfil
 {
-  color: black;
+  
   display: flex;
-  flex-direction: column;
-background-color: white; 
+  flex-direction: column; 
 margin: 20px auto;
   padding: 20px;
 width: 80%;
 gap: 20px;
 border-radius: 10px;
+color : white;
 
 }
+
+
 
 #userProfil section{
   display: flex;
@@ -66,14 +68,12 @@ border-radius: 10px;
   gap: 10px;
 }
 
+
+
 #updateUserDataForm{
   display: flex;
   flex-direction: column;
   gap: 20px;
-}
-
-#userProfil p{
- color: black;
 }
 
 #profilToolBar{
@@ -83,7 +83,7 @@ border-radius: 10px;
 
 }
 
-#updateUserPreferencesForm{
+#updateUserPreferencesForm, #welcomeUser, #deleteAccountForm{
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -92,6 +92,7 @@ border-radius: 10px;
 .profilFormGroup{
   display: flex;
   justify-content: space-between;
+  gap: 20px;
   
  
 }
@@ -220,8 +221,28 @@ color: red;
 
 .form-group button{
 padding: 10px;
+width: max-content;
+border-radius: 5px;
+
+
 
 }
+
+.form-group button:hover{
+background-color: white;
+color: black;
+cursor: pointer;
+}
+
+#newsletter, #eventNotification{
+
+border-radius: 5px;
+width: 50px;
+accent-color: white;
+
+}
+
+
 
 .form-group input[type="text"], .form-group input[type="password"], .form-group input[type="email"]{
 

@@ -104,19 +104,35 @@ const Header = () => {
 
           {isAuthenticated ? (
 
+            <>
             <li>
               <Link to="/userprofil" onClick={() => setShowNav(false)}>
                 Mon profil
               </Link>
             </li>
+            <li>
+              <Link to="/exclusive-content" onClick={() => setShowNav(false)}>
+                Contenu exclusif
+              </Link>
+            </li>
+            <li>
+              <Link to="#" onClick={() => setShowNav(false)}>
+                Déconnexion 
+              </Link>
+            </li>
 
+
+            </>
+          
           ):(
+            <>
             <li>
               <Link to="/login" onClick={() => setShowNav(false)}>
                 Connexion
               </Link>
             </li>
-
+            
+        </>
           )}
 
             <li>
