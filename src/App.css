@@ -318,6 +318,23 @@ accent-color: white;
 
 }
 
+/*Page exclusive contente*/
+
+#exclusiveContentMain{
+
+min-height: 50vh;
+display: flex;
+color: white;
+justify-content: center;
+align-items: center;
+margin: 0 auto;
+width: 85%;
+}
+
+#exclusiveContentMain h1{
+  text-align: center;
+}
+
 @media screen and (min-width: 768px) {
 
     .homemap {

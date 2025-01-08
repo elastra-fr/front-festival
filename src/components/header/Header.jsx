@@ -9,7 +9,7 @@ import { useAuth } from "../../context/AuthContext";
 
 const Header = () => {
 
-  const { isAuthenticated } = useAuth();
+  const { isAuthenticated, logout } = useAuth();
   const [showNav, setShowNav] = useState(false);
   const [showModal, setShowModal] = useState(false);
 
@@ -17,6 +17,11 @@ const Header = () => {
     console.log(isAuthenticated);
 }, [isAuthenticated]);
 
+
+const handleLogout = () => {
+  logout();
+  setShowNav(false);
+};
 
 
   const getWindowWidth = () => {
@@ -116,7 +121,7 @@ const Header = () => {
               </Link>
             </li>
             <li>
-              <Link to="#" onClick={() => setShowNav(false)}>
+              <Link to="#" onClick={() => handleLogout()}>
                 Déconnexion 
               </Link>
             </li>
