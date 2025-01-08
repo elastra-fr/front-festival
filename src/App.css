@@ -433,7 +433,6 @@ margin: 0 auto;
 width: 95%;
 margin: 15px auto;
 padding: 20px;
-color: black;
 min-height: 600px;
 background-color: black;
 
@@ -504,8 +503,7 @@ gap: 10px;
 
     text-align: center;
     color: white;
-    font-size: 1.2rem;
-    font-weight: bolder;
+  
 
 }
 
