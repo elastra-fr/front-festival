@@ -175,7 +175,7 @@ const ApiMap = () => {
     });
   }
 
-  return <div id="leafMap" style={{ height: "100vh", width: "100%" }}></div>;
+  return <div id="leafMap" style={{ height: "100vh", width: "90%" }}></div>;
 };
 
 export default ApiMap;
