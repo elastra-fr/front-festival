@@ -1,16 +1,27 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./Header.css";
 import Socials from "../socials/Socials";
 import { HashLink } from "react-router-hash-link";
 import ModalYesNo from "../modalyesno/ModalYesNo";
-import { AuthContext } from "../../context/AuthContext";
+import { useAuth } from "../../context/AuthContext";
+
 
 const Header = () => {
 
-  const { isAuthenticated } = React.useContext(AuthContext);
+  const { isAuthenticated, logout } = useAuth();
   const [showNav, setShowNav] = useState(false);
   const [showModal, setShowModal] = useState(false);
+
+  useEffect(() => {
+    console.log(isAuthenticated);
+}, [isAuthenticated]);
+
+
+const handleLogout = () => {
+  logout();
+  setShowNav(false);
+};
 
 
   const getWindowWidth = () => {
@@ -34,6 +45,8 @@ const Header = () => {
   const handleModal = () => {
     setShowModal(!showModal);
   };
+
+
 
   //Rend fixe l'element mainNav lors du scroll avec un effet de transition
 
@@ -96,19 +109,35 @@ const Header = () => {
 
           {isAuthenticated ? (
 
+            <>
             <li>
               <Link to="/userprofil" onClick={() => setShowNav(false)}>
                 Mon profil
               </Link>
             </li>
+            <li>
+              <Link to="/exclusive-content" onClick={() => setShowNav(false)}>
+                Contenu exclusif
+              </Link>
+            </li>
+            <li>
+              <Link to="#" onClick={() => handleLogout()}>
+                Déconnexion 
+              </Link>
+            </li>
 
+
+            </>
+          
           ):(
+            <>
             <li>
               <Link to="/login" onClick={() => setShowNav(false)}>
                 Connexion
               </Link>
             </li>
-
+            
+        </>
           )}
 
             <li>

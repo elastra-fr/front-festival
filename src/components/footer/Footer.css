@@ -53,15 +53,12 @@
 }
 
 
-.footerContentRight >.socials {
 
-
-}
 
 .footerContentRight >.socials ul {
  
     flex-direction: row;
-    gap: 30px;
+    gap: 5px;
 }   
 
 
@@ -82,7 +79,6 @@
         .footerContentRight .socials ul {
             
        flex-direction: column;
-         gap: 10px;
 
     }
 
@@ -94,6 +90,7 @@
     
 .footerContentRight .socials ul {
     flex-direction: row;
-    gap: 20px;}
+    
+    }
 
 }

@@ -140,8 +140,8 @@ z-index: 1000;
     /*Leaf map*/
 
     #leafMap{
-        width: 95%;
-        height: 95%;
+        width: 90%;
+        height: 90%;
       max-height: 800px;
         margin: 15px auto;
         z-index: 10;
