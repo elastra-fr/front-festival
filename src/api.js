@@ -1,5 +1,10 @@
-const BASE_URL = 'https://backend.nationsound2024-festival.fr/api/public';
 
+const PUBLIC_URL= import.meta.env.VITE_API_PUBLIC_URL;
+const USER_URL= import.meta.env.VITE_API_USER_URL;  
+
+
+
+/****************************Appels API routes publiques ***************************************/
 
 
 /**
@@ -9,7 +14,11 @@ const BASE_URL = 'https://backend.nationsound2024-festival.fr/api/public';
  */
 
 async function fetchPartnerCategories() {
-  const response = await fetch(`${BASE_URL}/partner/category`);
+
+
+
+
+  const response = await fetch(`${PUBLIC_URL}/partner/category`);
   const data = await response.json();
   if (data.status === 'success') {
     return data.data;
@@ -23,7 +32,7 @@ export { fetchPartnerCategories };
 
 async function fetchPartnerByCategoryId(categoryId) {
     
-  let url = `${BASE_URL}/partner`;
+  let url = `${PUBLIC_URL}/partner`;
   if (categoryId !== "all") {
     url += `/category/${categoryId}`;
   }
@@ -39,7 +48,7 @@ export { fetchPartnerByCategoryId };
 
 
 async function fetchNews(limit = 5) {
-  const response = await fetch(`${BASE_URL}/news?limit=${limit}`);
+  const response = await fetch(`${PUBLIC_URL}/news?limit=${limit}`);
   const data = await response.json();
   if (data.status === 'success') {
     return data.data;
@@ -56,7 +65,7 @@ export { fetchNews };
  * @returns {Promise<Array>}
  */
 async function fetchRedBandEvents() {
-  const response = await fetch(`${BASE_URL}/news/alert`);
+  const response = await fetch(`${PUBLIC_URL}/news/alert`);
   const data = await response.json();
   if (data.status === 'success') {
     return data.data;
@@ -75,7 +84,7 @@ export { fetchRedBandEvents };
  * @returns {Promise<Array>}
  */
 async function fetchFaq() {
-  const response = await fetch(`${BASE_URL}/faq`);
+  const response = await fetch(`${PUBLIC_URL}/faq`);
   const data = await response.json();
   if (data.status === 'success') {
     return data.data;
@@ -93,7 +102,7 @@ export { fetchFaq };
  */
 
 async function fetchFilters() {
-  const response = await fetch(`${BASE_URL}/concert/filters`);
+  const response = await fetch(`${PUBLIC_URL}/concert/filters`);
   const data = await response.json();
   if (data.status === 'success') {
     return data.data;
@@ -110,7 +119,7 @@ export { fetchFilters };
  */
 
 async function fetchConcerts(filterJour, filterScene, filterHoraire, filterGenre) {
-  const response = await fetch(`${BASE_URL}/concert?jour=${filterJour}&scene=${filterScene}&horaire=${filterHoraire}&genre=${filterGenre}`);
+  const response = await fetch(`${PUBLIC_URL}/concert?jour=${filterJour}&scene=${filterScene}&horaire=${filterHoraire}&genre=${filterGenre}`);
   const data = await response.json();
   if (data.status === 'success') {
     return data.data;
@@ -129,7 +138,7 @@ export { fetchConcerts };
  */
 
 async function fetchLiveConcerts() {
-  const response = await fetch(`${BASE_URL}/concert/now`);
+  const response = await fetch(`${PUBLIC_URL}/concert/now`);
   const data = await response.json();
   if (data.status === 'success') {
     return data.data;
@@ -145,7 +154,7 @@ export { fetchLiveConcerts };
 
 async function fetchMapCategories() {
 
-  const response = await fetch(`${BASE_URL}/map/points/category`);
+  const response = await fetch(`${PUBLIC_URL}/map/points/category`);
   const data = await response.json();
   if (data.status === 'success') {
     return data.data;
@@ -161,13 +170,13 @@ export { fetchMapCategories };
 
 async function fetchMapPoints(categoryId) {
 
-  let url = `${BASE_URL}/map/marker`;
+  let url = `${PUBLIC_URL}/map/marker`;
   if (categoryId !== "") {
     url += `/${categoryId}`;
   }
 
 else {
-  url = `${BASE_URL}/map/marker`;
+  url = `${PUBLIC_URL}/map/marker`;
 }
 
   const response = await fetch(url);
@@ -181,4 +190,7 @@ else {
 }
 
 export { fetchMapPoints };
+
+/***************************Appels API Routes user ***************************/
+
 

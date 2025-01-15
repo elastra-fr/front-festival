@@ -15,15 +15,22 @@ const UserProfil = () => {
   const [eventNotification, setEventNotification] = useState(false);
   const [newsletter, setNewsletter] = useState(false);
 
+  
+
+
   // Récupérer les données utilisateur avec le cookie automatiquement envoyé
   useEffect(() => {
     const fetchUserData = async () => {
       try {
         const response = await fetch(
-          "https://backend.nationsound2024-festival.fr/api/user/profil",
+          //"https://backend.nationsound2024-festival.fr/api/user/profil",
+          "https://127.0.0.1:8000/api/user/profil",
           {
             method: "GET",
-            credentials: "include", // Important pour inclure les cookies automatiquement
+            credentials: "include",
+             // Important pour inclure les cookies automatiquement
+            
+
           }
         );
 
@@ -58,6 +65,9 @@ const UserProfil = () => {
           method: "PUT",
           headers: {
             "Content-Type": "application/json",
+
+
+
           },
           body: JSON.stringify({
             eventNotification,

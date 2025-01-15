@@ -1,5 +1,6 @@
-//const API_URL = 'https://127.0.0.1:8000/api/user';
-const API_URL = 'https://backend.nationsound2024-festival.fr/api/user';
+
+const API_URL = import.meta.env.VITE_API_USER_URL;
+//const API_URL = 'https://backend.nationsound2024-festival.fr/api/user';
 
 export const authenticateUser = async (email, password) => {
     const response = await fetch(`${API_URL}/login_check`, {
@@ -24,14 +25,20 @@ export const authenticateUser = async (email, password) => {
         throw new Error(errorMessage);
     }
 
-    // Si tout va bien et que le serveur renvoie 204
-    if (response.status === 204) {
+    const data = await response.json();
+    return {userData: data.userData, csrfToken: data.csrf_token}; // Renvoie les données utilisateur et le token CSRF
+    };
+
+    // Si tout va bien et que le serveur renvoie 204 et le corp de la réponse avec le token crsf
+    /*if (response.status === 204) {
+
+
         return true; // Indique que l'authentification a réussi
     }
 
     // Sinon, si le serveur renvoie quelque chose, on peut gérer les données
-    return await response.json();
-};
+    return await response.json();*/
+
 
 
 export const registerUser = async (firstName, lastName, email, password) => {
