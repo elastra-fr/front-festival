@@ -194,3 +194,66 @@ export { fetchMapPoints };
 /***************************Appels API Routes user ***************************/
 
 
+
+export const fetchUserProfile = async () => {
+  const response = await fetch(`${USER_URL}/profil`, {
+    method: "GET",
+    credentials: "include", // Inclure les cookies
+  });
+  if (!response.ok) {
+    throw new Error("Erreur lors de la récupération du profil utilisateur");
+  }
+  return response.json();
+};
+
+export const updateUserPreferences = async (preferences, csrfToken) => {
+  const response = await fetch(`${USER_URL}/profil/edit`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+      "X-CSRF-Token": csrfToken,
+      "X-FORM-ID": "user-profil-form",
+    },
+    body: JSON.stringify(preferences),
+    credentials: "include", // Inclure les cookies
+
+  });
+  if (!response.ok) {
+    throw new Error("Erreur lors de la mise à jour des préférences utilisateur");
+  }
+  return response.json();
+};
+
+export const updateUserData = async (updatedFields, csrfToken) => {
+  const response = await fetch(`${USER_URL}/profil/edit`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+      "X-CSRF-Token": csrfToken,
+      "X-FORM-ID": "user-profil-form",
+    },
+    body: JSON.stringify(updatedFields),
+    credentials: "include", // Inclure les cookies
+  });
+  if (!response.ok) {
+    throw new Error("Erreur lors de la mise à jour des données utilisateur");
+  }
+  return response.json();
+};
+
+export const deleteUserAccount = async (csrfToken) => {
+  const response = await fetch(`${USER_URL}/profil/delete`, {
+    method: "DELETE",
+    credentials: "include", // Inclure les cookies
+    headers: {
+      "Content-Type": "application/json",
+      "X-CSRF-Token": csrfToken,
+      "X-FORM-ID": "user-profil-form",
+    },
+  });
+  if (!response.ok) {
+    throw new Error("Erreur lors de la suppression du compte utilisateur");
+  }
+  return response.json();
+};
+

@@ -72,7 +72,9 @@ export const verifyAuth = async () => {
 
     const userData = await response.json();
     console.log('Utilisateur vérifié:', userData); // Affiche les données utilisateur
-    return userData; // Renvoie les données utilisateur
+    return {userData:userData,
+        csrfToken:userData.csrf_token
+    }; // Renvoie les données utilisateur
 };
 
 export const logoutUser = async () => {

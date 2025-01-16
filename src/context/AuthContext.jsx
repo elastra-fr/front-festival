@@ -14,8 +14,9 @@ export const AuthProvider = ({ children }) => {
     useEffect(() => {
         const checkAuthStatus = async () => {
             try {
-                const userData = await verifyAuth();
+                const {userData, csrfToken} = await verifyAuth();
                 console.log('Auth verified:', userData);
+                console.log('csrfToken:', csrfToken);
 
             //Récupérer le token CSRF
                         // Récupérer le token CSRF si nécessaire
@@ -27,6 +28,7 @@ export const AuthProvider = ({ children }) => {
 
                 setIsAuthenticated(true);
                 setUser(userData); // Mettre à jour les infos utilisateur si nécessaire
+                setCsrfToken(csrfToken); // Mettre à jour le token CSRF si nécessaire
             } catch (error) {
                 console.error('Erreur de vérification du token:', error);
                 setIsAuthenticated(false);
@@ -85,6 +87,7 @@ export const AuthProvider = ({ children }) => {
                 isLoading,
                 login,
                 logout,
+                csrfToken,
             }}
         >
             {children}
