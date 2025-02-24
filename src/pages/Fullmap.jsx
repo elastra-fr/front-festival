@@ -1,4 +1,4 @@
-import React from "react";
+//import React from "react";
 //import Header from "../components/header/Header";
 //import Footer from "../components/footer/Footer";
 import Live from "../components/live/Live";
@@ -12,7 +12,7 @@ const FullMap = () => {
   return (
     <>
 
-      <main className="mainFullMap">
+      <main id="pageContent" className="mainFullMap">
         <Live />
 
         <ApiMap />

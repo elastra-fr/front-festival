@@ -76,7 +76,7 @@ const Register = () => {
     );
 
     return (
-        <main id="mainRegister">
+        <main id="pageContent" className="mainRegister">
             <section className="register">
                 <form id="registerForm" onSubmit={handleSubmit}>
                     <h2>Inscription</h2>

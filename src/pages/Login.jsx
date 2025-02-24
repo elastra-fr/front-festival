@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 //import { authenticateUser } from '../services/authService';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
@@ -39,7 +39,7 @@ const Login = () => {
 
     return (
         <main>
-            <section className="login">
+            <section id="pageContent" className="login">
                 <form id="loginForm" onSubmit={handleSubmit}>
                     <h2>Se connecter</h2>
                     <span>Tous les champs sont obligatoires.</span>

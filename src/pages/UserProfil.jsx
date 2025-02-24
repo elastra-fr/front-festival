@@ -1,10 +1,16 @@
-import React, { useEffect, useState, useContext } from "react";
+import { useEffect, useState } from "react";
 import { useAuth } from "../context/AuthContext";
+import {
+  fetchUserProfile,
+  updateUserPreferences,
+  updateUserData,
+  deleteUserAccount,
+} from "../api.js";
+
 
 const UserProfil = () => {
+  const { logout, csrfToken } = useAuth();
 
-  const { logout } = useAuth();
-  
   const [userData, setUserData] = useState(null);
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -15,60 +21,45 @@ const UserProfil = () => {
   const [eventNotification, setEventNotification] = useState(false);
   const [newsletter, setNewsletter] = useState(false);
 
-  // Récupérer les données utilisateur avec le cookie automatiquement envoyé
-  useEffect(() => {
-    const fetchUserData = async () => {
-      try {
-        const response = await fetch(
-          "https://backend.nationsound2024-festival.fr/api/user/profil",
-          {
-            method: "GET",
-            credentials: "include", // Important pour inclure les cookies automatiquement
-          }
-        );
 
-        const data = await response.json();
+
+
+useEffect(() => {
+  console.log('État du token CSRF:', csrfToken);
+
+}, [csrfToken]);
+
+
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const data = await fetchUserProfile();
         if (data.data) {
-          setEmail(data.data.email);
-          setFirstName(data.data.firstName);
-          setLastName(data.data.lastName);
-          setOriginalFirstName(data.data.firstName);
-          setOriginalLastName(data.data.lastName);
-          setOriginalEmail(data.data.email);
-          setEventNotification(data.data.eventNotification);
-          setNewsletter(data.data.newsletter);
-          setUserData(data.data);
+          const user = data.data;
+          setEmail(user.email);
+          setFirstName(user.firstName);
+          setLastName(user.lastName);
+          setOriginalFirstName(user.firstName);
+          setOriginalLastName(user.lastName);
+          setOriginalEmail(user.email);
+          setEventNotification(user.eventNotification);
+          setNewsletter(user.newsletter);
+          setUserData(user);
         }
       } catch (error) {
         console.error(error);
       }
     };
 
-    fetchUserData();
+    fetchData();
   }, []);
 
-  // Gérer la modification des préférences
   const handleUpdateUserPreferences = async (e) => {
     e.preventDefault();
 
     try {
-      const response = await fetch(
-        "https://backend.nationsound2024-festival.fr/api/user/profil/edit",
-        {
-          method: "PUT",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            eventNotification,
-            newsletter,
-          }),
-          credentials: "include", // Pour inclure les cookies dans la requête
-        }
-      );
-
-      const data = await response.json();
-
+      const data = await updateUserPreferences({ eventNotification, newsletter }, csrfToken);
       if (data.status === "success") {
         alert("Vos préférences ont été mises à jour");
       } else {
@@ -79,12 +70,10 @@ const UserProfil = () => {
     }
   };
 
-  // Gérer la modification des informations
   const handleUpdateUserData = async (e) => {
     e.preventDefault();
 
     const updatedFields = {};
-
     if (firstName !== originalFirstName) updatedFields.firstName = firstName;
     if (lastName !== originalLastName) updatedFields.lastName = lastName;
     if (email !== originalEmail) updatedFields.email = email;
@@ -95,23 +84,9 @@ const UserProfil = () => {
     }
 
     try {
-      const response = await fetch(
-        "https://backend.nationsound2024-festival.fr/api/user/profil/edit",
-        {
-          method: "PUT",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(updatedFields),
-          credentials: "include", // Pour inclure les cookies dans la requête
-        }
-      );
-
-      const data = await response.json();
-
+      const data = await updateUserData(updatedFields, csrfToken);
       if (data.status === "success") {
         alert("Vos informations ont été mises à jour");
-        // Mettre à jour les valeurs d'origine après la mise à jour réussie
         setOriginalFirstName(firstName);
         setOriginalLastName(lastName);
         setOriginalEmail(email);
@@ -123,26 +98,11 @@ const UserProfil = () => {
     }
   };
 
-  // Gérer la déconnexion
-  const handleLogout = () => {
-    logout();
-  };
-
-  // Gérer la suppression du compte
   const handleDeleteAccount = async (e) => {
     e.preventDefault();
 
     try {
-      const response = await fetch(
-        "https://backend.nationsound2024-festival.fr/api/user/profil/delete",
-        {
-          method: "DELETE",
-          credentials: "include", // Pour inclure les cookies dans la requête
-        }
-      );
-
-      const data = await response.json();
-
+      const data = await deleteUserAccount(csrfToken);
       if (data.status === "success") {
         alert("Votre compte a été supprimé");
         logout();
@@ -154,10 +114,15 @@ const UserProfil = () => {
     }
   };
 
+  const handleLogout = () => {
+    logout();
+  };
+
   return (
-    <div>
+   <div>
+    <main id="pageContent" className="userProfil">
       {userData ? (
-        <main id="userProfil">
+        <>
           <section>
             <div id="profilToolBar">
               <h2>Mon profil</h2>
@@ -281,10 +246,11 @@ const UserProfil = () => {
               </div>
             </form>
           </section>
-        </main>
+        </>
       ) : (
         <p>Chargement...</p>
       )}
+      </main>
     </div>
   );
 };

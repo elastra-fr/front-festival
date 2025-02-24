@@ -11,6 +11,9 @@ margin-top: 0;
 
 }
 
+
+
+
 *{
   margin: 0;
   padding: 0;
@@ -26,6 +29,26 @@ margin: 0 auto;
 background-color: black;
 
 }
+
+/**Lien d'accès rapide**/
+
+.skip-to-main-link {
+  position: absolute;
+  top: -40px;
+  left: 10px;
+  background: #000;
+  color: #fff;
+  padding: 8px 16px;
+  text-decoration: none;
+  z-index: 1000;
+  transition: top 0.3s;
+}
+
+.skip-to-main-link:focus {
+  top: 10px;
+}
+
+
 
 .appSelect{
 font-size: 1rem;
@@ -46,7 +69,7 @@ border: none;
 
 /****Profil utilisateur****/
 
-#userProfil
+.userProfil
 {
   
   display: flex;
@@ -125,7 +148,7 @@ color : white;
 
 /*Formulaire de Login*/
 
-#mainRegister{
+.mainRegister{
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -314,7 +337,7 @@ cursor: pointer;
 
 /*Page exclusive contente*/
 
-#exclusiveContentMain{
+.exclusiveContentMain{
 
 min-height: 50vh;
 display: flex;
@@ -467,7 +490,7 @@ background-color: black;
 
 /**Page 404**/
 
-#mainPageNotFound{
+.mainPageNotFound{
 
 
 background-color: white;

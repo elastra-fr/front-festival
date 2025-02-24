@@ -28,7 +28,7 @@ const [faq, setFaq] = useState([]);
     <>
 
 
-      <main className="mainFaq">
+      <main id="pageContent" className="mainFaq">
         <h1>Informations - FAQ</h1>
 
               {faq.map((category, index) => (

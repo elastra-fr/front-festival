@@ -68,7 +68,7 @@ console.log(partnerData);
 
             <p>Voici la liste de nos partenaires. Vous pouvez trier cette liste grace au menu déroulant situé en haut à droite</p>
 
-            <div className="partnerList">   
+            <div id="pageContent" className="partnerList">   
                       {partners.length > 0 ? (
                           partners.map(partner => (
                             <ItemPartner
