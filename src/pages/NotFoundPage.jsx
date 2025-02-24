@@ -2,7 +2,7 @@ import React from 'react';
 
 const NotFoundPage = () => {
     return (
-<main id='mainPageNotFound'>
+<main id='pageContent' className='mainPageNotFound'>
 
 <div className='notFound'>
 

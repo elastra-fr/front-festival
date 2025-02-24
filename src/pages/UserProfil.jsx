@@ -120,7 +120,7 @@ useEffect(() => {
 
   return (
    <div>
-    <main id="userProfil">
+    <main id="pageContent" className="userProfil">
       {userData ? (
         <>
           <section>

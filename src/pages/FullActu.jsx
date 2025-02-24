@@ -14,7 +14,7 @@ document.title = 'Actu | NATION SOUND';
 <>
 
 
-<main className='mainFullActu'>
+<main id="pageContent" className='mainFullActu'>
 
 <Actu />
 

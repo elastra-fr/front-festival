@@ -11,7 +11,7 @@ const Mentions = () => {
     <>
       
 
-      <main className="mainMentions">
+      <main id="pageContent" className="mainMentions">
         <h1>Mentions légales</h1>
 
         <section className="disclaimer">

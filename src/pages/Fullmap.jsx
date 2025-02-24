@@ -12,7 +12,7 @@ const FullMap = () => {
   return (
     <>
 
-      <main className="mainFullMap">
+      <main id="pageContent" className="mainFullMap">
         <Live />
 
         <ApiMap />

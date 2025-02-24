@@ -21,7 +21,7 @@ const HomePage = ({ concerts }) => {
     <>
     
 
-      <main>
+      <main id="pageContent">
         <section id="live" className="live">
           <Live concerts={concerts} />
         </section>
